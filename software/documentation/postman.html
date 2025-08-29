@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Postman Topics Documentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">POSTMAN</h2>
+      <p class="text-center text-muted mb-0">
+        Test and debug RESTful APIs efficiently using Postman’s powerful <br />
+        features like collections and environments.
+      </p>
+    </div>
+    <div class="container">
+      <section class="topic-section">
+        <h1>Postman - API Testing and Collaboration Tool</h1>
+
+        <div class="topic-title">1. What is Postman?</div>
+        <p>
+          Postman is a collaboration platform for API development and testing.
+          It allows users to send HTTP requests, inspect responses, automate
+          workflows, and document APIs.
+        </p>
+
+        <div class="topic-title">2. Installing Postman</div>
+        <ul>
+          <li>
+            Go to
+            <a href="https://www.postman.com/downloads/" target="_blank"
+              >https://www.postman.com/downloads/</a
+            >
+          </li>
+          <li>Download for your operating system: Windows, macOS, Linux</li>
+          <li>
+            Install and sign in (optional but recommended for saving workspaces)
+          </li>
+        </ul>
+
+        <div class="topic-title">3. Creating Your First Request</div>
+        <ul>
+          <li>Open Postman → Click <strong>+ New Tab</strong></li>
+          <li>Choose method: GET, POST, PUT, DELETE, etc.</li>
+          <li>
+            Enter the API endpoint (e.g.,
+            <code>https://api.example.com/users</code>)
+          </li>
+          <li>
+            Click <strong>Send</strong> to execute the request and view the
+            response
+          </li>
+        </ul>
+
+        <div class="topic-title">4. HTTP Methods Supported</div>
+        <p>Postman supports all common HTTP methods:</p>
+        <ul>
+          <li><strong>GET:</strong> Retrieve data</li>
+          <li><strong>POST:</strong> Send data to create new records</li>
+          <li><strong>PUT:</strong> Update existing data</li>
+          <li><strong>DELETE:</strong> Remove data</li>
+          <li><strong>PATCH:</strong> Partially update data</li>
+        </ul>
+
+        <div class="topic-title">5. Headers and Parameters</div>
+        <p>Customize requests with headers and parameters:</p>
+        <ul>
+          <li>
+            <strong>Headers:</strong> Add metadata (e.g., Content-Type:
+            application/json)
+          </li>
+          <li>
+            <strong>Query Params:</strong> Add filters or dynamic data (e.g.,
+            <code>?userId=1</code>)
+          </li>
+        </ul>
+
+        <div class="topic-title">6. Body (for POST/PUT)</div>
+        <p>Used to send data in POST, PUT, or PATCH requests.</p>
+        <div class="example">
+          <code>
+            {<br />
+            "name": "John",<br />
+            "email": "john@example.com"<br />
+            }
+          </code>
+        </div>
+        <p>Select <strong>Body → raw → JSON</strong> for JSON input.</p>
+
+        <div class="topic-title">7. Viewing the Response</div>
+        <ul>
+          <li>Postman displays response body, status code, time, and size</li>
+          <li>
+            Click <strong>Body</strong>, <strong>Headers</strong>, or
+            <strong>Cookies</strong> to inspect details
+          </li>
+          <li>Supports viewing as JSON, HTML, text, etc.</li>
+        </ul>
+
+        <div class="topic-title">8. Saving Requests to Collections</div>
+        <p>Collections group related requests together.</p>
+        <ul>
+          <li>
+            Click <strong>Save</strong> → Choose a collection or create a new
+            one
+          </li>
+          <li>
+            Organize your API testing flows (e.g., User APIs, Product APIs)
+          </li>
+        </ul>
+
+        <div class="topic-title">9. Authentication Methods</div>
+        <p>Postman supports various authentication schemes:</p>
+        <ul>
+          <li>
+            <strong>Bearer Token</strong>: Add under Authorization → Bearer
+            Token
+          </li>
+          <li><strong>Basic Auth</strong>: Use username/password</li>
+          <li>
+            <strong>OAuth 2.0</strong>, <strong>API Key</strong>, and others are
+            also supported
+          </li>
+        </ul>
+
+        <div class="topic-title">10. Importing API Collections</div>
+        <p>Import APIs from files, links, or OpenAPI/Swagger definitions:</p>
+        <ul>
+          <li>Click <strong>Import</strong> → Choose file or URL</li>
+          <li>
+            Supports formats like .postman_collection.json, .yaml, .har, etc.
+          </li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>Postman Environments, Scripting, and Automation</h1>
+
+        <div class="topic-title">11. Environment and Global Variables</div>
+        <p>
+          Variables help reuse values across requests and environments (e.g.,
+          API URLs, tokens).
+        </p>
+        <ul>
+          <li>
+            Click the <strong>Environment dropdown</strong> →
+            <strong>Manage Environments</strong>
+          </li>
+          <li>
+            Set key-value pairs (e.g.,
+            <code>base_url = https://api.example.com</code>)
+          </li>
+          <li>Use in requests: <code>{{base_url}}/users</code></li>
+        </ul>
+
+        <div class="topic-title">12. Pre-request Script</div>
+        <p>
+          Runs JavaScript code before a request is sent (e.g., generate tokens,
+          time-stamps).
+        </p>
+        <div class="example">
+          <code>
+            // Example: Add timestamp header<br />
+            pm.environment.set("timestamp", Date.now());
+          </code>
+        </div>
+
+        <div class="topic-title">13. Tests (Post-request Scripts)</div>
+        <p>Run JavaScript after request is sent to validate the response.</p>
+        <div class="example">
+          <code>
+            pm.test("Status code is 200", function () {<br />
+            &nbsp;&nbsp;pm.response.to.have.status(200);<br />
+            });
+          </code>
+        </div>
+
+        <div class="topic-title">14. Using Console</div>
+        <p>Postman Console helps debug pre-request and test scripts.</p>
+        <ul>
+          <li>
+            Open via <strong>View → Show Postman Console</strong> or
+            <code>Ctrl + Alt + C</code>
+          </li>
+          <li>Use <code>console.log()</code> in scripts to output values</li>
+        </ul>
+
+        <div class="topic-title">
+          15. Running Collections with Collection Runner
+        </div>
+        <p>Execute a full collection of requests for automated testing.</p>
+        <ul>
+          <li>
+            Click <strong>Runner</strong> → Choose collection → Click
+            <strong>Run</strong>
+          </li>
+          <li>Run with data (CSV/JSON) for testing multiple inputs</li>
+        </ul>
+
+        <div class="topic-title">16. Data-Driven Testing</div>
+        <p>Run the same request multiple times with data from a file.</p>
+        <ul>
+          <li>Runner → Select data file (CSV or JSON)</li>
+          <li>
+            Use <code>{{variable}}</code> inside requests to access values from
+            file
+          </li>
+        </ul>
+
+        <div class="topic-title">17. Mock Servers</div>
+        <p>Simulate API endpoints when backend isn’t ready.</p>
+        <ul>
+          <li>Create → Mock Server → Define expected responses</li>
+          <li>Use mock URLs in frontend development or testing</li>
+        </ul>
+
+        <div class="topic-title">18. Monitor APIs</div>
+        <p>
+          Postman Monitors automatically run requests at scheduled intervals.
+        </p>
+        <ul>
+          <li>Click <strong>Monitor</strong> on a collection</li>
+          <li>Set frequency, regions, and email alerts for failures</li>
+        </ul>
+
+        <div class="topic-title">19. Sharing Collections</div>
+        <p>Collaborate with your team by sharing collections.</p>
+        <ul>
+          <li>Click <strong>Share</strong> → Choose link or workspace</li>
+          <li>You can also export as JSON and import in another system</li>
+        </ul>
+
+        <div class="topic-title">20. Using Postman with Git</div>
+        <p>
+          Postman supports version control via Git using the Postman API or
+          exporting collections.
+        </p>
+        <ul>
+          <li>Export collections as JSON</li>
+          <li>Use Git to track changes to API workflows in a repository</li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>Postman Collaboration and Advanced Features</h1>
+
+        <div class="topic-title">21. Workspaces</div>
+        <p>
+          Workspaces let teams collaborate on shared APIs, collections, and
+          environments.
+        </p>
+        <ul>
+          <li>Types: <strong>Personal, Team, Public</strong></li>
+          <li>Create via <strong>Workspace → Create Workspace</strong></li>
+          <li>Invite collaborators by email</li>
+        </ul>
+
+        <div class="topic-title">22. Postman Visualizer</div>
+        <p>
+          Use HTML + JavaScript to render API response data visually inside
+          Postman.
+        </p>
+        <div class="example">
+          <code>
+            const template = `
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+              </tr>
+              {{#each response}}
+              <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+              </tr>
+              {{/each}}
+            </table>
+            `;<br />
+            pm.visualizer.set(template, { response: pm.response.json() });
+          </code>
+        </div>
+
+        <div class="topic-title">23. APIs Tab (API Lifecycle Management)</div>
+        <p>
+          Manage your API's full lifecycle inside Postman using OpenAPI/Swagger
+          schema.
+        </p>
+        <ul>
+          <li>
+            Click on <strong>APIs tab</strong> → Create new API definition
+          </li>
+          <li>Add documentation, test cases, monitors, versioning</li>
+        </ul>
+
+        <div class="topic-title">24. Postman CLI (Newman)</div>
+        <p>
+          <strong>Newman</strong> is Postman’s command-line runner for
+          automating collection runs.
+        </p>
+        <ul>
+          <li>Install via NPM: <code>npm install -g newman</code></li>
+          <li>Run: <code>newman run collection.json</code></li>
+          <li>Use in CI/CD pipelines like GitHub Actions, Jenkins, etc.</li>
+        </ul>
+
+        <div class="topic-title">25. Postman Echo</div>
+        <p>Public API endpoints for learning and testing Postman features.</p>
+        <ul>
+          <li>Example: <code>https://postman-echo.com/get</code></li>
+          <li>Try out headers, params, body, and scripts using this API</li>
+        </ul>
+
+        <div class="topic-title">26. Code Snippets (Request Generators)</div>
+        <p>Generate sample code for sending requests in different languages.</p>
+        <ul>
+          <li>Click <strong>Code</strong> (top-right of request tab)</li>
+          <li>Choose language: cURL, Python, Java, Node.js, Go, etc.</li>
+          <li>Copy and paste code into your app or terminal</li>
+        </ul>
+
+        <div class="topic-title">27. History Tab</div>
+        <p>
+          Keeps track of every request sent (including temporary unsaved ones).
+        </p>
+        <ul>
+          <li>Located on the left sidebar</li>
+          <li>Right-click → Save to Collection or re-run</li>
+        </ul>
+
+        <div class="topic-title">28. Postman Cloud Sync</div>
+        <p>
+          All saved requests, environments, and collections are backed up to the
+          cloud if signed in.
+        </p>
+        <ul>
+          <li>Enables access across multiple devices</li>
+          <li>Auto-sync ensures your changes are never lost</li>
+        </ul>
+
+        <div class="topic-title">29. Roles and Permissions</div>
+        <p>
+          In Team workspaces, manage access to collections and environments.
+        </p>
+        <ul>
+          <li>Roles: <strong>Viewer, Editor, Admin</strong></li>
+          <li>Configure access under workspace settings</li>
+        </ul>
+
+        <div class="topic-title">30. Integrations</div>
+        <p>
+          Postman can be integrated with tools like Slack, GitHub, Jenkins, and
+          more.
+        </p>
+        <ul>
+          <li>Click your avatar → <strong>Integrations</strong></li>
+          <li>
+            Connect to external services to automate flows or receive alerts
+          </li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>Postman Reference Links</h1>
+
+        <div class="topic-title">1. Official Postman Website</div>
+        <p>Main site for downloads, features, and product updates.</p>
+        <p>
+          <a href="https://www.postman.com/" target="_blank"
+            >https://www.postman.com/</a
+          >
+        </p>
+
+        <div class="topic-title">2. Postman Learning Center</div>
+        <p>
+          Comprehensive documentation and learning guides for beginners to
+          advanced users.
+        </p>
+        <p>
+          <a href="https://learning.postman.com/" target="_blank"
+            >https://learning.postman.com/</a
+          >
+        </p>
+
+        <div class="topic-title">3. Postman API Reference</div>
+        <p>
+          Details on how to programmatically use Postman's own API (manage
+          workspaces, collections, etc.).
+        </p>
+        <p>
+          <a
+            href="https://www.postman.com/postman/workspace/postman-public-workspace/request/6316434-9b25090f-3b20-49f8-a8b5-46ba144ae87d"
+            target="_blank"
+            >Postman Public Workspace</a
+          >
+        </p>
+
+        <div class="topic-title">4. Postman YouTube Channel</div>
+        <p>Watch webinars, tutorials, and feature releases.</p>
+        <p>
+          <a href="https://www.youtube.com/c/Postman" target="_blank"
+            >https://www.youtube.com/c/Postman</a
+          >
+        </p>
+
+        <div class="topic-title">5. Newman (CLI) Documentation</div>
+        <p>
+          Guide to running Postman collections from the command line using
+          Newman.
+        </p>
+        <p>
+          <a href="https://www.npmjs.com/package/newman" target="_blank"
+            >https://www.npmjs.com/package/newman</a
+          >
+        </p>
+
+        <div class="topic-title">6. Postman Blog</div>
+        <p>Read about use cases, tutorials, and industry trends.</p>
+        <p>
+          <a href="https://blog.postman.com/" target="_blank"
+            >https://blog.postman.com/</a
+          >
+        </p>
+
+        <div class="topic-title">7. Postman Public API Collections</div>
+        <p>
+          Explore and fork thousands of collections shared by the community and
+          companies.
+        </p>
+        <p>
+          <a href="https://www.postman.com/explore" target="_blank"
+            >https://www.postman.com/explore</a
+          >
+        </p>
+
+        <div class="topic-title">8. Postman GitHub Repository</div>
+        <p>Source code for open-source Postman tools like Newman.</p>
+        <p>
+          <a href="https://github.com/postmanlabs" target="_blank"
+            >https://github.com/postmanlabs</a
+          >
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sewing Machine Operator — LMS</title>
+
+    <!-- Bootstrap 5.3.8 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google font (clean, readable) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --accent: #0d6efd;
+        --card-bg: #ffffff;
+        --muted: #6c757d;
+        --glass: rgba(255, 255, 255, 0.6);
+      }
+      body {
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: linear-gradient(
+          180deg,
+          #f7fbff 0%,
+          #f3f6fb 50%,
+          #ffffff 100%
+        );
+        color: #212529;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding-bottom: 3rem;
+      }
+
+      /* Top Hero */
+      .hero {
+        border-radius: 14px;
+        padding: 2.2rem;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 110, 253, 0.06),
+          rgba(13, 110, 253, 0.015)
+        );
+        box-shadow: 0 10px 30px rgba(13, 110, 253, 0.06);
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        margin-bottom: 1.75rem;
+      }
+      .hero .left {
+        flex: 1;
+      }
+      .hero h1 {
+        font-size: clamp(1.4rem, 2.4vw, 2rem);
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.2px;
+      }
+      .hero p.lead {
+        margin-bottom: 0.75rem;
+        color: var(--muted);
+      }
+      .hero .cta {
+        margin-top: 0.5rem;
+      }
+      .hero .thumb {
+        width: 260px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+        box-shadow: 0 12px 30px rgba(2, 6, 23, 0.06);
+      }
+      .hero .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero .thumb:hover {
+        transform: translateY(-6px) scale(1.03) rotate(-1deg);
+      }
+
+      /* Layout */
+      .sidebar {
+        border-radius: 12px;
+        background: var(--card-bg);
+        padding: 1rem;
+        box-shadow: 0 8px 20px rgba(2, 6, 23, 0.04);
+      }
+
+      .module-card {
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.28s ease, box-shadow 0.28s ease;
+        box-shadow: 0 8px 20px rgba(2, 6, 23, 0.04);
+        background: var(--card-bg);
+      }
+      .module-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 36px rgba(2, 6, 23, 0.08);
+      }
+      .module-img {
+        max-height: 240px;
+        object-fit: cover;
+        width: 100%;
+        transition: transform 0.45s ease;
+      }
+      .module-card:hover .module-img {
+        transform: scale(1.05);
+      }
+
+      .section-title {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      /* accordion style */
+      .accordion-button {
+        font-weight: 600;
+        font-size: 1rem;
+        border-radius: 0.6rem;
+        margin-bottom: 0.5rem;
+        padding: 0.9rem 1rem;
+        color: #0b3d91;
+      }
+      .accordion-button:not(.collapsed) {
+        color: #fff;
+        background: var(--accent);
+        box-shadow: inset 0 -1px rgba(255, 255, 255, 0.06);
+      }
+
+      /* small UI touches */
+      .learning-list li {
+        margin-bottom: 0.4rem;
+      }
+      .self-assessment {
+        background: linear-gradient(180deg, #fbfcff, #ffffff);
+        padding: 0.9rem;
+        border-radius: 0.6rem;
+        border: 1px solid rgba(13, 110, 253, 0.06);
+      }
+
+      /* progress & mark-complete */
+      .progress-wrap {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+      }
+      .mark-complete {
+        background: linear-gradient(90deg, #e7f0ff, #f8fbff);
+        border: 1px solid rgba(13, 110, 253, 0.06);
+        padding: 0.35rem 0.6rem;
+        border-radius: 0.6rem;
+        cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .mark-complete:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(13, 110, 253, 0.06);
+      }
+
+      /* responsive niceties */
+      @media (max-width: 991px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero .thumb {
+          width: 220px;
+          margin-top: 0.6rem;
+        }
+      }
+
+      /* quiz / answers reveal */
+      .answer {
+        display: none;
+        margin-top: 0.5rem;
+        color: #0b6b2e;
+        font-weight: 600;
+      }
+      .reveal .answer {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-4">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="left">
+          <h1>Sewing Machine Operator</h1>
+          <p class="lead">
+            A practical, module-based course to learn machine operation,
+            threading, stitching, maintenance and troubleshooting — built from
+            your uploaded course content. :contentReference[oaicite:1]{index=1}
+          </p>
+
+          <div class="d-flex gap-2 flex-wrap cta">
+            <div class="progress-wrap">
+              <div style="width: 180px">
+                <div class="d-flex justify-content-between small mb-1">
+                  <div>Course progress</div>
+                  <div id="coursePercentLabel">0%</div>
+                </div>
+                <div class="progress" style="height: 10px; border-radius: 10px">
+                  <div
+                    id="courseProgress"
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 0%"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <button id="openAll" class="btn btn-outline-primary btn-sm">
+              Open all modules
+            </button>
+            <a href="#finalProject" class="btn btn-primary btn-sm"
+              >Jump to Final Project</a
+            >
+          </div>
+        </div>
+
+        <div class="thumb">
+          <!-- placeholder — replace with your uploaded image file / best sewing-machine photo -->
+          <img
+            src="https://images.unsplash.com/photo-1486622923572-7a7e18acf192?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2V3aW5nJTIwbWFjaGluZXN8ZW58MHx8MHx8fDA%3D"
+            alt="Sewing Machine Hero (replace with uploaded photo)"
+          />
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- LEFT: modules -->
+        <div class="col-lg-8">
+          <div class="module-card p-3">
+            <div class="accordion" id="courseAccordion">
+              <!-- Module Template (1) -->
+              <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#moduleOne"
+                    aria-expanded="true"
+                    aria-controls="moduleOne"
+                  >
+                    Module 1 — Introduction to Sewing Machines
+                  </button>
+                </h2>
+                <div
+                  id="moduleOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#courseAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="row g-3">
+                      <div class="col-md-5">
+                        <img
+                          class="module-img rounded"
+                          src="https://images.unsplash.com/photo-1587819390518-12c38c703ba2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFNld2luZyUyME1hY2hpbmV8ZW58MHx8MHx8fDA%3D"
+                          alt="Intro to Sewing Machines"
+                        />
+                      </div>
+                      <div class="col-md-7">
+                        <h5 class="section-title">Learning Objectives</h5>
+                        <ul class="learning-list">
+                          <li>
+                            Identify different types of sewing machines and
+                            their applications.
+                          </li>
+                          <li>
+                            Recognize and name the main parts of a sewing
+                            machine.
+                          </li>
+                          <li>
+                            Understand and practice basic safety procedures for
+                            operation.
+                          </li>
+                        </ul>
+
+                        <h5 class="mt-2 section-title">
+                          Content (paragraph + bullets)
+                        </h5>
+                        <p>
+                          <strong>Types of Sewing Machines:</strong> Domestic
+                          machines are geared for household projects — lower
+                          speed and lighter duty. Industrial machines are built
+                          for continuous high-speed operation, higher
+                          durability, and task specialization (e.g.,
+                          single-needle lockstitch for general seams,
+                          overlock/serger for edge finishing, buttonhole and
+                          button-attachment machines for specialized
+                          operations).
+                        </p>
+
+                        <p>
+                          <strong
+                            >Main Parts (single needle lockstitch
+                            focus):</strong
+                          >
+                          A sewing machine consists of a head (needle, presser
+                          foot, needle bar, take-up lever, tension discs, thread
+                          guides, spool pin), bed components (needle plate, feed
+                          dogs, bobbin winder, handwheel, reverse lever/button)
+                          and motor & pedals (foot pedal for speed control and
+                          power switch).
+                        </p>
+
+                        <p>
+                          <strong>Safety:</strong> Always turn power off when
+                          not in use, keep fingers clear of needle area, sit
+                          with correct posture and good lighting, handle sharp
+                          tools carefully, and report malfunctions immediately.
+                        </p>
+
+                        <div class="self-assessment mt-2">
+                          <strong>Self-Assessment 1</strong>
+                          <ol class="mb-0">
+                            <li>
+                              Which part moves fabric under the needle?
+                              <em
+                                >(a) Presser Foot (b) Take-up Lever (c) Feed
+                                Dogs (d) Handwheel</em
+                              >
+                            </li>
+                            <li>
+                              Primary function of an Overlock (Serger)?
+                              <em
+                                >(a) Straight seams (b) Buttonholes (c) Finish
+                                fabric edges (d) Attach buttons</em
+                              >
+                            </li>
+                            <li>
+                              True/False: Changing needle while power ON is
+                              safe.
+                            </li>
+                            <li>
+                              Match: Spool Pin / Foot Pedal / Needle Plate /
+                              Take-up Lever → (Controls speed / Holds thread
+                              spool / Covers bobbin / Pulls thread from spool)
+                            </li>
+                          </ol>
+                          <div class="mt-2 small text-muted">
+                            Tip: Click the module header to collapse/open for a
+                            quick review.
+                          </div>
+                          <div class="mt-2 d-flex gap-2">
+                            <button
+                              class="mark-complete btn btn-sm"
+                              data-module="1"
+                            >
+                              Mark Module 1 Complete
+                            </button>
+                            <button
+                              class="btn btn-outline-secondary btn-sm"
+                              onclick="toggleAnswer(this)"
+                            >
+                              Show Answers
+                            </button>
+                          </div>
+                          <div class="mt-2 answer-list" style="display: none">
+                            <div class="answer">
+                              <strong>Answers:</strong> 1. c) Feed Dogs · 2. c)
+                              Finish fabric edges · 3. False · 4. Spool Pin:
+                              Holds thread spool; Foot Pedal: Controls speed;
+                              Needle Plate: Covers bobbin; Take-up Lever: Pulls
+                              thread from spool.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Module 2 -->
+              <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#moduleTwo"
+                    aria-expanded="false"
+                    aria-controls="moduleTwo"
+                  >
+                    Module 2 — Threading & Bobbin Winding
+                  </button>
+                </h2>
+                <div
+                  id="moduleTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#courseAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="row g-3">
+                      <div class="col-md-5">
+                        <img
+                          class="module-img rounded"
+                          src="https://plus.unsplash.com/premium_photo-1675078975682-11dee6051f69?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VGhyZWFkaW5nJTIwYW5kJTIwQm9iYmlufGVufDB8fDB8fHww"
+                          alt="Threading and Bobbin"
+                        />
+                      </div>
+                      <div class="col-md-7">
+                        <h5 class="section-title">Learning Objectives</h5>
+                        <ul class="learning-list">
+                          <li>
+                            Correctly thread the upper thread of a sewing
+                            machine.
+                          </li>
+                          <li>Properly wind and insert the bobbin thread.</li>
+                          <li>
+                            Understand thread tension and basic adjustments.
+                          </li>
+                        </ul>
+
+                        <h5 class="mt-2 section-title">Content</h5>
+                        <p>
+                          <strong>Upper Threading Procedure:</strong> Follow the
+                          step-by-step path from spool pin through thread
+                          guides, tension discs, take-up lever, and needle eye.
+                          Correct path is crucial for balanced stitches.
+                        </p>
+
+                        <p>
+                          <strong>Bobbin Winding:</strong> Load the bobbin onto
+                          the winder, guide thread for even winding, insert the
+                          wound bobbin into the case/shuttle, and pull up the
+                          bobbin thread before starting.
+                        </p>
+
+                        <p>
+                          <strong>Thread Tension:</strong> Tension balances the
+                          top and bobbin thread. Balanced tension produces neat
+                          stitches; unbalanced shows loops or puckers. Adjust
+                          with the tension dial carefully.
+                        </p>
+
+                        <div class="self-assessment mt-2">
+                          <strong>Self-Assessment 2</strong>
+                          <ol class="mb-0">
+                            <li>
+                              What happens if thread misses tension discs? (a)
+                              No start (b) Too tight (c) Loose/uneven stitch (d)
+                              Needle break
+                            </li>
+                            <li>
+                              Bobbin should unwind: (a) Clockwise (b)
+                              Counter-clockwise
+                            </li>
+                            <li>
+                              If top stitch is loose/loopy: (a) Increase upper
+                              tension (b) Decrease upper tension
+                            </li>
+                            <li>
+                              List three key steps in threading upper thread.
+                            </li>
+                          </ol>
+
+                          <div class="mt-2 d-flex gap-2">
+                            <button
+                              class="mark-complete btn btn-sm"
+                              data-module="2"
+                            >
+                              Mark Module 2 Complete
+                            </button>
+                            <button
+                              class="btn btn-outline-secondary btn-sm"
+                              onclick="toggleAnswer(this)"
+                            >
+                              Show Answers
+                            </button>
+                          </div>
+                          <div class="mt-2 answer-list" style="display: none">
+                            <div class="answer">
+                              <strong>Answers:</strong> 1. c) Loose/uneven
+                              stitch · 2. b) Counter-clockwise (common) · 3. a)
+                              Increase upper tension · 4. (Example steps: place
+                              spool on pin, route through guides/tension,
+                              through take-up lever, through needle eye)
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Module 3 -->
+              <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#moduleThree"
+                    aria-expanded="false"
+                    aria-controls="moduleThree"
+                  >
+                    Module 3 — Basic Stitches & Seams
+                  </button>
+                </h2>
+                <div
+                  id="moduleThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#courseAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="row g-3">
+                      <div class="col-md-5">
+                        <img
+                          class="module-img rounded"
+                          src="https://images.unsplash.com/photo-1587819390518-12c38c703ba2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFNld2luZyUyME1hY2hpbmV8ZW58MHx8MHx8fDA%3D"
+                          alt="Stitches and Seams"
+                        />
+                      </div>
+                      <div class="col-md-7">
+                        <h5 class="section-title">Learning Objectives</h5>
+                        <ul class="learning-list">
+                          <li>
+                            Produce straight, zigzag and reverse stitches.
+                          </li>
+                          <li>
+                            Construct plain, French and flat-felled seams.
+                          </li>
+                          <li>Control stitch length and width.</li>
+                        </ul>
+
+                        <h5 class="mt-2 section-title">Content</h5>
+                        <p>
+                          <strong>Stitches:</strong> Straight stitch is used for
+                          joining and topstitching. Reverse stitch secures the
+                          start and end of seams. Zigzag stitches are for edge
+                          finishing or decoration.
+                        </p>
+
+                        <p>
+                          <strong>Seams:</strong> Plain seam is the most common
+                          (stitch, trim, press). French seam encloses raw edges
+                          for delicate fabrics (two passes), and flat-felled
+                          seam is durable with no raw edges (used in
+                          jeans/workwear).
+                        </p>
+
+                        <div class="self-assessment mt-2">
+                          <strong>Self-Assessment 3</strong>
+                          <ol class="mb-0">
+                            <li>
+                              Which seam encloses raw edges? (a) Plain (b)
+                              French (c) Flat-felled
+                            </li>
+                            <li>
+                              When to use reverse stitch? (a) Decorative (b)
+                              Secure start/end
+                            </li>
+                            <li>Describe steps to create a plain seam.</li>
+                            <li>
+                              True/False: Longer stitch length generally used
+                              for gathering.
+                            </li>
+                          </ol>
+
+                          <div class="mt-2 d-flex gap-2">
+                            <button
+                              class="mark-complete btn btn-sm"
+                              data-module="3"
+                            >
+                              Mark Module 3 Complete
+                            </button>
+                            <button
+                              class="btn btn-outline-secondary btn-sm"
+                              onclick="toggleAnswer(this)"
+                            >
+                              Show Answers
+                            </button>
+                          </div>
+                          <div class="mt-2 answer-list" style="display: none">
+                            <div class="answer">
+                              <strong>Answers:</strong> 1. b) French · 2. b)
+                              Secure start/end · 4. False (gathering uses
+                              shorter stitches and subsequent pulling).
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Module 4 -->
+              <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingFour">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#moduleFour"
+                    aria-expanded="false"
+                    aria-controls="moduleFour"
+                  >
+                    Module 4 — Fabric Handling & Machine Control
+                  </button>
+                </h2>
+                <div
+                  id="moduleFour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFour"
+                  data-bs-parent="#courseAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="row g-3">
+                      <div class="col-md-5">
+                        <img
+                          class="module-img rounded"
+                          src="https://plus.unsplash.com/premium_photo-1676586308496-237a982709a2?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          alt="Fabric handling"
+                        />
+                      </div>
+                      <div class="col-md-7">
+                        <h5 class="section-title">Learning Objectives</h5>
+                        <ul class="learning-list">
+                          <li>
+                            Differentiate woven vs knit fabrics and their
+                            handling.
+                          </li>
+                          <li>
+                            Guide fabric for straight/curved seams precisely.
+                          </li>
+                          <li>
+                            Master foot pedal control and troubleshoot common
+                            issues.
+                          </li>
+                        </ul>
+
+                        <h5 class="mt-2 section-title">Content</h5>
+                        <p>
+                          <strong>Fabrics:</strong> Woven fabrics (cotton,
+                          denim) have low stretch. Knits (jersey, fleece)
+                          stretch and require special handling (use ballpoint
+                          needles, avoid stretching while sewing). Grainline is
+                          important for cutting and sewing.
+                        </p>
+
+                        <p>
+                          <strong>Guiding:</strong> Use seam guides and presser
+                          foot edges for straight seams, pivot and clip for
+                          curves, and practice controlled pedal usage for
+                          consistent stitching. Troubleshoot skipped stitches,
+                          bird’s nest (tangled thread), puckering and broken
+                          needles.
+                        </p>
+
+                        <div class="self-assessment mt-2">
+                          <strong>Self-Assessment 4</strong>
+                          <ol class="mb-0">
+                            <li>
+                              Knits: important consideration? (a) Longer stitch
+                              (b) Ballpoint needle
+                            </li>
+                            <li>
+                              Pivot purpose? (a) Change stitch (b) Smoothly
+                              change direction
+                            </li>
+                            <li>Common causes of bird's nest (two answers)</li>
+                            <li>
+                              True/False: Seam allowance guides help sew
+                              straight.
+                            </li>
+                          </ol>
+
+                          <div class="mt-2 d-flex gap-2">
+                            <button
+                              class="mark-complete btn btn-sm"
+                              data-module="4"
+                            >
+                              Mark Module 4 Complete
+                            </button>
+                            <button
+                              class="btn btn-outline-secondary btn-sm"
+                              onclick="toggleAnswer(this)"
+                            >
+                              Show Answers
+                            </button>
+                          </div>
+                          <div class="mt-2 answer-list" style="display: none">
+                            <div class="answer">
+                              <strong>Answers:</strong> 1. b) Ballpoint needle ·
+                              2. b) Smoothly change direction · 4. True
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Module 5 -->
+              <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingFive">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#moduleFive"
+                    aria-expanded="false"
+                    aria-controls="moduleFive"
+                  >
+                    Module 5 — Maintenance & Troubleshooting
+                  </button>
+                </h2>
+                <div
+                  id="moduleFive"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFive"
+                  data-bs-parent="#courseAccordion"
+                >
+                  <div class="accordion-body">
+                    <div class="row g-3">
+                      <div class="col-md-5">
+                        <img
+                          class="module-img rounded"
+                          src="https://plus.unsplash.com/premium_photo-1677695601083-0902a5c2e099?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U2V3aW5nJTIwTWFjaGluZXxlbnwwfHwwfHx8MA%3D%3D"
+                          alt="Maintenance"
+                        />
+                      </div>
+                      <div class="col-md-7">
+                        <h5 class="section-title">Learning Objectives</h5>
+                        <ul class="learning-list">
+                          <li>
+                            Perform routine cleaning/oiling
+                            (daily/weekly/monthly).
+                          </li>
+                          <li>Identify and rectify common malfunctions.</li>
+                          <li>Understand when to call a technician.</li>
+                        </ul>
+
+                        <h5 class="mt-2 section-title">Content</h5>
+                        <p>
+                          <strong>Routine maintenance:</strong> Daily: clean
+                          lint from feed dogs and bobbin area. Weekly: oil
+                          recommended points, check needle condition. Monthly:
+                          deeper cleaning and needle replacement. Store machine
+                          covered.
+                        </p>
+
+                        <p>
+                          <strong>Troubleshooting:</strong> Machine jams, noisy
+                          operation (maybe lack of oil), uneven stitches (feed
+                          dog or presser foot pressure) — know the difference
+                          between user-level fixes and issues needing
+                          professional service.
+                        </p>
+
+                        <div class="self-assessment mt-2">
+                          <strong>Self-Assessment 5</strong>
+                          <ol class="mb-0">
+                            <li>
+                              Why clean feed dogs & bobbin area? (a) Machine
+                              shiny (b) Prevent tangles (c) Ensure smooth
+                              feeding (d) Lubricate
+                            </li>
+                            <li>
+                              If noisy, first check? (a) Thread color (b) Oiling
+                              (c) Power cord
+                            </li>
+                            <li>List two weekly maintenance actions.</li>
+                            <li>
+                              True/False: Open motor casing yourself for
+                              repairs.
+                            </li>
+                          </ol>
+
+                          <div class="mt-2 d-flex gap-2">
+                            <button
+                              class="mark-complete btn btn-sm"
+                              data-module="5"
+                            >
+                              Mark Module 5 Complete
+                            </button>
+                            <button
+                              class="btn btn-outline-secondary btn-sm"
+                              onclick="toggleAnswer(this)"
+                            >
+                              Show Answers
+                            </button>
+                          </div>
+                          <div class="mt-2 answer-list" style="display: none">
+                            <div class="answer">
+                              <strong>Answers:</strong> 1. c) Ensure smooth
+                              feeding · 2. b) Oiling · 4. False
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /accordion -->
+          </div>
+          <!-- /module-card -->
+        </div>
+
+        <!-- RIGHT: sidebar -->
+        <div class="col-lg-4">
+          <aside class="sidebar">
+            <h5 class="mb-2">Course Summary</h5>
+            <p class="small text-muted">
+              5 Modules • Practical final project • Quizzes & self-assessments
+              included (based on your uploaded document).
+              :contentReference[oaicite:2]{index=2}
+            </p>
+
+            <hr />
+
+            <h6 class="mb-2">Reference & Resources</h6>
+            <ul class="small">
+              <li>
+                <a
+                  href="https://www.craftsy.com/class/sewing"
+                  target="_blank"
+                  rel="noopener"
+                  >Craftsy — sewing classes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.udemy.com/topic/sewing"
+                  target="_blank"
+                  rel="noopener"
+                  >Udemy — sewing tutorials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/results?search_query=sewing+machine+threading"
+                  target="_blank"
+                  rel="noopener"
+                  >YouTube threading demos</a
+                >
+              </li>
+            </ul>
+
+            <hr />
+
+            <h6 class="mb-2">Final Project</h6>
+            <p class="small">
+              Create a tote bag/pillow cover/apron. Submit step photos/videos
+              and a short self-reflection identifying defects and corrective
+              steps.
+            </p>
+
+            <div class="d-grid mt-2">
+              <a
+                id="finalProject"
+                class="btn btn-outline-primary btn-sm"
+                href="#finalProjectSection"
+                >View Final Project Details</a
+              >
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Final Project section -->
+      <section
+        id="finalProjectSection"
+        class="mt-4 p-4 bg-white rounded shadow-sm"
+      >
+        <h4>Final Project — Construct a Simple Item</h4>
+        <p>
+          Choose one: tote bag, pillow cover, or simple apron. Document:
+          step-by-step photos/videos of key construction steps (threading,
+          bobbin insertion, seam examples) and a final photo/video of completed
+          item. Include a short self-reflection describing defects, causes and
+          corrective action.
+        </p>
+        <ul>
+          <li>
+            Evaluation based on stitch quality, seam accuracy, neat finishing,
+            and troubleshooting report.
+          </li>
+          <li>
+            Submission: upload images/videos & text (in your LMS platform) or
+            email to instructor if offline.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Bootstrap + small JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Simple interactivity: mark modules complete & update course progress
+      const completed = { 1: false, 2: false, 3: false, 4: false, 5: false };
+      const totalModules = 5;
+
+      document.querySelectorAll(".mark-complete").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const m = btn.dataset.module;
+          completed[m] = !completed[m];
+          btn.classList.toggle("btn-success", completed[m]);
+          btn.classList.toggle("btn-outline-secondary", !completed[m]);
+          btn.textContent = completed[m]
+            ? "Completed ✓"
+            : "Mark Module " + m + " Complete";
+          updateProgress();
+        });
+      });
+
+      function updateProgress() {
+        const done = Object.values(completed).filter(Boolean).length;
+        const pct = Math.round((done / totalModules) * 100);
+        document.getElementById("courseProgress").style.width = pct + "%";
+        document
+          .getElementById("courseProgress")
+          .setAttribute("aria-valuenow", pct);
+        document.getElementById("coursePercentLabel").innerText = pct + "%";
+      }
+
+      // open / close all modules
+      document.getElementById("openAll").addEventListener("click", () => {
+        const collapses = document.querySelectorAll(".accordion-collapse");
+        const anyClosed = Array.from(collapses).some(
+          (c) => !c.classList.contains("show")
+        );
+        collapses.forEach((c) => {
+          if (anyClosed) c.classList.add("show");
+          else c.classList.remove("show");
+        });
+      });
+
+      // toggle answers under each module
+      function toggleAnswer(btn) {
+        const box = btn
+          .closest(".self-assessment")
+          .querySelector(".answer-list");
+        if (!box) return;
+        box.style.display =
+          box.style.display === "none" || box.style.display === ""
+            ? "block"
+            : "none";
+      }
+
+      // initialize small things
+      updateProgress();
+    </script>
+  </body>
+</html>

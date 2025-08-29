@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySQL Topics Documentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">MYSQL</h2>
+      <p class="text-center text-muted mb-0">
+        Learn SQL and relational database concepts using MySQL to <br />
+        structure and manage tabular data.
+      </p>
+    </div>
+
+    <div class="container">
+      <section class="topic-section">
+        <h1>Introduction to MySQL</h1>
+
+        <div class="topic-title">1. What is MySQL?</div>
+        <p>
+          MySQL is an open-source Relational Database Management System (RDBMS)
+          based on Structured Query Language (SQL). It is used for storing and
+          managing data using tables, rows, and columns.
+        </p>
+
+        <div class="topic-title">2. Installing MySQL</div>
+        <p>
+          You can install MySQL on Windows, Mac, or Linux using the official
+          installer or a package manager. Common tools: XAMPP, WAMP, or MySQL
+          Workbench.
+        </p>
+
+        <div class="topic-title">3. Connecting to MySQL</div>
+        <p>Use the MySQL client to connect:</p>
+        <div class="example">
+          <code> mysql -u root -p </code>
+        </div>
+
+        <div class="topic-title">4. Creating a Database</div>
+        <p>
+          Use the <code>CREATE DATABASE</code> command to create a new database.
+        </p>
+        <div class="example">
+          <code> CREATE DATABASE college; </code>
+        </div>
+
+        <div class="topic-title">5. Using a Database</div>
+        <p>Switch to a database using <code>USE</code>:</p>
+        <div class="example">
+          <code> USE college; </code>
+        </div>
+
+        <div class="topic-title">6. Creating a Table</div>
+        <p>Use <code>CREATE TABLE</code> to define table structure.</p>
+        <div class="example">
+          <code>
+            CREATE TABLE students (<br />
+            &nbsp;&nbsp;id INT PRIMARY KEY,<br />
+            &nbsp;&nbsp;name VARCHAR(50),<br />
+            &nbsp;&nbsp;age INT,<br />
+            &nbsp;&nbsp;email VARCHAR(100)<br />
+            );
+          </code>
+        </div>
+
+        <div class="topic-title">7. Inserting Data</div>
+        <p>Insert a record using <code>INSERT INTO</code>:</p>
+        <div class="example">
+          <code>
+            INSERT INTO students VALUES (1, 'Alice', 20, 'alice@example.com');
+          </code>
+        </div>
+
+        <div class="topic-title">8. Selecting Data</div>
+        <p>Retrieve records with <code>SELECT</code>:</p>
+        <div class="example">
+          <code> SELECT * FROM students; </code>
+        </div>
+
+        <div class="topic-title">9. WHERE Clause</div>
+        <p>Filter results with the <code>WHERE</code> clause:</p>
+        <div class="example">
+          <code> SELECT * FROM students WHERE age > 18; </code>
+        </div>
+
+        <div class="topic-title">10. Updating Records</div>
+        <p>Use <code>UPDATE</code> to modify data:</p>
+        <div class="example">
+          <code> UPDATE students SET age = 21 WHERE id = 1; </code>
+        </div>
+      </section>
+      <section>
+        <h1>MySQL Basics Continued</h1>
+
+        <div class="topic-title">11. Deleting Records</div>
+        <p>Use <code>DELETE</code> to remove data from a table.</p>
+        <div class="example">
+          <code> DELETE FROM students WHERE id = 1; </code>
+        </div>
+
+        <div class="topic-title">12. ORDER BY Clause</div>
+        <p>
+          Sort results in ascending or descending order using
+          <code>ORDER BY</code>.
+        </p>
+        <div class="example">
+          <code>
+            SELECT * FROM students ORDER BY age ASC;<br />
+            SELECT * FROM students ORDER BY name DESC;
+          </code>
+        </div>
+
+        <div class="topic-title">13. LIMIT Clause</div>
+        <p>Use <code>LIMIT</code> to restrict the number of rows returned.</p>
+        <div class="example">
+          <code> SELECT * FROM students LIMIT 5; </code>
+        </div>
+
+        <div class="topic-title">14. LIKE Operator (Pattern Matching)</div>
+        <p>Search for a pattern using <code>LIKE</code>.</p>
+        <div class="example">
+          <code>
+            SELECT * FROM students WHERE name LIKE 'A%';<br />
+            SELECT * FROM students WHERE email LIKE '%@gmail.com';
+          </code>
+        </div>
+
+        <div class="topic-title">15. Aggregate Functions</div>
+        <p>Used to perform calculations on a set of values.</p>
+        <div class="example">
+          <code>
+            SELECT COUNT(*) FROM students;<br />
+            SELECT AVG(age) FROM students;<br />
+            SELECT MAX(age), MIN(age) FROM students;
+          </code>
+        </div>
+
+        <div class="topic-title">16. GROUP BY Clause</div>
+        <p>Group rows that have the same values into summary rows.</p>
+        <div class="example">
+          <code> SELECT age, COUNT(*) FROM students GROUP BY age; </code>
+        </div>
+
+        <div class="topic-title">17. HAVING Clause</div>
+        <p>
+          <code>HAVING</code> is used to filter the results of
+          <code>GROUP BY</code>.
+        </p>
+        <div class="example">
+          <code>
+            SELECT age, COUNT(*) FROM students GROUP BY age HAVING COUNT(*) > 1;
+          </code>
+        </div>
+
+        <div class="topic-title">18. Aliases (AS)</div>
+        <p>Give temporary names to columns or tables using <code>AS</code>.</p>
+        <div class="example">
+          <code>
+            SELECT name AS 'Student Name', age AS 'Student Age' FROM students;
+          </code>
+        </div>
+
+        <div class="topic-title">19. DISTINCT Keyword</div>
+        <p>Return only distinct (different) values.</p>
+        <div class="example">
+          <code> SELECT DISTINCT age FROM students; </code>
+        </div>
+
+        <div class="topic-title">20. BETWEEN Operator</div>
+        <p>Find values within a range.</p>
+        <div class="example">
+          <code> SELECT * FROM students WHERE age BETWEEN 18 AND 25; </code>
+        </div>
+      </section>
+      <section>
+        <h1>MySQL Joins and Constraints</h1>
+
+        <div class="topic-title">21. INNER JOIN</div>
+        <p>Returns records with matching values in both tables.</p>
+        <div class="example">
+          <code>
+            SELECT students.name, courses.course_name<br />
+            FROM students<br />
+            INNER JOIN courses ON students.course_id = courses.id;
+          </code>
+        </div>
+
+        <div class="topic-title">22. LEFT JOIN</div>
+        <p>
+          Returns all records from the left table and matched records from the
+          right.
+        </p>
+        <div class="example">
+          <code>
+            SELECT students.name, courses.course_name<br />
+            FROM students<br />
+            LEFT JOIN courses ON students.course_id = courses.id;
+          </code>
+        </div>
+
+        <div class="topic-title">23. RIGHT JOIN</div>
+        <p>
+          Returns all records from the right table and matched ones from the
+          left.
+        </p>
+        <div class="example">
+          <code>
+            SELECT students.name, courses.course_name<br />
+            FROM students<br />
+            RIGHT JOIN courses ON students.course_id = courses.id;
+          </code>
+        </div>
+
+        <div class="topic-title">24. FULL OUTER JOIN (Simulated)</div>
+        <p>
+          MySQL doesn’t support full outer join directly. Use
+          <code>UNION</code> of LEFT and RIGHT joins.
+        </p>
+        <div class="example">
+          <code>
+            SELECT * FROM A LEFT JOIN B ON A.id = B.id<br />
+            UNION<br />
+            SELECT * FROM A RIGHT JOIN B ON A.id = B.id;
+          </code>
+        </div>
+
+        <div class="topic-title">25. PRIMARY KEY Constraint</div>
+        <p>Uniquely identifies each record in a table.</p>
+        <div class="example">
+          <code>
+            CREATE TABLE students (<br />
+            &nbsp;&nbsp;id INT PRIMARY KEY,<br />
+            &nbsp;&nbsp;name VARCHAR(50)<br />
+            );
+          </code>
+        </div>
+
+        <div class="topic-title">26. FOREIGN KEY Constraint</div>
+        <p>Links two tables by a common field.</p>
+        <div class="example">
+          <code>
+            CREATE TABLE orders (<br />
+            &nbsp;&nbsp;order_id INT PRIMARY KEY,<br />
+            &nbsp;&nbsp;student_id INT,<br />
+            &nbsp;&nbsp;FOREIGN KEY (student_id) REFERENCES students(id)<br />
+            );
+          </code>
+        </div>
+
+        <div class="topic-title">27. UNIQUE Constraint</div>
+        <p>Ensures all values in a column are different.</p>
+        <div class="example">
+          <code>
+            CREATE TABLE users (<br />
+            &nbsp;&nbsp;id INT,<br />
+            &nbsp;&nbsp;email VARCHAR(100) UNIQUE<br />
+            );
+          </code>
+        </div>
+
+        <div class="topic-title">28. NOT NULL Constraint</div>
+        <p>Ensures a column cannot have NULL values.</p>
+        <div class="example">
+          <code>
+            CREATE TABLE students (<br />
+            &nbsp;&nbsp;id INT,<br />
+            &nbsp;&nbsp;name VARCHAR(50) NOT NULL<br />
+            );
+          </code>
+        </div>
+
+        <div class="topic-title">29. DEFAULT Constraint</div>
+        <p>Provides a default value for a column when none is specified.</p>
+        <div class="example">
+          <code>
+            CREATE TABLE products (<br />
+            &nbsp;&nbsp;id INT,<br />
+            &nbsp;&nbsp;status VARCHAR(10) DEFAULT 'active'<br />
+            );
+          </code>
+        </div>
+
+        <div class="topic-title">30. CHECK Constraint</div>
+        <p>Ensures a column's value satisfies a specific condition.</p>
+        <div class="example">
+          <code>
+            CREATE TABLE students (<br />
+            &nbsp;&nbsp;id INT,<br />
+            &nbsp;&nbsp;age INT CHECK (age >= 18)<br />
+            );
+          </code>
+        </div>
+      </section>
+      <section>
+        <h1>MySQL Views, Indexes, and Transactions</h1>
+
+        <div class="topic-title">31. Views</div>
+        <p>
+          A view is a virtual table based on a SQL query. It does not store data
+          but fetches results dynamically.
+        </p>
+        <div class="example">
+          <code>
+            CREATE VIEW student_names AS<br />
+            SELECT name, age FROM students;<br /><br />
+
+            SELECT * FROM student_names;
+          </code>
+        </div>
+
+        <div class="topic-title">32. Indexes</div>
+        <p>
+          Indexes improve the speed of data retrieval operations on a table.
+        </p>
+        <div class="example">
+          <code>
+            CREATE INDEX idx_name ON students(name);<br />
+            DROP INDEX idx_name ON students;
+          </code>
+        </div>
+
+        <div class="topic-title">33. Stored Procedure</div>
+        <p>A stored procedure is a set of SQL statements saved to be reused.</p>
+        <div class="example">
+          <code>
+            DELIMITER // <br />
+            CREATE PROCEDURE GetAllStudents()<br />
+            BEGIN<br />
+            &nbsp;&nbsp;SELECT * FROM students;<br />
+            END // <br />
+            DELIMITER ; <br /><br />
+
+            CALL GetAllStudents();
+          </code>
+        </div>
+
+        <div class="topic-title">34. Stored Function</div>
+        <p>Returns a value and can be used in SQL expressions.</p>
+        <div class="example">
+          <code>
+            DELIMITER // <br />
+            CREATE FUNCTION Square(num INT) RETURNS INT<br />
+            RETURN num * num; // <br />
+            DELIMITER ;<br /><br />
+
+            SELECT Square(5);
+          </code>
+        </div>
+
+        <div class="topic-title">35. Triggers</div>
+        <p>
+          A trigger is a function that is automatically invoked before or after
+          a specific event (INSERT, UPDATE, DELETE).
+        </p>
+        <div class="example">
+          <code>
+            CREATE TRIGGER before_insert_student<br />
+            BEFORE INSERT ON students<br />
+            FOR EACH ROW<br />
+            SET NEW.name = UPPER(NEW.name);
+          </code>
+        </div>
+
+        <div class="topic-title">36. Transactions</div>
+        <p>
+          A transaction is a group of SQL statements that are executed together
+          to ensure data integrity.
+        </p>
+        <div class="example">
+          <code>
+            START TRANSACTION;<br />
+            UPDATE accounts SET balance = balance - 100 WHERE id = 1;<br />
+            UPDATE accounts SET balance = balance + 100 WHERE id = 2;<br />
+            COMMIT;
+          </code>
+        </div>
+
+        <div class="topic-title">37. ROLLBACK</div>
+        <p>Used to undo transactions that are not yet committed.</p>
+        <div class="example">
+          <code>
+            START TRANSACTION;<br />
+            UPDATE accounts SET balance = balance - 500 WHERE id = 1;<br />
+            ROLLBACK;
+          </code>
+        </div>
+
+        <div class="topic-title">38. COMMIT</div>
+        <p>Used to permanently save a transaction in the database.</p>
+        <div class="example">
+          <code>
+            START TRANSACTION;<br />
+            UPDATE students SET age = age + 1;<br />
+            COMMIT;
+          </code>
+        </div>
+
+        <div class="topic-title">39. AUTO_INCREMENT</div>
+        <p>
+          Automatically generates a unique number when a new record is inserted.
+        </p>
+        <div class="example">
+          <code>
+            CREATE TABLE employees (<br />
+            &nbsp;&nbsp;id INT AUTO_INCREMENT PRIMARY KEY,<br />
+            &nbsp;&nbsp;name VARCHAR(100)<br />
+            );
+          </code>
+        </div>
+
+        <div class="topic-title">40. ENUM and SET Data Types</div>
+        <p>
+          ENUM allows a field to be one of several predefined values. SET allows
+          multiple values.
+        </p>
+        <div class="example">
+          <code>
+            CREATE TABLE user_roles (<br />
+            &nbsp;&nbsp;role ENUM('Admin', 'Editor', 'Viewer'),<br />
+            &nbsp;&nbsp;access SET('Read', 'Write', 'Delete')<br />
+            );
+          </code>
+        </div>
+      </section>
+      <section>
+        <h1>MySQL Advanced and Administrative Topics</h1>
+
+        <div class="topic-title">41. Backup Database (mysqldump)</div>
+        <p>
+          Use the <code>mysqldump</code> command-line utility to back up your
+          database into a .sql file.
+        </p>
+        <div class="example">
+          <code> mysqldump -u root -p college > college_backup.sql </code>
+        </div>
+
+        <div class="topic-title">42. Restore Database</div>
+        <p>
+          Use the <code>mysql</code> client to restore a backup file into an
+          existing database.
+        </p>
+        <div class="example">
+          <code> mysql -u root -p college < college_backup.sql </code>
+        </div>
+
+        <div class="topic-title">43. Create User</div>
+        <p>To create a new MySQL user:</p>
+        <div class="example">
+          <code>
+            CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+          </code>
+        </div>
+
+        <div class="topic-title">44. Grant Privileges</div>
+        <p>Grant permissions to a user on a database or table.</p>
+        <div class="example">
+          <code>
+            GRANT ALL PRIVILEGES ON college.* TO 'newuser'@'localhost';
+          </code>
+        </div>
+
+        <div class="topic-title">45. Revoke Privileges</div>
+        <p>Remove specific privileges from a user.</p>
+        <div class="example">
+          <code>
+            REVOKE SELECT, INSERT ON college.* FROM 'newuser'@'localhost';
+          </code>
+        </div>
+
+        <div class="topic-title">46. Export Data (SELECT INTO OUTFILE)</div>
+        <p>Export table data to a CSV or text file.</p>
+        <div class="example">
+          <code>
+            SELECT * FROM students<br />
+            INTO OUTFILE '/tmp/students.csv'<br />
+            FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';
+          </code>
+        </div>
+
+        <div class="topic-title">47. Import CSV File</div>
+        <p>Import a CSV file into a table.</p>
+        <div class="example">
+          <code>
+            LOAD DATA INFILE '/tmp/students.csv'<br />
+            INTO TABLE students<br />
+            FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';
+          </code>
+        </div>
+
+        <div class="topic-title">48. CASE Statement</div>
+        <p>
+          <code>CASE</code> is used for conditional logic in SQL queries (like
+          IF...ELSE).
+        </p>
+        <div class="example">
+          <code>
+            SELECT name,<br />
+            &nbsp;&nbsp;CASE<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;WHEN age >= 18 THEN 'Adult'<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;ELSE 'Minor'<br />
+            &nbsp;&nbsp;END AS status<br />
+            FROM students;
+          </code>
+        </div>
+
+        <div class="topic-title">49. DATE and TIME Functions</div>
+        <p>Useful for querying, formatting, and manipulating dates.</p>
+        <div class="example">
+          <code>
+            SELECT CURDATE(), NOW(), YEAR(NOW()), MONTH(NOW());<br />
+            SELECT DATEDIFF('2025-12-31', '2025-01-01');
+          </code>
+        </div>
+
+        <div class="topic-title">50. Information Schema</div>
+        <p>
+          MySQL’s metadata tables used to get database/table/column information.
+        </p>
+        <div class="example">
+          <code>
+            SELECT table_name FROM information_schema.tables<br />
+            WHERE table_schema = 'college';
+          </code>
+        </div>
+      </section>
+      <section>
+        <h1>Reference Links for MySQL</h1>
+
+        <div class="topic-title">Official MySQL Documentation</div>
+        <p>Comprehensive and authoritative reference for all MySQL features.</p>
+        <p>
+          <a href="https://dev.mysql.com/doc/" target="_blank"
+            >https://dev.mysql.com/doc/</a
+          >
+        </p>
+
+        <div class="topic-title">W3Schools MySQL Tutorial</div>
+        <p>Beginner-friendly guide with interactive examples.</p>
+        <p>
+          <a href="https://www.w3schools.com/mysql/" target="_blank"
+            >https://www.w3schools.com/mysql/</a
+          >
+        </p>
+
+        <div class="topic-title">GeeksforGeeks MySQL Guide</div>
+        <p>
+          Explanations, examples, and use-cases for developers and students.
+        </p>
+        <p>
+          <a
+            href="https://www.geeksforgeeks.org/mysql-tutorial/"
+            target="_blank"
+            >https://www.geeksforgeeks.org/mysql-tutorial/</a
+          >
+        </p>
+
+        <div class="topic-title">TutorialsPoint MySQL</div>
+        <p>Step-by-step MySQL tutorials and exercises.</p>
+        <p>
+          <a
+            href="https://www.tutorialspoint.com/mysql/index.htm"
+            target="_blank"
+            >https://www.tutorialspoint.com/mysql/index.htm</a
+          >
+        </p>
+
+        <div class="topic-title">MySQL Functions Reference (SQL Fiddle)</div>
+        <p>
+          Useful for trying SQL queries online and understanding function
+          behavior.
+        </p>
+        <p>
+          <a href="https://sqlfiddle.com/" target="_blank"
+            >https://sqlfiddle.com/</a
+          >
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

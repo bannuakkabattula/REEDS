@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Full Study Guide</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">JAVASCRIPT (JS)</h2>
+      <p class="text-center text-muted mb-0">
+        Develop dynamic and interactive web pages using JavaScript <br />
+        fundamentals, DOM manipulation, and ES6+ features.
+      </p>
+    </div>
+    <div class="container py-3">
+      <div class="theory">
+        <!-- 1. SYNTAX, COMMENTS, VARIABLES -->
+        <section class="topic-section">
+          <h1>JavaScript Basics</h1>
+          <div class="topic-title">JS Syntax</div>
+          <p>
+            JavaScript statements are composed of <strong>values</strong>,
+            <strong>operators</strong>, <strong>expressions</strong>,
+            <strong>keywords</strong> and <strong>comments</strong>. They are
+            executed from top to bottom and left to right.
+          </p>
+          <pre><code>// one‑line comment
+/* multi‑line
+   comment */
+let x = 5 + 6; // statement ends with semicolon (optional)
+console.log(x);
+</code></pre>
+
+          <div class="topic-title">
+            JS Variables, <code>let</code>, <code>const</code>
+          </div>
+          <p>
+            Variables hold data values. Use <code>let</code> for block‑scoped
+            mutable variables, <code>const</code> for constants, and
+            <code>var</code> (legacy) for function‑scoped variables.
+          </p>
+          <pre><code>let name = "Alice";
+const PI = 3.1416;
+var legacy = true; // avoid in ES6+ code
+</code></pre>
+        </section>
+
+        <!-- 2. OPERATORS & DATA TYPES -->
+        <section class="topic-section">
+          <h1>Operators & Data Types</h1>
+          <div class="topic-title">Arithmetic & Assignment</div>
+          <p>
+            Arithmetic: <code>+</code> <code>-</code> <code>*</code>
+            <code>/</code> <code>%</code> <code>**</code>; Assignment combines
+            <code>=</code> with arithmetic (<code>+=</code> etc).
+          </p>
+          <pre><code>let counter = 10;
+counter += 2; // 12
+</code></pre>
+
+          <div class="topic-title">Data Types</div>
+          <p>
+            Primitive: Number, String, Boolean, Null, Undefined, Symbol, BigInt.
+            Complex: Object.
+          </p>
+          <pre><code>typeof 42;           // "number"
+typeof "hello";     // "string"
+typeof Symbol();     // "symbol"
+typeof 10n;          // "bigint"
+</code></pre>
+        </section>
+
+        <!-- 3. CONTROL FLOW -->
+        <section class="topic-section">
+          <h1>Control Structures</h1>
+          <div class="topic-title">Conditionals</div>
+          <pre><code>if (x > 0) {
+  // ...
+} else if (x === 0) {
+  // ...
+} else {
+  // ...
+}
+
+switch(day) {
+  case 1: msg = "Mon"; break;
+  default: msg = "Unknown";
+}
+</code></pre>
+
+          <div class="topic-title">Loops</div>
+          <pre><code>for (let i = 0; i < arr.length; i++) {}
+for (const key in obj) {}
+for (const value of arr) {}
+let i = 0;
+while (i < 5) { i++; }
+</code></pre>
+          <p>
+            <code>break</code> exits the loop; <code>continue</code> skips to
+            next iteration.
+          </p>
+        </section>
+
+        <!-- 4. FUNCTIONS -->
+        <section class="topic-section">
+          <h1>Functions & Scope</h1>
+          <div class="topic-title">Declarations & Expressions</div>
+          <pre><code>function add(a,b){ return a+b; }
+const multiply = function(a,b){ return a*b; };
+const divide = (a,b) => a/b; // arrow
+</code></pre>
+          <p>Arrow functions capture <code>this</code> from outer scope.</p>
+
+          <div class="topic-title">Parameters & Defaults</div>
+          <pre><code>function greet(name = "Guest"){
+  console.log(`Hello ${name}`);
+}
+</code></pre>
+
+          <div class="topic-title">Closures</div>
+          <p>A closure remembers variables from its creation context.</p>
+          <pre><code>function makeCounter(){
+  let count = 0;
+  return () => ++count; // arrow closes over count
+}
+const c1 = makeCounter();
+c1(); // ➜ 1
+</code></pre>
+        </section>
+
+        <!-- 5. OBJECTS -->
+        <section class="topic-section">
+          <h1>Objects</h1>
+          <div class="topic-title">Object Literals & Properties</div>
+          <pre><code>const user = {
+  firstName: "Ada",
+  lastName : "Lovelace",
+  get fullName(){ return `${this.firstName} ${this.lastName}`; }
+};
+console.log(user.fullName);
+</code></pre>
+
+          <div class="topic-title">Constructors & Prototypes</div>
+          <pre><code>function Person(name){ this.name = name; }
+Person.prototype.sayHi = function(){ console.log(`Hi, I'm ${this.name}`); };
+new Person("Bob").sayHi();
+</code></pre>
+
+          <div class="topic-title">ES6 Classes</div>
+          <pre><code>class Animal {
+  constructor(kind){ this.kind = kind; }
+  speak(){ console.log(`${this.kind} sound`); }
+}
+class Dog extends Animal {
+  speak(){ console.log("Woof!"); }
+}
+new Dog("Dog").speak();
+</code></pre>
+        </section>
+
+        <!-- 6. STRINGS & NUMBERS -->
+        <section class="topic-section">
+          <h1>Strings & Numbers</h1>
+          <div class="topic-title">String Methods</div>
+          <pre><code>"hello".toUpperCase();
+"hello".includes("ell");
+`Template ${var}`;
+</code></pre>
+
+          <div class="topic-title">Number & BigInt</div>
+          <pre><code>Number.parseFloat("3.14");
+(9007199254740993n + 1n).toString();
+</code></pre>
+        </section>
+
+        <!-- 7. ARRAYS -->
+        <section class="topic-section">
+          <h1>Arrays</h1>
+          <div class="topic-title">Core Methods</div>
+          <pre><code>const arr = [3,1,4];
+arr.push(2);            // add
+arr.sort();             // sort
+arr.filter(x=>x>2);     // iteration
+</code></pre>
+          <div class="topic-title">Typed Arrays</div>
+          <pre><code>const bytes = new Uint8Array([255,128,64]);
+</code></pre>
+        </section>
+
+        <!-- 8. DATES & MATH -->
+        <section class="topic-section">
+          <h1>Dates & Math</h1>
+          <div class="topic-title">Date Object</div>
+          <pre><code>const now = new Date();
+now.getFullYear();
+now.toLocaleDateString();
+</code></pre>
+          <div class="topic-title">Math & Random</div>
+          <pre><code>Math.max(5,10);
+Math.random(); // 0 ≤ x < 1
+</code></pre>
+        </section>
+
+        <!-- 9. BOOLEANS, COMPARISONS & BITWISE -->
+        <section class="topic-section">
+          <h1>Booleans & Comparisons</h1>
+          <p>
+            <code>==</code> performs type‑coercive comparison;
+            <code>===</code> is strict.
+          </p>
+          <p>
+            Bitwise operators manipulate 32‑bit integers: <code>&</code>
+            <code>|</code> <code>^</code> <code>~</code> <code><<</code>
+            <code>>></code>.
+          </p>
+        </section>
+
+        <!-- 10. ERROR HANDLING -->
+        <section class="topic-section">
+          <h1>Errors & Debugging</h1>
+          <pre><code>try {
+  JSON.parse('{ bad json }');
+} catch (e) {
+  console.error(e.message);
+} finally {
+  console.log("always runs");
+}
+</code></pre>
+        </section>
+
+        <!-- 11. SCOPE, HOISTING, STRICT MODE, THIS -->
+        <section class="topic-section">
+          <h1>Scope & Advanced Language Features</h1>
+          <p>
+            <strong>Scope</strong> is where variables are accessible.
+            <strong>Hoisting</strong> moves declarations to top of scope.
+            <strong>Strict Mode</strong> adds stricter parsing (<code
+              >'use strict';</code
+            >).
+          </p>
+          <p>
+            <code>this</code> refers to the calling context; arrow functions do
+            not bind their own <code>this</code>.
+          </p>
+        </section>
+
+        <!-- 12. MODULES & ASYNC -->
+        <section class="topic-section">
+          <h1>Modules & Asynchronous JS</h1>
+          <div class="topic-title">ES Modules</div>
+          <pre><code>// api.js
+export function sum(a,b){ return a+b; }
+// main.js
+import { sum } from './api.js';
+</code></pre>
+          <div class="topic-title">Promises & async/await</div>
+          <pre><code>function fetchJson(url){
+  return fetch(url).then(r => r.json());
+}
+async function getData(){
+  const posts = await fetchJson('https://jsonplaceholder.typicode.com/posts');
+  console.log(posts[0]);
+}
+</code></pre>
+        </section>
+
+        <!-- 13. HTML DOM -->
+        <section class="topic-section">
+          <h1>HTML DOM</h1>
+          <div class="topic-title">DOM Document & Elements</div>
+          <pre><code>document.title = "New Title";
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', () => alert('Hi'));
+</code></pre>
+          <div class="topic-title">DOM Navigation & Collections</div>
+          <p>
+            <code>parentNode</code>, <code>children</code>,
+            <code>nextElementSibling</code>,
+            <code>querySelectorAll</code> return NodeLists.
+          </p>
+        </section>
+
+        <!-- 14. BROWSER BOM -->
+        <section class="topic-section">
+          <h1>Browser BOM</h1>
+          <p>
+            Interacting with browser objects: <code>window</code>,
+            <code>location</code>, <code>history</code>, <code>screen</code>,
+            <code>navigator</code>.
+          </p>
+          <pre><code>console.log(window.innerWidth);
+alert('Popup!');
+</code></pre>
+        </section>
+
+        <!-- 15. AJAX & FETCH -->
+        <section class="topic-section">
+          <h1>AJAX / Fetch</h1>
+          <div class="topic-title">XMLHttpRequest (legacy)</div>
+          <pre><code>const xhr = new XMLHttpRequest();
+xhr.onload = () => console.log(xhr.responseText);
+xhr.open('GET','/data');
+xhr.send();
+</code></pre>
+          <div class="topic-title">Fetch API (modern)</div>
+          <pre><code>fetch('/data')
+  .then(r => r.json())
+  .then(data => console.log(data));
+</code></pre>
+        </section>
+
+        <!-- 16. JSON -->
+        <section class="topic-section">
+          <h1>JSON</h1>
+          <p>
+            JavaScript Object Notation is a lightweight data‑exchange format.
+          </p>
+          <pre><code>const obj = {x:10, y:20};
+const txt = JSON.stringify(obj); // "{"x":10,"y":20}"
+console.log(JSON.parse(txt).y);  // 20
+</code></pre>
+        </section>
+
+        <!-- 17. DATA STRUCTURES -->
+        <section class="topic-section">
+          <h1>Sets, Maps, Iterables</h1>
+          <pre><code>// Set
+const s = new Set([1,2,2]); // {1,2}
+// Map
+const m = new Map([['a',1]]);
+for (const [k,v] of m) { console.log(k,v); }
+</code></pre>
+        </section>
+
+        <!-- 18. REGEXP -->
+        <section class="topic-section">
+          <h1>Regular Expressions</h1>
+          <pre><code>const re = /\b\w{4}\b/g;
+"Java Script".match(re); // ["Java","Script"]
+</code></pre>
+        </section>
+
+        <!-- 19. GRAPHICS -->
+        <section class="topic-section">
+          <h1>Graphics & Visualization</h1>
+          <p>
+            Canvas 2D API, SVG, and libraries like Chart.js and D3.js enable
+            drawing and data visualisation.
+          </p>
+          <pre><code>// Canvas example
+const canvas = document.getElementById('cv');
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = 'skyblue';
+ctx.fillRect(10,10,100,50);
+</code></pre>
+        </section>
+
+        <!-- 20. BEST PRACTICES -->
+        <section class="topic-section">
+          <h1>Best Practices & Performance</h1>
+          <ul>
+            <li>
+              Prefer <code>const</code>/<code>let</code> over <code>var</code>.
+            </li>
+            <li>Use strict equality (<code>===</code>).</li>
+            <li>Avoid global variables; use modules.</li>
+            <li>
+              Debounce/throttle expensive events (<code>resize</code>,
+              <code>scroll</code>).
+            </li>
+            <li>
+              Measure performance with <code>Performance API</code> or browser
+              devtools.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 21. REFERENCES -->
+        <section class="topic-section">
+          <h1>Reference Links</h1>
+          <p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+              >MDN JavaScript Documentation</a
+            >
+          </p>
+          <p><a href="https://javascript.info">JavaScript.info</a></p>
+        </section>
+      </div>
+    </div>
+    <!-- canvas for graphics demo -->
+    <canvas id="cv" width="150" height="80" class="border"></canvas>
+  </body>
+</html>

@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Topics Documentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">PYTHON</h2>
+      <p class="text-center text-muted mb-0">
+        Dive into Python programming basics, including syntax, data <br />
+        structures, and scripting for automation or backend tasks.
+      </p>
+    </div>
+
+    <!--‑‑‑‑‑‑‑‑‑‑ START OF PYTHON TUTORIAL ‑‑‑‑‑‑‑‑‑‑-->
+    <div class="container">
+      <section class="topic-section">
+        <h1>
+          Python Topics with Definitions, Explanations &amp; Practice Programs
+        </h1>
+        <!-- 1 -->
+        <div class="topic-title">1. What is Python?</div>
+        <p>
+          Python is a high‑level, interpreted, general‑purpose programming
+          language known for its readability and vast standard library.
+        </p>
+        <div class="example">
+          <code>
+            # hello.py<br />
+            print("Hello, Python!")
+          </code>
+        </div>
+
+        <!-- 2 -->
+        <div class="topic-title">2. Installing Python &amp; virtualenv</div>
+        <p>
+          Download from <code>python.org</code> or install via package manager.
+          Use <code>python -m venv venv</code> to create isolated environments.
+        </p>
+        <div class="example">
+          <code>
+            python -m venv venv<br />
+            source venv/bin/activate&nbsp;&nbsp;# Windows: venv\Scripts\activate
+          </code>
+        </div>
+
+        <!-- 3 -->
+        <div class="topic-title">3. Python REPL</div>
+        <p>The Read‑Eval‑Print‑Loop lets you test snippets quickly.</p>
+        <div class="example">
+          <code>
+            $ python<br />
+            >>> 2 + 3<br />
+            5
+          </code>
+        </div>
+
+        <!-- 4 -->
+        <div class="topic-title">4. Variables &amp; Data Types</div>
+        <p>
+          Dynamic typing—no need to declare types explicitly (int, float, str,
+          bool, list, tuple, dict, set).
+        </p>
+        <div class="example">
+          <code>
+            x = 10&nbsp;&nbsp;# int<br />
+            pi = 3.14&nbsp;&nbsp;# float<br />
+            name = "Alice"&nbsp;&nbsp;# str
+          </code>
+        </div>
+
+        <!-- 5 -->
+        <div class="topic-title">5. Basic I/O</div>
+        <p>
+          <code>input()</code> reads user input; <code>print()</code> writes to
+          stdout.
+        </p>
+        <div class="example">
+          <code>
+            name = input("Your name: ")<br />
+            print("Hi", name)
+          </code>
+        </div>
+
+        <!-- 6 -->
+        <div class="topic-title">6. Arithmetic Operators</div>
+        <p>
+          <code>+ - * / // % **</code> perform maths; <code>//</code> is
+          floor‑division, <code>**</code> exponentiation.
+        </p>
+        <div class="example">
+          <code> area = 0.5 * base * height </code>
+        </div>
+
+        <!-- 7 -->
+        <div class="topic-title">7. String Methods &amp; f‑strings</div>
+        <p>
+          Use <code>upper()</code>, <code>replace()</code>, slicing, and
+          f‑strings for formatting.
+        </p>
+        <div class="example">
+          <code> msg = f"{name.upper()} scored {marks}/100" </code>
+        </div>
+
+        <!-- 8 -->
+        <div class="topic-title">8. Conditional Statements</div>
+        <p><code>if elif else</code> control flow.</p>
+        <div class="example">
+          <code>
+            if temp &gt; 40:<br />
+            &nbsp;&nbsp;print("Hot")<br />
+            elif temp &gt; 20:<br />
+            &nbsp;&nbsp;print("Warm")<br />
+            else:<br />
+            &nbsp;&nbsp;print("Cold")
+          </code>
+        </div>
+
+        <!-- 9 -->
+        <div class="topic-title">9. Loops (for, while)</div>
+        <p>
+          <code>for</code> iterates over sequences; <code>while</code> repeats
+          until condition false.
+        </p>
+        <div class="example">
+          <code>
+            for i in range(1, 6):<br />
+            &nbsp;&nbsp;print(i**2)
+          </code>
+        </div>
+
+        <!-- 10 -->
+        <div class="topic-title">10. List Comprehensions</div>
+        <p>Concise way to build lists from iterables.</p>
+        <div class="example">
+          <code> squares = [i*i for i in range(10) if i % 2 == 0] </code>
+        </div>
+
+        <!-- 11 -->
+        <div class="topic-title">11. Tuples &amp; Unpacking</div>
+        <p>
+          Immutable ordered collections; convenient for returning multiple
+          values.
+        </p>
+        <div class="example">
+          <code>
+            point = (3, 4)<br />
+            x, y = point
+          </code>
+        </div>
+
+        <!-- 12 -->
+        <div class="topic-title">12. Dictionaries</div>
+        <p>Key‑value mapping; constant‑time lookup.</p>
+        <div class="example">
+          <code>
+            student = {"id": 101, "name": "Ana", "cgpa": 8.9}<br />
+            for k, v in student.items():<br />
+            &nbsp;&nbsp;print(k, v)
+          </code>
+        </div>
+
+        <!-- 13 -->
+        <div class="topic-title">13. Sets &amp; Set Operations</div>
+        <p>
+          Unordered collection of unique items; supports union, intersection.
+        </p>
+        <div class="example">
+          <code>
+            odd = {1, 3, 5}; even = {2, 4, 6}<br />
+            print(odd | even)
+          </code>
+        </div>
+
+        <!-- 14 -->
+        <div class="topic-title">14. Functions &amp; Docstrings</div>
+        <p>Reusable blocks; document with triple‑quoted strings.</p>
+        <div class="example">
+          <code>
+            def add(a, b):<br />
+            &nbsp;&nbsp;"""Return sum of a and b."""<br />
+            &nbsp;&nbsp;return a + b
+          </code>
+        </div>
+
+        <!-- 15 -->
+        <div class="topic-title">15. Lambda, map(), filter()</div>
+        <p>Anonymous functions combined with functional helpers.</p>
+        <div class="example">
+          <code>
+            doubles = list(map(lambda x: 2*x, [1,2,3]))<br />
+            evens &nbsp;= list(filter(lambda x: x%2==0, range(10)))
+          </code>
+        </div>
+
+        <!-- 16 -->
+        <div class="topic-title">16. Exception Handling</div>
+        <p>
+          Gracefully catch runtime errors using
+          <code>try‑except‑else‑finally</code>.
+        </p>
+        <div class="example">
+          <code>
+            try:<br />
+            &nbsp;&nbsp;ans = 10 / 0<br />
+            except ZeroDivisionError as e:<br />
+            &nbsp;&nbsp;print("Cannot divide by zero.")<br />
+            finally:<br />
+            &nbsp;&nbsp;print("Done")
+          </code>
+        </div>
+
+        <!-- 17 -->
+        <div class="topic-title">17. File I/O</div>
+        <p>
+          Read &amp; write files with context managers to ensure proper closing.
+        </p>
+        <div class="example">
+          <code>
+            with open("data.txt") as f:<br />
+            &nbsp;&nbsp;lines = f.readlines()
+          </code>
+        </div>
+
+        <!-- 18 -->
+        <div class="topic-title">18. Modules &amp; Packages</div>
+        <p>
+          Organise code into separate files; import with
+          <code>import mod</code> or <code>from mod import func</code>.
+        </p>
+        <div class="example">
+          <code>
+            # utils.py<br />
+            def greet():<br />
+            &nbsp;&nbsp;print("Hi")<br />
+            # main.py<br />
+            import utils<br />
+            utils.greet()
+          </code>
+        </div>
+
+        <!-- 19 -->
+        <div class="topic-title">19. Virtual Environment &amp; pip</div>
+        <p>
+          Manage dependencies; <code>pip install requests</code> installs
+          packages from PyPI.
+        </p>
+        <div class="example">
+          <code> pip freeze &gt; requirements.txt </code>
+        </div>
+
+        <!-- 20 -->
+        <div class="topic-title">20. Object‑Oriented Programming</div>
+        <p>
+          Classes encapsulate data and behaviour; supports inheritance and
+          polymorphism.
+        </p>
+        <div class="example">
+          <code>
+            class Vehicle:<br />
+            &nbsp;&nbsp;def __init__(self, name): self.name = name<br />
+            &nbsp;&nbsp;def move(self): print(self.name, "moves")<br />
+            class Car(Vehicle): pass<br />
+            Car("Tesla").move()
+          </code>
+        </div>
+
+        <!-- 21 -->
+        <div class="topic-title">21. @property and Getters/Setters</div>
+        <p>Control attribute access while keeping dot syntax.</p>
+        <div class="example">
+          <code>
+            class Circle:<br />
+            &nbsp;&nbsp;def __init__(self, r): self._r = r<br />
+            &nbsp;&nbsp;@property<br />
+            &nbsp;&nbsp;def area(self): return 3.14 * self._r**2
+          </code>
+        </div>
+
+        <!-- 22 -->
+        <div class="topic-title">22. Generators &amp; yield</div>
+        <p>Lazy iterables that save memory.</p>
+        <div class="example">
+          <code>
+            def fib(n):<br />
+            &nbsp;&nbsp;a, b = 0, 1<br />
+            &nbsp;&nbsp;for _ in range(n):<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;yield a<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;a, b = b, a+b
+          </code>
+        </div>
+
+        <!-- 23 -->
+        <div class="topic-title">23. Decorators</div>
+        <p>Functions that modify behaviour of other functions.</p>
+        <div class="example">
+          <code>
+            def timer(fn):<br />
+            &nbsp;&nbsp;import time<br />
+            &nbsp;&nbsp;def wrap(*a, **kw):<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;s = time.time(); result = fn(*a, **kw);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;print("took", time.time()-s); return
+            result<br />
+            &nbsp;&nbsp;return wrap
+          </code>
+        </div>
+
+        <!-- 24 -->
+        <div class="topic-title">24. Context Managers &amp; with</div>
+        <p>
+          Automate setup/teardown by defining
+          <code>__enter__</code>/<code>__exit__</code>.
+        </p>
+        <div class="example">
+          <code>
+            from contextlib import contextmanager<br />
+            @contextmanager<br />
+            def open_db():<br />
+            &nbsp;&nbsp;print("connect"); yield; print("close")
+          </code>
+        </div>
+
+        <!-- 25 -->
+        <div class="topic-title">25. Regular Expressions (re)</div>
+        <p>Powerful pattern matching and text processing.</p>
+        <div class="example">
+          <code>
+            import re<br />
+            emails = re.findall(r"[a-zA-Z0-9._%+-]+@[\w.-]+", text)
+          </code>
+        </div>
+
+        <!-- 26 -->
+        <div class="topic-title">26. JSON Handling</div>
+        <p>
+          Convert between Python objects and JSON strings with
+          <code>json</code> module.
+        </p>
+        <div class="example">
+          <code>
+            import json<br />
+            data = json.loads('{"x":1}')<br />
+            print(json.dumps(data, indent=2))
+          </code>
+        </div>
+
+        <!-- 27 -->
+        <div class="topic-title">27. HTTP Requests (requests)</div>
+        <p>Send/receive web data easily (third‑party library).</p>
+        <div class="example">
+          <code>
+            import requests<br />
+            r = requests.get("https://api.github.com")<br />
+            print(r.status_code)
+          </code>
+        </div>
+
+        <!-- 28 -->
+        <div class="topic-title">28. Multithreading vs Multiprocessing</div>
+        <p>
+          <code>threading</code> for I/O‑bound; <code>multiprocessing</code> for
+          CPU‑bound tasks.
+        </p>
+        <div class="example">
+          <code>
+            from multiprocessing import Pool<br />
+            print(Pool().map(lambda x: x*x, range(5)))
+          </code>
+        </div>
+
+        <!-- 29 -->
+        <div class="topic-title">29. Asynchronous Programming (asyncio)</div>
+        <p>
+          Handle thousands of concurrent I/O operations using
+          <code>async def</code> and <code>await</code>.
+        </p>
+        <div class="example">
+          <code>
+            import asyncio, aiohttp<br />
+            async def fetch(url):<br />
+            &nbsp;&nbsp;async with aiohttp.ClientSession() as s:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;async with s.get(url) as r: return await
+            r.text()
+          </code>
+        </div>
+
+        <!-- 30 -->
+        <div class="topic-title">30. Practice Problem: Quadratic Solver</div>
+        <p>
+          Task: Write a program that solves <code>ax² + bx + c = 0</code> for
+          real/complex roots.
+        </p>
+        <div class="example">
+          <code>
+            import cmath<br />
+            a,b,c = 1, -3, 2<br />
+            d = cmath.sqrt(b*b - 4*a*c)<br />
+            root1 = (-b + d)/(2*a)<br />
+            root2 = (-b - d)/(2*a)<br />
+            print(root1, root2)
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <h1>Python Advanced Topics Continued (31–50)</h1>
+
+        <!-- 31 -->
+        <div class="topic-title">31. Python zip()</div>
+        <p>
+          Combines multiple iterables into tuples, pairing elements by position.
+        </p>
+        <div class="example">
+          <code>
+            names = ['Alice', 'Bob']<br />
+            scores = [85, 92]<br />
+            for name, score in zip(names, scores):<br />
+            &nbsp;&nbsp;print(name, "scored", score)
+          </code>
+        </div>
+
+        <!-- 32 -->
+        <div class="topic-title">32. Python enumerate()</div>
+        <p>Adds a counter while iterating over an iterable.</p>
+        <div class="example">
+          <code>
+            colors = ['Red', 'Green', 'Blue']<br />
+            for index, color in enumerate(colors):<br />
+            &nbsp;&nbsp;print(index, color)
+          </code>
+        </div>
+
+        <!-- 33 -->
+        <div class="topic-title">33. Python isinstance() &amp; type()</div>
+        <p>Check object type at runtime for type-safe code.</p>
+        <div class="example">
+          <code>
+            x = 5<br />
+            print(isinstance(x, int))<br />
+            print(type(x) == int)
+          </code>
+        </div>
+
+        <!-- 34 -->
+        <div class="topic-title">34. Python sys.argv</div>
+        <p>Used to pass command-line arguments to a script.</p>
+        <div class="example">
+          <code>
+            import sys<br />
+            print("Arguments:", sys.argv)
+          </code>
+        </div>
+
+        <!-- 35 -->
+        <div class="topic-title">35. Python os module</div>
+        <p>
+          Provides access to the operating system (file paths, directories,
+          etc.).
+        </p>
+        <div class="example">
+          <code>
+            import os<br />
+            print("Current Dir:", os.getcwd())<br />
+            os.mkdir("new_folder")
+          </code>
+        </div>
+
+        <!-- 36 -->
+        <div class="topic-title">36. Python shutil module</div>
+        <p>Used for high-level file operations like copy, move, delete.</p>
+        <div class="example">
+          <code>
+            import shutil<br />
+            shutil.copy("file1.txt", "file2.txt")
+          </code>
+        </div>
+
+        <!-- 37 -->
+        <div class="topic-title">37. Python datetime module</div>
+        <p>Used to work with date and time objects.</p>
+        <div class="example">
+          <code>
+            from datetime import datetime<br />
+            now = datetime.now()<br />
+            print(now.strftime("%d-%m-%Y %H:%M:%S"))
+          </code>
+        </div>
+
+        <!-- 38 -->
+        <div class="topic-title">38. Python time module</div>
+        <p>Provides functions to track and manipulate time (e.g., sleep).</p>
+        <div class="example">
+          <code>
+            import time<br />
+            print("Wait 2 seconds...")<br />
+            time.sleep(2)<br />
+            print("Done")
+          </code>
+        </div>
+
+        <!-- 39 -->
+        <div class="topic-title">39. Python math module</div>
+        <p>Standard math library for advanced calculations.</p>
+        <div class="example">
+          <code>
+            import math<br />
+            print(math.sqrt(16))<br />
+            print(math.factorial(5))
+          </code>
+        </div>
+
+        <!-- 40 -->
+        <div class="topic-title">40. Python statistics module</div>
+        <p>Provides basic statistical functions like mean, median, mode.</p>
+        <div class="example">
+          <code>
+            import statistics<br />
+            data = [10, 20, 30]<br />
+            print("Mean:", statistics.mean(data))
+          </code>
+        </div>
+
+        <!-- 41 -->
+        <div class="topic-title">41. Python random module</div>
+        <p>Generates pseudo-random numbers and choices.</p>
+        <div class="example">
+          <code>
+            import random<br />
+            print(random.randint(1, 10))<br />
+            print(random.choice(["red", "green", "blue"]))
+          </code>
+        </div>
+
+        <!-- 42 -->
+        <div class="topic-title">42. Python itertools module</div>
+        <p>
+          Offers fast, memory-efficient tools for iterators (combinations,
+          permutations).
+        </p>
+        <div class="example">
+          <code>
+            from itertools import permutations<br />
+            for p in permutations([1, 2, 3]):<br />
+            &nbsp;&nbsp;print(p)
+          </code>
+        </div>
+
+        <!-- 43 -->
+        <div class="topic-title">43. Python assert statement</div>
+        <p>Used to test if a condition is true; helps in debugging.</p>
+        <div class="example">
+          <code>
+            x = 10<br />
+            assert x &gt; 0, "x must be positive"
+          </code>
+        </div>
+
+        <!-- 44 -->
+        <div class="topic-title">44. Python unittest module</div>
+        <p>Framework for writing and running tests for your code.</p>
+        <div class="example">
+          <code>
+            import unittest<br />
+            class TestSum(unittest.TestCase):<br />
+            &nbsp;&nbsp;def test_add(self): self.assertEqual(1+2, 3)
+          </code>
+        </div>
+
+        <!-- 45 -->
+        <div class="topic-title">45. Python doctest module</div>
+        <p>Tests embedded in docstrings using example-based testing.</p>
+        <div class="example">
+          <code>
+            def add(a, b):<br />
+            &nbsp;&nbsp;"""Returns sum<br />
+            &nbsp;&nbsp;&gt;&gt;&gt; add(2, 3)<br />
+            &nbsp;&nbsp;5<br />
+            &nbsp;&nbsp;"""<br />
+            &nbsp;&nbsp;return a + b
+          </code>
+        </div>
+
+        <!-- 46 -->
+        <div class="topic-title">46. Python logging module</div>
+        <p>Provides a flexible system for logging messages.</p>
+        <div class="example">
+          <code>
+            import logging<br />
+            logging.basicConfig(level=logging.INFO)<br />
+            logging.info("This is info")
+          </code>
+        </div>
+
+        <!-- 47 -->
+        <div class="topic-title">47. Python sys.exit()</div>
+        <p>Gracefully exits the program with an optional status code.</p>
+        <div class="example">
+          <code>
+            import sys<br />
+            if error: sys.exit("Exiting due to error.")
+          </code>
+        </div>
+
+        <!-- 48 -->
+        <div class="topic-title">48. Python __name__ == "__main__"</div>
+        <p>Checks whether script is being run directly or imported.</p>
+        <div class="example">
+          <code>
+            if __name__ == "__main__":<br />
+            &nbsp;&nbsp;main()
+          </code>
+        </div>
+
+        <!-- 49 -->
+        <div class="topic-title">49. Python csv module</div>
+        <p>Read and write CSV (Comma Separated Values) files.</p>
+        <div class="example">
+          <code>
+            import csv<br />
+            with open('data.csv') as f:<br />
+            &nbsp;&nbsp;reader = csv.reader(f)<br />
+            &nbsp;&nbsp;for row in reader:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;print(row)
+          </code>
+        </div>
+
+        <!-- 50 -->
+        <div class="topic-title">50. Python pickle module</div>
+        <p>Serialize and deserialize Python objects to store them in files.</p>
+        <div class="example">
+          <code>
+            import pickle<br />
+            with open("obj.pkl", "wb") as f:<br />
+            &nbsp;&nbsp;pickle.dump({"a": 1}, f)
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>Python Advanced Topics (51–70)</h1>
+
+        <!-- 51 -->
+        <div class="topic-title">51. NumPy Arrays</div>
+        <p>
+          NumPy provides high-performance multi-dimensional arrays and numerical
+          operations.
+        </p>
+        <div class="example">
+          <code>
+            import numpy as np<br />
+            a = np.array([1, 2, 3])<br />
+            print(a * 2)
+          </code>
+        </div>
+
+        <!-- 52 -->
+        <div class="topic-title">52. NumPy Array Slicing</div>
+        <p>Allows accessing subarrays using indices and ranges.</p>
+        <div class="example">
+          <code>
+            a = np.array([1,2,3,4,5])<br />
+            print(a[1:4])
+          </code>
+        </div>
+
+        <!-- 53 -->
+        <div class="topic-title">53. Pandas DataFrame</div>
+        <p>
+          DataFrame is a 2D tabular data structure with labeled axes (rows &
+          columns).
+        </p>
+        <div class="example">
+          <code>
+            import pandas as pd<br />
+            df = pd.DataFrame({'Name': ['Alice', 'Bob'], 'Score': [90, 80]})<br />
+            print(df)
+          </code>
+        </div>
+
+        <!-- 54 -->
+        <div class="topic-title">54. Pandas Series</div>
+        <p>One-dimensional labeled array capable of holding any data type.</p>
+        <div class="example">
+          <code>
+            s = pd.Series([1, 3, 5])<br />
+            print(s)
+          </code>
+        </div>
+
+        <!-- 55 -->
+        <div class="topic-title">55. Pandas Filtering</div>
+        <p>Apply conditions to filter rows in DataFrames.</p>
+        <div class="example">
+          <code> print(df[df['Score'] > 85]) </code>
+        </div>
+
+        <!-- 56 -->
+        <div class="topic-title">56. Matplotlib Plotting</div>
+        <p>Matplotlib is used to generate plots, charts, and visualizations.</p>
+        <div class="example">
+          <code>
+            import matplotlib.pyplot as plt<br />
+            plt.plot([1,2,3], [4,5,6])<br />
+            plt.show()
+          </code>
+        </div>
+
+        <!-- 57 -->
+        <div class="topic-title">57. SQLite with Python</div>
+        <p>
+          SQLite is a lightweight SQL database embedded into Python via the
+          sqlite3 module.
+        </p>
+        <div class="example">
+          <code>
+            import sqlite3<br />
+            conn = sqlite3.connect("test.db")<br />
+            cursor = conn.cursor()<br />
+            cursor.execute("CREATE TABLE IF NOT EXISTS student (id INT, name
+            TEXT)")<br />
+            conn.commit()
+          </code>
+        </div>
+
+        <!-- 58 -->
+        <div class="topic-title">58. Tkinter GUI</div>
+        <p>
+          Tkinter is the standard GUI toolkit for Python to build desktop apps.
+        </p>
+        <div class="example">
+          <code>
+            from tkinter import *<br />
+            root = Tk()<br />
+            Label(root, text="Hello GUI").pack()<br />
+            root.mainloop()
+          </code>
+        </div>
+
+        <!-- 59 -->
+        <div class="topic-title">59. Web Scraping with BeautifulSoup</div>
+        <p>
+          BeautifulSoup is used to extract data from HTML and XML documents.
+        </p>
+        <div class="example">
+          <code>
+            from bs4 import BeautifulSoup<br />
+            soup =
+            BeautifulSoup("&lt;html&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/html&gt;",
+            'html.parser')<br />
+            print(soup.h1.text)
+          </code>
+        </div>
+
+        <!-- 60 -->
+        <div class="topic-title">60. Flask Framework</div>
+        <p>
+          Flask is a lightweight web framework for building web apps and APIs.
+        </p>
+        <div class="example">
+          <code>
+            from flask import Flask<br />
+            app = Flask(__name__)<br />
+            @app.route("/")<br />
+            def home(): return "Hello Flask"
+          </code>
+        </div>
+
+        <!-- 61 -->
+        <div class="topic-title">61. Flask Routing</div>
+        <p>Define routes using decorators that match URLs to functions.</p>
+        <div class="example">
+          <code>
+            @app.route("/user/&lt;name&gt;")<br />
+            def greet(name): return f"Hello {name}"
+          </code>
+        </div>
+
+        <!-- 62 -->
+        <div class="topic-title">62. Django Framework</div>
+        <p>
+          Django is a high-level Python web framework for rapid development and
+          clean design.
+        </p>
+        <div class="example">
+          <code>
+            # In views.py<br />
+            from django.http import HttpResponse<br />
+            def index(request): return HttpResponse("Welcome to Django")
+          </code>
+        </div>
+
+        <!-- 63 -->
+        <div class="topic-title">63. Django Models</div>
+        <p>Django models define the structure of database tables.</p>
+        <div class="example">
+          <code>
+            from django.db import models<br />
+            class Student(models.Model):<br />
+            &nbsp;&nbsp;name = models.CharField(max_length=50)
+          </code>
+        </div>
+
+        <!-- 64 -->
+        <div class="topic-title">64. Django Admin Panel</div>
+        <p>Auto-generated interface for managing models.</p>
+        <div class="example">
+          <code>
+            # In admin.py<br />
+            from .models import Student<br />
+            admin.site.register(Student)
+          </code>
+        </div>
+
+        <!-- 65 -->
+        <div class="topic-title">65. Sending Emails with smtplib</div>
+        <p>Python’s built-in SMTP library for sending emails through code.</p>
+        <div class="example">
+          <code>
+            import smtplib<br />
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+          </code>
+        </div>
+
+        <!-- 66 -->
+        <div class="topic-title">66. Working with CSV Files</div>
+        <p>
+          CSV files can be processed with the built-in csv module or Pandas.
+        </p>
+        <div class="example">
+          <code>
+            import csv<br />
+            with open('data.csv') as f:<br />
+            &nbsp;&nbsp;reader = csv.reader(f)<br />
+            &nbsp;&nbsp;for row in reader: print(row)
+          </code>
+        </div>
+
+        <!-- 67 -->
+        <div class="topic-title">67. Working with JSON Files</div>
+        <p>JSON is widely used for config files and API responses.</p>
+        <div class="example">
+          <code>
+            import json<br />
+            data = {"name": "John"}<br />
+            with open("data.json", "w") as f:<br />
+            &nbsp;&nbsp;json.dump(data, f)
+          </code>
+        </div>
+
+        <!-- 68 -->
+        <div class="topic-title">68. Python Multithreading</div>
+        <p>
+          Used to perform multiple I/O operations simultaneously in a single
+          process.
+        </p>
+        <div class="example">
+          <code>
+            import threading<br />
+            def task(): print("Running thread")<br />
+            threading.Thread(target=task).start()
+          </code>
+        </div>
+
+        <!-- 69 -->
+        <div class="topic-title">69. Python Multiprocessing</div>
+        <p>Used for parallel CPU-bound processing across multiple processes.</p>
+        <div class="example">
+          <code>
+            from multiprocessing import Process<br />
+            def job(): print("Child Process")<br />
+            p = Process(target=job)<br />
+            p.start(); p.join()
+          </code>
+        </div>
+
+        <!-- 70 -->
+        <div class="topic-title">70. Python Dataclasses</div>
+        <p>
+          Introduced in Python 3.7, dataclasses simplify class creation for data
+          storage.
+        </p>
+        <div class="example">
+          <code>
+            from dataclasses import dataclass<br />
+            @dataclass<br />
+            class Student:<br />
+            &nbsp;&nbsp;name: str<br />
+            &nbsp;&nbsp;age: int
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>Python Topics (71–90)</h1>
+
+        <!-- 71 -->
+        <div class="topic-title">71. Python Virtual Environment (venv)</div>
+        <p>
+          Creates isolated environments for different projects to manage
+          dependencies separately.
+        </p>
+        <div class="example">
+          <code>
+            python -m venv myenv<br />
+            source myenv/bin/activate (Linux/Mac)<br />
+            myenv\Scripts\activate (Windows)
+          </code>
+        </div>
+
+        <!-- 72 -->
+        <div class="topic-title">72. Python Decorators</div>
+        <p>
+          Functions that modify the behavior of other functions using
+          <code>@</code> syntax.
+        </p>
+        <div class="example">
+          <code>
+            def decorator(func):<br />
+            &nbsp;&nbsp;def wrapper():<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;print("Before")<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;func()<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;print("After")<br />
+            &nbsp;&nbsp;return wrapper<br /><br />
+            @decorator<br />
+            def greet(): print("Hello")<br />
+            greet()
+          </code>
+        </div>
+
+        <!-- 73 -->
+        <div class="topic-title">73. Python Generators</div>
+        <p>
+          Generators use <code>yield</code> to produce a sequence of values
+          lazily (on demand).
+        </p>
+        <div class="example">
+          <code>
+            def countdown(n):<br />
+            &nbsp;&nbsp;while n &gt; 0:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;yield n<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;n -= 1<br /><br />
+            for i in countdown(3): print(i)
+          </code>
+        </div>
+
+        <!-- 74 -->
+        <div class="topic-title">74. Python Iterator Protocol</div>
+        <p>
+          Defines how to access items in a container using
+          <code>__iter__()</code> and <code>__next__()</code>.
+        </p>
+        <div class="example">
+          <code>
+            class Counter:<br />
+            &nbsp;&nbsp;def __init__(self): self.count = 0<br />
+            &nbsp;&nbsp;def __iter__(self): return self<br />
+            &nbsp;&nbsp;def __next__(self):<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;if self.count &lt; 3:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.count += 1<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.count<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;else: raise StopIteration<br /><br />
+            for i in Counter(): print(i)
+          </code>
+        </div>
+
+        <!-- 75 -->
+        <div class="topic-title">75. Lambda Functions</div>
+        <p>Small anonymous functions using <code>lambda</code> keyword.</p>
+        <div class="example">
+          <code>
+            square = lambda x: x * x<br />
+            print(square(5))
+          </code>
+        </div>
+
+        <!-- 76 -->
+        <div class="topic-title">76. map(), filter(), reduce()</div>
+        <p>Functional programming tools for applying functions to iterables.</p>
+        <div class="example">
+          <code>
+            from functools import reduce<br />
+            nums = [1,2,3,4]<br />
+            print(list(map(lambda x: x*2, nums)))<br />
+            print(list(filter(lambda x: x%2==0, nums)))<br />
+            print(reduce(lambda x,y: x+y, nums))
+          </code>
+        </div>
+
+        <!-- 77 -->
+        <div class="topic-title">77. Python Packaging with setup.py</div>
+        <p>
+          Create distributable Python packages using <code>setuptools</code>.
+        </p>
+        <div class="example">
+          <code>
+            from setuptools import setup<br />
+            setup(name='mypackage', version='1.0', py_modules=['mymodule'])
+          </code>
+        </div>
+
+        <!-- 78 -->
+        <div class="topic-title">78. Python PyPI and pip</div>
+        <p>
+          <code>pip</code> is used to install packages from the Python Package
+          Index (PyPI).
+        </p>
+        <div class="example">
+          <code>
+            pip install numpy<br />
+            pip uninstall requests
+          </code>
+        </div>
+
+        <!-- 79 -->
+        <div class="topic-title">79. Python Wheel Files (.whl)</div>
+        <p>
+          Binary distribution format for faster installation of Python packages.
+        </p>
+        <div class="example">
+          <code> pip install mypackage.whl </code>
+        </div>
+
+        <!-- 80 -->
+        <div class="topic-title">80. Python PyInstaller</div>
+        <p>Bundles Python apps into standalone executables.</p>
+        <div class="example">
+          <code>
+            pip install pyinstaller<br />
+            pyinstaller myscript.py
+          </code>
+        </div>
+
+        <!-- 81 -->
+        <div class="topic-title">81. Python argparse</div>
+        <p>Used to create command-line tools with argument parsing.</p>
+        <div class="example">
+          <code>
+            import argparse<br />
+            parser = argparse.ArgumentParser()<br />
+            parser.add_argument("name")<br />
+            args = parser.parse_args()<br />
+            print(args.name)
+          </code>
+        </div>
+
+        <!-- 82 -->
+        <div class="topic-title">82. Python JSON Handling</div>
+        <p>Read/write JSON data using the built-in <code>json</code> module.</p>
+        <div class="example">
+          <code>
+            import json<br />
+            data = {"a": 10}<br />
+            json_str = json.dumps(data)<br />
+            print(json.loads(json_str))
+          </code>
+        </div>
+
+        <!-- 83 -->
+        <div class="topic-title">83. Python Logging Levels</div>
+        <p>Levels: DEBUG, INFO, WARNING, ERROR, CRITICAL.</p>
+        <div class="example">
+          <code>
+            import logging<br />
+            logging.basicConfig(level=logging.WARNING)<br />
+            logging.warning("This is a warning")
+          </code>
+        </div>
+
+        <!-- 84 -->
+        <div class="topic-title">84. Python Unit Test Discovery</div>
+        <p>Auto-discover test files using unittest framework.</p>
+        <div class="example">
+          <code> python -m unittest discover </code>
+        </div>
+
+        <!-- 85 -->
+        <div class="topic-title">
+          85. Python with Statement (Context Manager)
+        </div>
+        <p>Used to manage resources like files, automatically closes them.</p>
+        <div class="example">
+          <code>
+            with open("file.txt") as f:<br />
+            &nbsp;&nbsp;data = f.read()
+          </code>
+        </div>
+
+        <!-- 86 -->
+        <div class="topic-title">86. Python __init__.py</div>
+        <p>
+          Marks a directory as a Python package; can include initialization
+          code.
+        </p>
+        <div class="example">
+          <code>
+            # __init__.py<br />
+            print("Initializing package")
+          </code>
+        </div>
+
+        <!-- 87 -->
+        <div class="topic-title">87. Python Jupyter Notebook</div>
+        <p>
+          Interactive coding environment, great for data science and teaching.
+        </p>
+        <div class="example">
+          <code>
+            pip install notebook<br />
+            jupyter notebook
+          </code>
+        </div>
+
+        <!-- 88 -->
+        <div class="topic-title">88. Python Magic Methods</div>
+        <p>
+          Special methods like <code>__str__</code>, <code>__add__</code>, etc.,
+          that add functionality to classes.
+        </p>
+        <div class="example">
+          <code>
+            class Person:<br />
+            &nbsp;&nbsp;def __str__(self): return "This is a Person"
+          </code>
+        </div>
+
+        <!-- 89 -->
+        <div class="topic-title">89. Python Type Hints</div>
+        <p>Optional type annotations to improve code clarity and tooling.</p>
+        <div class="example">
+          <code>
+            def greet(name: str) -&gt; str:<br />
+            &nbsp;&nbsp;return "Hi " + name
+          </code>
+        </div>
+
+        <!-- 90 -->
+        <div class="topic-title">90. Python Requirements File</div>
+        <p>Lists all dependencies of a project; used by pip to install them.</p>
+        <div class="example">
+          <code>
+            # requirements.txt<br />
+            numpy==1.21.0<br />
+            pandas==1.3.0<br /><br />
+            pip install -r requirements.txt
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>Python Final Topics (91–100)</h1>
+
+        <!-- 91 -->
+        <div class="topic-title">91. Python __slots__</div>
+        <p>
+          Used to limit the attributes an object can have, reducing memory
+          usage.
+        </p>
+        <div class="example">
+          <code>
+            class Person:<br />
+            &nbsp;&nbsp;__slots__ = ['name', 'age']<br />
+            &nbsp;&nbsp;def __init__(self, name, age):<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;self.name = name<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;self.age = age
+          </code>
+        </div>
+
+        <!-- 92 -->
+        <div class="topic-title">92. Python Property Decorator</div>
+        <p>
+          Provides controlled access to class attributes via getter/setter
+          methods.
+        </p>
+        <div class="example">
+          <code>
+            class Circle:<br />
+            &nbsp;&nbsp;def __init__(self, radius): self._radius = radius<br />
+            &nbsp;&nbsp;@property<br />
+            &nbsp;&nbsp;def radius(self): return self._radius
+          </code>
+        </div>
+
+        <!-- 93 -->
+        <div class="topic-title">93. Python Descriptors</div>
+        <p>
+          Advanced feature to customize attribute access using
+          <code>__get__</code>, <code>__set__</code>.
+        </p>
+        <div class="example">
+          <code>
+            class Descriptor:<br />
+            &nbsp;&nbsp;def __get__(self, obj, type=None): return "Got it"<br /><br />
+            class Demo:<br />
+            &nbsp;&nbsp;x = Descriptor()<br /><br />
+            print(Demo().x)
+          </code>
+        </div>
+
+        <!-- 94 -->
+        <div class="topic-title">94. Python __dict__</div>
+        <p>Stores an object’s attributes in a dictionary format.</p>
+        <div class="example">
+          <code>
+            class Car:<br />
+            &nbsp;&nbsp;def __init__(self): self.color = "red"<br />
+            print(Car().__dict__)
+          </code>
+        </div>
+
+        <!-- 95 -->
+        <div class="topic-title">95. Python __repr__ vs __str__</div>
+        <p>
+          <code>__str__</code> is used for user-friendly string,
+          <code>__repr__</code> for developer/debugging.
+        </p>
+        <div class="example">
+          <code>
+            class Data:<br />
+            &nbsp;&nbsp;def __str__(self): return "User View"<br />
+            &nbsp;&nbsp;def __repr__(self): return "Developer View"
+          </code>
+        </div>
+
+        <!-- 96 -->
+        <div class="topic-title">96. Python Garbage Collection</div>
+        <p>
+          Automatically reclaims unused memory by deleting unreachable objects.
+        </p>
+        <div class="example">
+          <code>
+            import gc<br />
+            gc.collect() # Manually trigger garbage collection
+          </code>
+        </div>
+
+        <!-- 97 -->
+        <div class="topic-title">97. Python WeakRef Module</div>
+        <p>
+          Used to create weak references to objects, avoiding memory leaks in
+          caches.
+        </p>
+        <div class="example">
+          <code>
+            import weakref<br />
+            class MyClass: pass<br />
+            obj = MyClass()<br />
+            r = weakref.ref(obj)<br />
+            print(r())
+          </code>
+        </div>
+
+        <!-- 98 -->
+        <div class="topic-title">98. Python MemoryView</div>
+        <p>Used to access the internal data of an object without copying.</p>
+        <div class="example">
+          <code>
+            data = bytearray(b'abc')<br />
+            mv = memoryview(data)<br />
+            print(mv[0]) # ASCII of 'a'
+          </code>
+        </div>
+
+        <!-- 99 -->
+        <div class="topic-title">99. Python Contextlib Module</div>
+        <p>Helps create context managers (like with statements) easily.</p>
+        <div class="example">
+          <code>
+            from contextlib import contextmanager<br />
+            @contextmanager<br />
+            def open_file(name):<br />
+            &nbsp;&nbsp;f = open(name)<br />
+            &nbsp;&nbsp;yield f<br />
+            &nbsp;&nbsp;f.close()
+          </code>
+        </div>
+
+        <!-- 100 -->
+        <div class="topic-title">100. Python AsyncIO</div>
+        <p>
+          Supports asynchronous programming for handling I/O-bound tasks
+          efficiently.
+        </p>
+        <div class="example">
+          <code>
+            import asyncio<br />
+            async def main():<br />
+            &nbsp;&nbsp;print("Waiting...")<br />
+            &nbsp;&nbsp;await asyncio.sleep(1)<br />
+            &nbsp;&nbsp;print("Done")<br /><br />
+            asyncio.run(main())
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <div class="topic-title">Python Reference Links</div>
+        <p>
+          📘 Official Python Docs:
+          <a href="https://docs.python.org/3/" target="_blank"
+            >https://docs.python.org/3/</a
+          >
+        </p>
+        <p>
+          🐍 W3Schools Python:
+          <a href="https://www.w3schools.com/python/" target="_blank"
+            >https://www.w3schools.com/python/</a
+          >
+        </p>
+        <p>
+          🎓 GeeksforGeeks Python:
+          <a
+            href="https://www.geeksforgeeks.org/python-programming-language/"
+            target="_blank"
+            >https://www.geeksforgeeks.org/python-programming-language/</a
+          >
+        </p>
+        <p>
+          💡 Real Python Tutorials:
+          <a href="https://realpython.com/" target="_blank"
+            >https://realpython.com/</a
+          >
+        </p>
+        <p>
+          📒 Jupyter Notebooks:
+          <a href="https://jupyter.org/" target="_blank"
+            >https://jupyter.org/</a
+          >
+        </p>
+        <p>
+          📦 PyPI (Package Index):
+          <a href="https://pypi.org/" target="_blank">https://pypi.org/</a>
+        </p>
+      </section>
+
+      <!--‑‑‑‑‑‑‑‑‑‑ END OF PYTHON TUTORIAL ‑‑‑‑‑‑‑‑‑‑-->
+    </div>
+  </body>
+</html>

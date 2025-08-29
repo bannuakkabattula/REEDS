@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>Express.js Topic Document</title>
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">EXPRESS JS</h2>
+      <p class="text-center text-muted mb-0">
+        Create robust backend APIs with Express.js, a minimalist <br />
+        framework for building server-side applications on Node.js.
+      </p>
+    </div>
+
+    <div class="container">
+      <section class="topic-section">
+        <h1>Express.js Topics with Definitions and Examples</h1>
+
+        <div class="topic-title">1. What is Express.js?</div>
+        <p>
+          Definition: Express.js is a minimal and flexible Node.js web
+          application framework.
+        </p>
+        <p>
+          Use: Simplifies routing, middleware handling, and HTTP
+          requests/responses.
+        </p>
+
+        <div class="topic-title">2. Installing Express</div>
+        <p>Install using npm:</p>
+        <div class="example">
+          <code>npm install express</code>
+        </div>
+
+        <div class="topic-title">3. Creating First Express App</div>
+        <p>Example of a basic server using Express:</p>
+        <div class="example">
+          <code>
+            const express = require('express');<br />
+            const app = express();<br />
+            app.get('/', (req, res) =&gt; res.send('Hello Express'));<br />
+            app.listen(3000);
+          </code>
+        </div>
+
+        <div class="topic-title">4. Routing in Express</div>
+        <p>Routing defines how an application responds to client requests.</p>
+        <div class="example">
+          <code>
+            app.get('/about', (req, res) =&gt; res.send('About Page'));
+          </code>
+        </div>
+
+        <div class="topic-title">5. Handling POST Request</div>
+        <p>Use <code>express.json()</code> middleware to parse request body.</p>
+        <div class="example">
+          <code>
+            app.use(express.json());<br />
+            app.post('/submit', (req, res) =&gt; res.send(req.body));
+          </code>
+        </div>
+
+        <div class="topic-title">6. Route Parameters</div>
+        <p>Capture values in the URL using <code>:</code> syntax.</p>
+        <div class="example">
+          <code>
+            app.get('/user/:id', (req, res) =&gt; res.send(req.params.id));
+          </code>
+        </div>
+
+        <div class="topic-title">7. Query Parameters</div>
+        <p>Values sent using the URL after <code>?</code>.</p>
+        <div class="example">
+          <code>
+            app.get('/search', (req, res) =&gt; res.send(req.query.q));
+          </code>
+        </div>
+
+        <div class="topic-title">8. Express Middleware</div>
+        <p>Functions that execute before reaching route handlers.</p>
+        <div class="example">
+          <code>
+            app.use((req, res, next) =&gt; {<br />
+            &nbsp;&nbsp;console.log('Middleware called');<br />
+            &nbsp;&nbsp;next();<br />
+            });
+          </code>
+        </div>
+
+        <div class="topic-title">9. Serving Static Files</div>
+        <p>Use <code>express.static()</code> to serve CSS, JS, images, etc.</p>
+        <div class="example">
+          <code> app.use(express.static('public')); </code>
+        </div>
+
+        <div class="topic-title">10. Handling 404 Errors</div>
+        <p>Catch all unmatched routes using <code>*</code> or middleware.</p>
+        <div class="example">
+          <code>
+            app.use((req, res) =&gt; res.status(404).send('Page Not Found'));
+          </code>
+        </div>
+
+        <div class="topic-title">11. Express Router</div>
+        <p>Used to modularize routes in different files.</p>
+        <div class="example">
+          <code>
+            const router = express.Router();<br />
+            router.get('/', (req, res) =&gt; res.send('Home'));<br />
+            app.use('/api', router);
+          </code>
+        </div>
+
+        <div class="topic-title">12. Request Object</div>
+        <p><code>req</code> contains information about HTTP request.</p>
+        <p>
+          Example: <code>req.params</code>, <code>req.query</code>,
+          <code>req.body</code>
+        </p>
+
+        <div class="topic-title">13. Response Object</div>
+        <p><code>res</code> is used to send responses to the client.</p>
+        <p>
+          Example: <code>res.send()</code>, <code>res.json()</code>,
+          <code>res.status()</code>
+        </p>
+
+        <div class="topic-title">14. JSON Response</div>
+        <p>Send JSON using <code>res.json()</code>.</p>
+        <div class="example">
+          <code> res.json({ name: 'Express', version: '1.0' }); </code>
+        </div>
+
+        <div class="topic-title">15. Express with Template Engine</div>
+        <p>
+          Use template engines like <code>ejs</code> for dynamic HTML rendering.
+        </p>
+        <div class="example">
+          <code>
+            app.set('view engine', 'ejs');<br />
+            app.get('/', (req, res) =&gt; res.render('index', { title: 'Home'
+            }));
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <div class="topic-title">16. Using Express Generator</div>
+        <p>
+          <code>express-generator</code> is a CLI tool to scaffold a boilerplate
+          Express app.
+        </p>
+        <div class="example">
+          <code>
+            npm install -g express-generator<br />
+            express myapp<br />
+            cd myapp && npm install
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">17. Using CORS in Express</div>
+        <p>
+          <code>cors</code> middleware allows cross-origin HTTP requests (from
+          other domains).
+        </p>
+        <div class="example">
+          <code>
+            const cors = require('cors');<br />
+            app.use(cors());
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">18. Express Form Handling</div>
+        <p>To handle form data, use <code>express.urlencoded()</code>.</p>
+        <div class="example">
+          <code>
+            app.use(express.urlencoded({ extended: true }));<br />
+            app.post('/form', (req, res) =&gt; res.send(req.body));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">19. Session Handling with express-session</div>
+        <p>Used to manage user sessions between requests.</p>
+        <div class="example">
+          <code>
+            const session = require('express-session');<br />
+            app.use(session({ secret: 'key', resave: false, saveUninitialized:
+            true }));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">20. Cookie Handling</div>
+        <p>Use <code>cookie-parser</code> to parse cookies in Express.</p>
+        <div class="example">
+          <code>
+            const cookieParser = require('cookie-parser');<br />
+            app.use(cookieParser());
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">21. File Uploads with Multer</div>
+        <p>Multer middleware is used to handle file uploads.</p>
+        <div class="example">
+          <code>
+            const multer = require('multer');<br />
+            const upload = multer({ dest: 'uploads/' });<br />
+            app.post('/upload', upload.single('myFile'), (req, res) =&gt;
+            res.send('Uploaded'));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">
+          22. Input Validation with express-validator
+        </div>
+        <p>Used to validate and sanitize user inputs.</p>
+        <div class="example">
+          <code>
+            const { body, validationResult } = require('express-validator');<br />
+            app.post('/user', body('email').isEmail(), (req, res) =&gt; {<br />
+            &nbsp;&nbsp;const errors = validationResult(req);<br />
+            &nbsp;&nbsp;if (!errors.isEmpty()) return res.status(400).json({
+            errors: errors.array() });<br />
+            &nbsp;&nbsp;res.send('Valid');<br />
+            });
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">23. Authentication Middleware</div>
+        <p>Custom middleware to restrict access to authenticated users only.</p>
+        <div class="example">
+          <code>
+            function auth(req, res, next) {<br />
+            &nbsp;&nbsp;if (req.session.user) next();<br />
+            &nbsp;&nbsp;else res.redirect('/login');<br />
+            }<br />
+            app.get('/dashboard', auth, (req, res) =&gt; res.send('Welcome'));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">24. Role-Based Authorization</div>
+        <p>Control access based on user roles.</p>
+        <div class="example">
+          <code>
+            function adminOnly(req, res, next) {<br />
+            &nbsp;&nbsp;if (req.user.role === 'admin') next();<br />
+            &nbsp;&nbsp;else res.status(403).send('Forbidden');<br />
+            }
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">25. Logging with morgan</div>
+        <p><code>morgan</code> logs HTTP request details for debugging.</p>
+        <div class="example">
+          <code>
+            const morgan = require('morgan');<br />
+            app.use(morgan('dev'));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">26. Rate Limiting with express-rate-limit</div>
+        <p>Prevents brute-force attacks and limits requests.</p>
+        <div class="example">
+          <code>
+            const rateLimit = require('express-rate-limit');<br />
+            const limiter = rateLimit({ windowMs: 60000, max: 10 });<br />
+            app.use(limiter);
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">27. Using Helmet for Security</div>
+        <p>
+          <code>helmet</code> sets various HTTP headers to secure Express apps.
+        </p>
+        <div class="example">
+          <code>
+            const helmet = require('helmet');<br />
+            app.use(helmet());
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">28. Environment Variables with dotenv</div>
+        <p>
+          Use <code>dotenv</code> to load environment variables from a .env
+          file.
+        </p>
+        <div class="example">
+          <code>
+            require('dotenv').config();<br />
+            console.log(process.env.PORT);
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">29. Modular Route Files</div>
+        <p>Organize routes in separate files for scalability.</p>
+        <div class="example">
+          <code>
+            const userRoutes = require('./routes/users');<br />
+            app.use('/users', userRoutes);
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">30. Error Handling Middleware</div>
+        <p>
+          Centralized error handling in Express with 4-parameter middleware.
+        </p>
+        <div class="example">
+          <code>
+            app.use((err, req, res, next) =&gt; {<br />
+            &nbsp;&nbsp;console.error(err.stack);<br />
+            &nbsp;&nbsp;res.status(500).send('Something broke!');<br />
+            });
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <div class="topic-title">31. JWT Authentication</div>
+        <p>
+          JWT (JSON Web Token) is used for stateless authentication in Express.
+        </p>
+        <div class="example">
+          <code>
+            const jwt = require('jsonwebtoken');<br />
+            const token = jwt.sign({ userId: 1 }, 'secret');<br />
+            const data = jwt.verify(token, 'secret');
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">32. Protecting Routes with JWT</div>
+        <p>Use a middleware to verify tokens before allowing access.</p>
+        <div class="example">
+          <code>
+            function auth(req, res, next) {<br />
+            &nbsp;&nbsp;const token = req.headers.authorization;<br />
+            &nbsp;&nbsp;try {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;jwt.verify(token, 'secret');<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;next();<br />
+            &nbsp;&nbsp;} catch {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;res.status(401).send('Unauthorized');<br />
+            &nbsp;&nbsp;}<br />
+            }
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">33. Using MongoDB with Express</div>
+        <p>
+          Connect MongoDB to Express using <code>mongoose</code> or native
+          driver.
+        </p>
+        <div class="example">
+          <code>
+            const mongoose = require('mongoose');<br />
+            mongoose.connect('mongodb://localhost/dbname');
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">34. MVC Architecture in Express</div>
+        <p>
+          MVC (Model-View-Controller) separates logic: routes, business, and
+          data.
+        </p>
+        <p>
+          Folder Structure: <code>routes/</code>, <code>controllers/</code>,
+          <code>models/</code>
+        </p>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">35. Deployment on Render/Heroku</div>
+        <p>
+          Use platforms like Render, Heroku, or Railway for hosting Express
+          apps.
+        </p>
+        <div class="example">
+          <code>
+            // Set PORT from environment<br />
+            const PORT = process.env.PORT || 3000;<br />
+            app.listen(PORT);
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">36. Using PM2 for Production</div>
+        <p>PM2 is a process manager for Node.js apps in production.</p>
+        <div class="example">
+          <code>
+            npm install pm2 -g<br />
+            pm2 start app.js
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">37. Clustering with Express</div>
+        <p>
+          Use <code>cluster</code> module to run Express on multiple CPU cores.
+        </p>
+        <div class="example">
+          <code>
+            const cluster = require('cluster');<br />
+            if (cluster.isMaster) { cluster.fork(); } else { app.listen(3000); }
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">38. Using Socket.IO with Express</div>
+        <p>
+          <code>socket.io</code> enables real-time bi-directional communication.
+        </p>
+        <div class="example">
+          <code>
+            const server = require('http').createServer(app);<br />
+            const io = require('socket.io')(server);<br />
+            io.on('connection', socket =&gt; console.log('User connected'));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">39. Serving JSON API</div>
+        <p>Send structured JSON data as API response.</p>
+        <div class="example">
+          <code>
+            app.get('/api', (req, res) =&gt; res.json({ id: 1, name: 'Express'
+            }));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">40. Handling Async/Await in Express</div>
+        <p>Use try-catch blocks to safely handle errors in async functions.</p>
+        <div class="example">
+          <code>
+            app.get('/', async (req, res) =&gt; {<br />
+            &nbsp;&nbsp;try { const data = await getData(); res.send(data); }<br />
+            &nbsp;&nbsp;catch (err) { res.status(500).send(err.message); }<br />
+            });
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">41. Connecting Express with React</div>
+        <p>
+          Use Express as backend API and React for frontend (frontend calls
+          backend via Axios).
+        </p>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">42. Using Nodemailer in Express</div>
+        <p>Send emails using <code>nodemailer</code> inside Express route.</p>
+        <div class="example">
+          <code>
+            const transporter = nodemailer.createTransport({...});<br />
+            transporter.sendMail({ to: 'x@y.com', subject: 'Test', text: 'Hello'
+            });
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">43. Global Error Handling</div>
+        <p>Create a centralized middleware for all app errors.</p>
+        <div class="example">
+          <code>
+            app.use((err, req, res, next) =&gt; {<br />
+            &nbsp;&nbsp;res.status(500).json({ message: err.message });<br />
+            });
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">44. Compression Middleware</div>
+        <p>
+          <code>compression</code> reduces the size of response bodies (improves
+          performance).
+        </p>
+        <div class="example">
+          <code>
+            const compression = require('compression');<br />
+            app.use(compression());
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">45. Debugging Express Apps</div>
+        <p>
+          Use tools like <code>console.log()</code>, <code>Postman</code>, and
+          <code>node inspect</code>.
+        </p>
+        <p>Use <code>debug</code> package for logging modules.</p>
+      </section>
+      <section class="topic-section">
+        <div class="topic-title">46. Express.js vs Node.js</div>
+        <p>
+          Node.js is the platform, Express.js is a web framework built on top of
+          Node.js.
+        </p>
+        <p>
+          Express simplifies handling routes, middleware, and
+          requests/responses.
+        </p>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">47. Using Express with MySQL</div>
+        <p>
+          Use <code>mysql2</code> or <code>sequelize</code> for connecting MySQL
+          with Express.
+        </p>
+        <div class="example">
+          <code>
+            const mysql = require('mysql2');<br />
+            const db = mysql.createConnection({host: 'localhost', user: 'root',
+            database: 'test'});<br />
+            db.query('SELECT * FROM users', (err, results) =&gt;
+            console.log(results));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">48. Using Sequelize ORM</div>
+        <p>
+          Sequelize is a promise-based ORM for Node.js (supports MySQL,
+          PostgreSQL, etc.).
+        </p>
+        <div class="example">
+          <code>
+            const { Sequelize, DataTypes } = require('sequelize');<br />
+            const sequelize = new Sequelize('test', 'root', '', { dialect:
+            'mysql' });<br />
+            const User = sequelize.define('User', { name: DataTypes.STRING
+            });<br />
+            sequelize.sync();
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">49. Express with PostgreSQL</div>
+        <p>
+          Use <code>pg</code> module to integrate PostgreSQL database in
+          Express.
+        </p>
+        <div class="example">
+          <code>
+            const { Client } = require('pg');<br />
+            const client = new Client();<br />
+            client.connect();<br />
+            client.query('SELECT * FROM table', (err, res) =&gt;
+            console.log(res.rows));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">
+          50. Express Unit Testing with Mocha & Chai
+        </div>
+        <p>
+          Test routes and logic using <code>mocha</code> and <code>chai</code>.
+        </p>
+        <div class="example">
+          <code>
+            const chai = require('chai');<br />
+            const chaiHttp = require('chai-http');<br />
+            chai.use(chaiHttp);<br />
+            chai.request(app).get('/').end((err, res) =&gt;
+            res.should.have.status(200));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">51. Express Testing with Supertest</div>
+        <p><code>supertest</code> allows HTTP assertions on Express apps.</p>
+        <div class="example">
+          <code>
+            const request = require('supertest');<br />
+            request(app).get('/api').expect(200);
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">52. Caching in Express</div>
+        <p>
+          Use HTTP headers or Redis to implement server-side caching in Express.
+        </p>
+        <div class="example">
+          <code> res.set('Cache-Control', 'public, max-age=600'); </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">53. Using Redis with Express</div>
+        <p>Store session or cache data using <code>redis</code>.</p>
+        <div class="example">
+          <code>
+            const redis = require('redis');<br />
+            const client = redis.createClient();<br />
+            client.set('key', 'value');
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">54. Express GraphQL API</div>
+        <p>Use <code>express-graphql</code> to create GraphQL APIs.</p>
+        <div class="example">
+          <code>
+            const { graphqlHTTP } = require('express-graphql');<br />
+            const schema = ...;<br />
+            app.use('/graphql', graphqlHTTP({ schema, graphiql: true }));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">55. Creating RESTful APIs</div>
+        <p>
+          Use CRUD routes (GET, POST, PUT, DELETE) to create RESTful services.
+        </p>
+        <div class="example">
+          <code>
+            app.get('/users');<br />
+            app.post('/users');<br />
+            app.put('/users/:id');<br />
+            app.delete('/users/:id');
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">56. Status Codes in Express</div>
+        <p>Use proper status codes like 200, 201, 400, 401, 404, 500.</p>
+        <div class="example">
+          <code> res.status(404).send('Not Found'); </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">57. Using EJS with Express</div>
+        <p><code>ejs</code> is a popular template engine used with Express.</p>
+        <div class="example">
+          <code>
+            app.set('view engine', 'ejs');<br />
+            app.get('/', (req, res) =&gt; res.render('index', { name: 'User'
+            }));
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">58. Cross-Site Scripting (XSS) Protection</div>
+        <p>Use packages like <code>xss-clean</code> to sanitize user input.</p>
+        <div class="example">
+          <code>
+            const xss = require('xss-clean');<br />
+            app.use(xss());
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">59. CSRF Protection in Express</div>
+        <p>Use <code>csurf</code> middleware to prevent CSRF attacks.</p>
+        <div class="example">
+          <code>
+            const csrf = require('csurf');<br />
+            app.use(csrf());
+          </code>
+        </div>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">60. Rate Limiting by IP</div>
+        <p>Restrict request frequency based on IP address to prevent abuse.</p>
+        <div class="example">
+          <code>
+            const limiter = rateLimit({ max: 100, windowMs: 15 * 60 * 1000
+            });<br />
+            app.use(limiter);
+          </code>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

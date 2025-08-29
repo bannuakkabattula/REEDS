@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angular Topics Documentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+
+    <style></style>
+  </head>
+
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">ANGULAR FRAMEWORK</h2>
+      <p class="text-center text-muted mb-0">
+        Build dynamic single-page applications using Angular’s <br />
+        component-driven architecture, services, routing, and forms.
+      </p>
+    </div>
+    <!-- topic section start -->
+
+    <div class="container">
+      <section class="topic-section">
+        <h1>Angular - Complete Frontend Framework by Google</h1>
+
+        <div class="topic-title">1. What is Angular?</div>
+        <p>
+          Angular is a TypeScript-based open-source front-end web framework
+          developed by Google. It provides a complete solution for building
+          dynamic web applications, including routing, state management,
+          dependency injection, and component-based UI development.
+        </p>
+
+        <div class="topic-title">2. Installing Angular CLI</div>
+        <p>
+          Angular CLI is a command-line tool to scaffold and manage Angular
+          applications.
+        </p>
+        <div class="example">
+          <code> npm install -g @angular/cli </code>
+        </div>
+
+        <div class="topic-title">3. Creating a New Angular App</div>
+        <p>
+          This command creates a new Angular project with all default files.
+        </p>
+        <div class="example">
+          <code>
+            ng new my-app<br />
+            cd my-app<br />
+            ng serve
+          </code>
+        </div>
+
+        <div class="topic-title">4. Angular Project Structure</div>
+        <p>An Angular project has a modular structure including:</p>
+        <ul>
+          <li><b>src/app/</b>: application logic and components</li>
+          <li><b>main.ts</b>: entry point</li>
+          <li><b>angular.json</b>: config file</li>
+          <li><b>index.html</b>: root HTML</li>
+        </ul>
+
+        <div class="topic-title">5. Components in Angular</div>
+        <p>
+          Components are the building blocks of Angular UI. Created using CLI:
+        </p>
+        <div class="example">
+          <code> ng generate component hello </code>
+        </div>
+        <p>
+          This creates a folder with `.ts`, `.html`, `.css`, and `.spec.ts`
+          files.
+        </p>
+
+        <div class="topic-title">6. Component Decorator</div>
+        <p>Defines the component’s metadata.</p>
+        <div class="example">
+          <code>
+            @Component({<br />
+            &nbsp;&nbsp;selector: 'app-hello',<br />
+            &nbsp;&nbsp;templateUrl: './hello.component.html',<br />
+            &nbsp;&nbsp;styleUrls: ['./hello.component.css']<br />
+            })<br />
+            export class HelloComponent {}
+          </code>
+        </div>
+
+        <div class="topic-title">7. Data Binding</div>
+        <p>Angular supports multiple types of data binding:</p>
+        <ul>
+          <li><b>Interpolation</b>: <code>{{ name }}</code></li>
+          <li><b>Property binding</b>: <code>[src]="imagePath"</code></li>
+          <li><b>Event binding</b>: <code>(click)="sayHello()"</code></li>
+          <li><b>Two-way binding</b>: <code>[(ngModel)]="username"</code></li>
+        </ul>
+
+        <div class="topic-title">8. Displaying Data in HTML</div>
+        <p>
+          Use interpolation to display data from component.ts to template.html.
+        </p>
+        <div class="example">
+          <code> &lt;h2&gt;Hello {{ username }}&lt;/h2&gt; </code>
+        </div>
+
+        <div class="topic-title">9. Event Binding Example</div>
+        <p>Capture user actions such as clicks.</p>
+        <div class="example">
+          <code>
+            &lt;button (click)="greetUser()"&gt;Click Me&lt;/button&gt;<br />
+            greetUser() { alert("Welcome!"); }
+          </code>
+        </div>
+
+        <div class="topic-title">10. Two-Way Data Binding with ngModel</div>
+        <p>
+          Bind input to a component property using <code>FormsModule</code>.
+        </p>
+        <div class="example">
+          <code>
+            import { FormsModule } from '@angular/forms'; // in app.module.ts<br /><br />
+
+            &lt;input [(ngModel)]="username"&gt;<br />
+            &lt;p&gt;Typed: {{ username }}&lt;/p&gt;
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>Angular – Directives, Services, Dependency Injection</h1>
+        <div class="topic-title">11. Structural Directives</div>
+        <p>Used to change the DOM layout by adding or removing elements.</p>
+        <ul>
+          <li><code>*ngIf</code> – conditionally renders elements</li>
+          <li><code>*ngFor</code> – renders list of items</li>
+        </ul>
+        <div class="example">
+          <code>
+            &lt;div *ngIf="isVisible"&gt;Visible Content&lt;/div&gt;<br />
+            &lt;li *ngFor="let item of items"&gt;{{ item }}&lt;/li&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">12. Attribute Directives</div>
+        <p>Change the appearance or behavior of an element.</p>
+        <ul>
+          <li><code>[ngClass]</code> – bind classes dynamically</li>
+          <li><code>[ngStyle]</code> – apply inline styles</li>
+        </ul>
+        <div class="example">
+          <code>
+            &lt;div [ngClass]="{highlight: isHighlighted}"&gt;Highlight
+            Me&lt;/div&gt;<br />
+            &lt;div [ngStyle]="{color: 'blue'}"&gt;Styled Text&lt;/div&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">13. Angular Service</div>
+        <p>
+          Services are used to share logic or data across components. Services
+          are reusable and follow the singleton pattern.
+        </p>
+        <div class="example">
+          <code>
+            // logger.service.ts<br />
+            @Injectable({ providedIn: 'root' })<br />
+            export class LoggerService {<br />
+            &nbsp;&nbsp;log(msg: string) { console.log(msg); }<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">14. Dependency Injection</div>
+        <p>
+          Angular injects services into components automatically via the
+          constructor.
+        </p>
+        <div class="example">
+          <code>
+            constructor(private logger: LoggerService) {}<br />
+            ngOnInit() { this.logger.log("App started"); }
+          </code>
+        </div>
+
+        <div class="topic-title">15. Lifecycle Hooks</div>
+        <p>
+          Hooks are special methods that Angular calls during component
+          initialization or destruction.
+        </p>
+        <ul>
+          <li><code>ngOnInit()</code>: After component is initialized</li>
+          <li><code>ngOnDestroy()</code>: Before component is destroyed</li>
+        </ul>
+        <div class="example">
+          <code>
+            ngOnInit() { console.log('Component Loaded'); }<br />
+            ngOnDestroy() { console.log('Component Destroyed'); }
+          </code>
+        </div>
+
+        <div class="topic-title">16. Routing and Navigation</div>
+        <p>Angular Router enables navigation between components/pages.</p>
+        <div class="example">
+          <code>
+            // app-routing.module.ts<br />
+            const routes: Routes = [<br />
+            &nbsp;&nbsp;{ path: '', component: HomeComponent },<br />
+            &nbsp;&nbsp;{ path: 'about', component: AboutComponent }<br />
+            ];<br />
+            RouterModule.forRoot(routes)
+          </code>
+        </div>
+
+        <div class="topic-title">17. RouterLink and RouterOutlet</div>
+        <p>
+          RouterLink creates navigation links, and RouterOutlet renders the
+          routed component.
+        </p>
+        <div class="example">
+          <code>
+            &lt;a routerLink="/about"&gt;About&lt;/a&gt;<br />
+            &lt;router-outlet&gt;&lt;/router-outlet&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">18. Forms in Angular</div>
+        <p>
+          Angular supports Template-driven and Reactive Forms. Template-driven
+          forms are simpler for basic use cases.
+        </p>
+        <div class="example">
+          <code>
+            &lt;form #myForm="ngForm"&gt;<br />
+            &nbsp;&nbsp;&lt;input name="email" ngModel required /&gt;<br />
+            &nbsp;&nbsp;&lt;button&gt;Submit&lt;/button&gt;<br />
+            &lt;/form&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">19. Reactive Forms</div>
+        <p>
+          More scalable, testable, and reactive way to manage forms using
+          FormBuilder and FormGroup.
+        </p>
+        <div class="example">
+          <code>
+            form = this.fb.group({<br />
+            &nbsp;&nbsp;email: ['', [Validators.required, Validators.email]]<br />
+            });<br /><br />
+            constructor(private fb: FormBuilder) {}
+          </code>
+        </div>
+
+        <div class="topic-title">20. Form Validation</div>
+        <p>
+          Built-in validators and custom validators help in input validation.
+        </p>
+        <div class="example">
+          <code>
+            &lt;input name="email" ngModel required email /&gt;<br />
+            &lt;div *ngIf="myForm.controls.email.errors"&gt;Invalid
+            email!&lt;/div&gt;
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>Angular – HTTP, Pipes, Guards, and Advanced Features</h1>
+
+        <div class="topic-title">21. HTTPClient Module</div>
+        <p>
+          Used to make HTTP requests (GET, POST, PUT, DELETE) to backend
+          services.
+        </p>
+        <div class="example">
+          <code>
+            // In app.module.ts<br />
+            import { HttpClientModule } from '@angular/common/http';<br />
+            @NgModule({ imports: [HttpClientModule] })<br />
+            export class AppModule {}
+          </code>
+        </div>
+
+        <div class="topic-title">22. Making GET Request</div>
+        <p>Use HttpClient to fetch data from an API.</p>
+        <div class="example">
+          <code>
+            constructor(private http: HttpClient) {}<br />
+            ngOnInit() {<br />
+            &nbsp;&nbsp;this.http.get('https://jsonplaceholder.typicode.com/posts')<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;.subscribe(data =&gt; this.posts = data);<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">23. Observables</div>
+        <p>
+          Angular uses RxJS Observables for async operations. Observables
+          support stream-based reactive programming.
+        </p>
+        <div class="example">
+          <code>
+            this.http.get('api/data')<br />
+            &nbsp;&nbsp;.subscribe(response =&gt; console.log(response));
+          </code>
+        </div>
+
+        <div class="topic-title">24. Async Pipe</div>
+        <p>
+          Automatically subscribes to an Observable in the template and displays
+          the result.
+        </p>
+        <div class="example">
+          <code>
+            &lt;div *ngIf="user$ | async as user"&gt;<br />
+            &nbsp;&nbsp;Welcome, {{ user.name }}<br />
+            &lt;/div&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">25. Built-in Pipes</div>
+        <p>Angular includes several pipes to transform values in templates:</p>
+        <ul>
+          <li><code>{{ today | date }}</code></li>
+          <li><code>{{ price | currency }}</code></li>
+          <li><code>{{ name | uppercase }}</code></li>
+        </ul>
+
+        <div class="topic-title">26. Custom Pipes</div>
+        <p>You can create your own pipe for custom formatting logic.</p>
+        <div class="example">
+          <code>
+            @Pipe({ name: 'capitalize' })<br />
+            export class CapitalizePipe implements PipeTransform {<br />
+            &nbsp;&nbsp;transform(value: string) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;return value.charAt(0).toUpperCase() +
+            value.slice(1);<br />
+            &nbsp;&nbsp;}<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">27. Route Guards</div>
+        <p>Used to protect routes and control access using services.</p>
+        <div class="example">
+          <code>
+            canActivate(): boolean {<br />
+            &nbsp;&nbsp;return this.authService.isLoggedIn();<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">28. Lazy Loading Modules</div>
+        <p>
+          Helps improve app performance by loading feature modules only when
+          needed.
+        </p>
+        <div class="example">
+          <code>
+            // app-routing.module.ts<br />
+            { path: 'admin', loadChildren: () =&gt;
+            import('./admin/admin.module').then(m =&gt; m.AdminModule) }
+          </code>
+        </div>
+
+        <div class="topic-title">29. Interceptors</div>
+        <p>
+          Used to modify HTTP requests/responses globally (e.g., add auth
+          token).
+        </p>
+        <div class="example">
+          <code>
+            intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler):
+            Observable&lt;HttpEvent&lt;any&gt;&gt; {<br />
+            &nbsp;&nbsp;const authReq = req.clone({ headers:
+            req.headers.set('Authorization', 'Bearer xyz') });<br />
+            &nbsp;&nbsp;return next.handle(authReq);<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">30. Environment Configuration</div>
+        <p>
+          Use <code>environment.ts</code> and
+          <code>environment.prod.ts</code> for different API URLs or settings
+          per build type.
+        </p>
+        <div class="example">
+          <code>
+            // environment.ts<br />
+            export const environment = { apiUrl: 'http://localhost:3000' };
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>Angular – Advanced Features and Best Practices</h1>
+
+        <div class="topic-title">31. Modules in Angular</div>
+        <p>
+          Angular uses NgModules to group components, directives, pipes, and
+          services. Every Angular app has a root module (`AppModule`).
+        </p>
+        <div class="example">
+          <code>
+            @NgModule({<br />
+            &nbsp;&nbsp;declarations: [AppComponent],<br />
+            &nbsp;&nbsp;imports: [BrowserModule],<br />
+            &nbsp;&nbsp;bootstrap: [AppComponent]<br />
+            })<br />
+            export class AppModule {}
+          </code>
+        </div>
+
+        <div class="topic-title">32. Feature Modules</div>
+        <p>Used to organize code into cohesive blocks for scalability.</p>
+        <div class="example">
+          <code> ng generate module products </code>
+        </div>
+
+        <div class="topic-title">33. Shared Module</div>
+        <p>
+          A module containing common components, directives, and pipes used
+          across multiple modules.
+        </p>
+        <div class="example">
+          <code>
+            @NgModule({<br />
+            &nbsp;&nbsp;declarations: [CardComponent],<br />
+            &nbsp;&nbsp;exports: [CardComponent]<br />
+            })<br />
+            export class SharedModule {}
+          </code>
+        </div>
+
+        <div class="topic-title">34. Custom Directives</div>
+        <p>Used to create your own behavior or styles in HTML templates.</p>
+        <div class="example">
+          <code>
+            @Directive({ selector: '[appHighlight]' })<br />
+            export class HighlightDirective {<br />
+            &nbsp;&nbsp;constructor(el: ElementRef) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;el.nativeElement.style.backgroundColor =
+            'yellow';<br />
+            &nbsp;&nbsp;}<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">35. Dynamic Components</div>
+        <p>
+          Load components at runtime using ViewContainerRef and
+          ComponentFactoryResolver.
+        </p>
+        <div class="example">
+          <code> this.vcr.createComponent(MyDynamicComponent); </code>
+        </div>
+
+        <div class="topic-title">36. Template Reference Variables</div>
+        <p>
+          Used to access DOM elements and component instances in the template.
+        </p>
+        <div class="example">
+          <code>
+            &lt;input #usernameInput&gt;<br />
+            &lt;button (click)="log(usernameInput.value)"&gt;Log&lt;/button&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">37. ViewChild Decorator</div>
+        <p>Gives access to child component or DOM element from the class.</p>
+        <div class="example">
+          <code>
+            @ViewChild('usernameInput') inputRef: ElementRef;<br />
+            ngAfterViewInit() { console.log(this.inputRef.nativeElement.value);
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">38. TrackBy in ngFor</div>
+        <p>Improves performance by identifying which items changed.</p>
+        <div class="example">
+          <code>
+            &lt;li *ngFor="let item of items; trackBy: trackById"&gt;{{
+            item.name }}&lt;/li&gt;<br />
+            trackById(index, item) { return item.id; }
+          </code>
+        </div>
+
+        <div class="topic-title">39. Change Detection</div>
+        <p>
+          Angular checks the view model for changes using zone.js. Strategies:
+        </p>
+        <ul>
+          <li><code>Default</code> – runs on every change</li>
+          <li><code>OnPush</code> – runs only when inputs change</li>
+        </ul>
+
+        <div class="topic-title">40. Deployment Using Angular CLI</div>
+        <p>
+          Build the app for production and deploy using Firebase, Netlify, or
+          any static host.
+        </p>
+        <div class="example">
+          <code>
+            ng build --prod<br />
+            firebase deploy<br />
+            or<br />
+            netlify deploy
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>Angular – Final Topics and Best Practices</h1>
+
+        <div class="topic-title">41. Reactive State Management (NgRx)</div>
+        <p>
+          NgRx is a Redux-inspired state management library for Angular. It uses
+          actions, reducers, and stores for global state handling.
+        </p>
+        <p>
+          Best suited for large-scale applications with shared state across
+          components.
+        </p>
+
+        <div class="topic-title">
+          42. Angular Universal (Server-Side Rendering)
+        </div>
+        <p>
+          Angular Universal renders Angular applications on the server,
+          improving performance and SEO.
+        </p>
+        <p>Command: <code>ng add @nguniversal/express-engine</code></p>
+
+        <div class="topic-title">43. Angular Animations</div>
+        <p>
+          Built-in animation support using <code>@angular/animations</code>.
+        </p>
+        <div class="example">
+          <code>
+            animations: [<br />
+            &nbsp;&nbsp;trigger('fadeIn', [<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;transition(':enter', [<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style({ opacity: 0 }),<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animate('500ms', style({
+            opacity: 1 }))<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;])<br />
+            &nbsp;&nbsp;])<br />
+            ]
+          </code>
+        </div>
+
+        <div class="topic-title">44. Angular Schematics</div>
+        <p>
+          Custom code generators using CLI. Helpful for scaffolding new
+          components or modules with preset logic and structure.
+        </p>
+
+        <div class="topic-title">45. Environment-specific Configuration</div>
+        <p>
+          Use <code>fileReplacements</code> in <code>angular.json</code> to load
+          different configuration files based on environment (dev/prod).
+        </p>
+
+        <div class="topic-title">46. Angular Material</div>
+        <p>
+          UI component library by Google with pre-built styles, layout, and
+          responsiveness.
+        </p>
+        <p>Install: <code>ng add @angular/material</code></p>
+
+        <div class="topic-title">47. Responsive Design</div>
+        <p>
+          Use CSS Flexbox/Grid, Angular Material’s layout system, or external
+          libraries like Bootstrap to build responsive apps.
+        </p>
+
+        <div class="topic-title">48. Testing in Angular</div>
+        <p>
+          Uses Jasmine and Karma for unit testing and Protractor or Cypress for
+          end-to-end testing.
+        </p>
+        <div class="example">
+          <code>
+            describe('ComponentName', () =&gt; {<br />
+            &nbsp;&nbsp;it('should create component', () =&gt; {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;expect(component).toBeTruthy();<br />
+            &nbsp;&nbsp;});<br />
+            });
+          </code>
+        </div>
+
+        <div class="topic-title">
+          49. Angular CLI Commands (Quick Reference)
+        </div>
+        <ul>
+          <li><code>ng new app-name</code> – create project</li>
+          <li><code>ng serve</code> – run development server</li>
+          <li><code>ng generate component xyz</code> – create component</li>
+          <li><code>ng build</code> – build production code</li>
+        </ul>
+
+        <div class="topic-title">50. Angular Best Practices</div>
+        <ul>
+          <li>Use OnPush change detection where possible</li>
+          <li>Structure modules and services clearly</li>
+          <li>Keep logic inside services instead of components</li>
+          <li>Use lazy loading for feature-heavy routes</li>
+          <li>Follow naming conventions and linting rules</li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>Angular Reference Links</h1>
+
+        <div class="topic-title">1. Official Angular Documentation</div>
+        <p>
+          Complete guide on Angular fundamentals, advanced concepts, CLI, RxJS,
+          and more.
+        </p>
+        <p>
+          <a href="https://angular.io/docs" target="_blank"
+            >https://angular.io/docs</a
+          >
+        </p>
+
+        <div class="topic-title">2. Angular CLI Documentation</div>
+        <p>Official reference for Angular CLI commands and usage patterns.</p>
+        <p>
+          <a href="https://angular.io/cli" target="_blank"
+            >https://angular.io/cli</a
+          >
+        </p>
+
+        <div class="topic-title">3. Angular GitHub Repository</div>
+        <p>Source code, issues, and updates for the Angular framework.</p>
+        <p>
+          <a href="https://github.com/angular/angular" target="_blank"
+            >https://github.com/angular/angular</a
+          >
+        </p>
+
+        <div class="topic-title">
+          4. RxJS (Reactive Extensions) Documentation
+        </div>
+        <p>Angular uses RxJS for reactive programming with observables.</p>
+        <p>
+          <a href="https://rxjs.dev/guide/overview" target="_blank"
+            >https://rxjs.dev/guide/overview</a
+          >
+        </p>
+
+        <div class="topic-title">5. Angular Material UI</div>
+        <p>
+          Google’s official component library for Angular (Material
+          Design-based).
+        </p>
+        <p>
+          <a href="https://material.angular.io/" target="_blank"
+            >https://material.angular.io/</a
+          >
+        </p>
+
+        <div class="topic-title">6. NGX Bootstrap Documentation</div>
+        <p>Angular version of Bootstrap components.</p>
+        <p>
+          <a href="https://valor-software.com/ngx-bootstrap/" target="_blank"
+            >https://valor-software.com/ngx-bootstrap/</a
+          >
+        </p>
+
+        <div class="topic-title">7. Angular Universal (SSR)</div>
+        <p>Server-side rendering documentation for Angular Universal apps.</p>
+        <p>
+          <a href="https://angular.io/guide/universal" target="_blank"
+            >https://angular.io/guide/universal</a
+          >
+        </p>
+
+        <div class="topic-title">8. Angular Tutorial by FreeCodeCamp</div>
+        <p>
+          A beginner-friendly YouTube tutorial to build Angular projects step by
+          step.
+        </p>
+        <p>
+          <a href="https://www.youtube.com/watch?v=3qBXWUpoPHo" target="_blank"
+            >https://www.youtube.com/watch?v=3qBXWUpoPHo</a
+          >
+        </p>
+
+        <div class="topic-title">9. Angular Courses on W3Schools</div>
+        <p>Simple learning modules and code snippets for Angular basics.</p>
+        <p>
+          <a href="https://www.w3schools.com/angular/" target="_blank"
+            >https://www.w3schools.com/angular/</a
+          >
+        </p>
+
+        <div class="topic-title">10. StackBlitz for Angular</div>
+        <p>
+          Online code editor to run Angular projects without installing
+          anything.
+        </p>
+        <p>
+          <a href="https://stackblitz.com/fork/angular" target="_blank"
+            >https://stackblitz.com/fork/angular</a
+          >
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

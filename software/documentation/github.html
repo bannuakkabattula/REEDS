@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Topics Documentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">GITHUB</h2>
+      <p class="text-center text-muted mb-0">
+        Explore GitHub for code hosting, project collaboration, pull <br />
+        requests, and repository management.
+      </p>
+    </div>
+
+    <div class="container">
+      <section class="topic-section">
+        <h1>GitHub Usage: Step-by-Step Guide</h1>
+
+        <div class="topic-title">1. What is GitHub?</div>
+        <p>
+          GitHub is a web-based platform for version control and collaboration
+          using Git. It allows multiple developers to work together on projects
+          and manage code repositories in the cloud.
+        </p>
+
+        <div class="topic-title">2. Creating a GitHub Account</div>
+        <p>
+          Visit
+          <a href="https://github.com/" target="_blank">https://github.com</a>
+          and click on "Sign Up". Provide your email, username, and password to
+          create an account.
+        </p>
+
+        <div class="topic-title">3. Creating a New Repository</div>
+        <p>After logging in:</p>
+        <ul>
+          <li>
+            Click the <strong>+</strong> icon on the top right →
+            <strong>New repository</strong>
+          </li>
+          <li>
+            Fill in repository name, description (optional), choose
+            public/private
+          </li>
+          <li>Optionally add a README, .gitignore, or license</li>
+          <li>Click <strong>Create repository</strong></li>
+        </ul>
+
+        <div class="topic-title">4. Cloning a Repository</div>
+        <p>
+          Use this command in your terminal to clone a remote GitHub repo
+          locally.
+        </p>
+        <div class="example">
+          <code>
+            git clone https://github.com/your-username/your-repo.git
+          </code>
+        </div>
+
+        <div class="topic-title">5. Pushing Code to GitHub</div>
+        <p>Once changes are committed locally, push them to GitHub:</p>
+        <div class="example">
+          <code> git push origin main </code>
+        </div>
+
+        <div class="topic-title">6. Creating a Branch</div>
+        <p>
+          Used for working on new features without affecting the main branch.
+        </p>
+        <div class="example">
+          <code>
+            git checkout -b new-feature<br />
+            git push origin new-feature
+          </code>
+        </div>
+
+        <div class="topic-title">7. Pull Requests (PR)</div>
+        <p>
+          Used to propose changes from a branch to be merged into the main
+          branch.
+        </p>
+        <ul>
+          <li>Go to the GitHub repository</li>
+          <li>Click <strong>Pull Requests → New Pull Request</strong></li>
+          <li>Compare your feature branch with main</li>
+          <li>Click <strong>Create Pull Request</strong></li>
+          <li>Write description and submit</li>
+        </ul>
+
+        <div class="topic-title">8. Merging a Pull Request</div>
+        <p>Once the code is reviewed and approved:</p>
+        <ul>
+          <li>Click <strong>Merge pull request</strong></li>
+          <li>Confirm by clicking <strong>Confirm merge</strong></li>
+        </ul>
+
+        <div class="topic-title">9. GitHub Settings Overview</div>
+        <p>
+          Click on your profile picture → <strong>Settings</strong>. You’ll
+          find:
+        </p>
+        <ul>
+          <li><strong>Profile</strong>: Manage bio, photo, and visibility</li>
+          <li><strong>Account</strong>: Update email, username, password</li>
+          <li><strong>SSH and GPG keys</strong>: Add keys for secure access</li>
+          <li>
+            <strong>Notifications</strong>: Customize email and web alerts
+          </li>
+          <li>
+            <strong>Developer Settings</strong>: Access tokens, GitHub Apps,
+            OAuth
+          </li>
+        </ul>
+
+        <div class="topic-title">
+          10. Generating Personal Access Token (New SSH/HTTPS Auth)
+        </div>
+        <p>Required for secure access instead of password:</p>
+        <ul>
+          <li>
+            Go to
+            <strong
+              >Settings → Developer settings → Personal Access Tokens</strong
+            >
+          </li>
+          <li>Generate new token (classic)</li>
+          <li>Select scopes: repo, workflow, admin:repo_hook, etc.</li>
+          <li>Use the token as password when prompted</li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>GitHub Features and Collaboration Tools</h1>
+
+        <div class="topic-title">11. GitHub Pages (Host a Website)</div>
+        <p>
+          GitHub Pages lets you host static websites directly from a GitHub
+          repository.
+        </p>
+        <ul>
+          <li>Go to the repo → <strong>Settings → Pages</strong></li>
+          <li>
+            Select a branch (usually <code>main</code>) and folder (e.g.,
+            <code>/root</code> or <code>/docs</code>)
+          </li>
+          <li>
+            Click <strong>Save</strong>. Your site is live at:
+            <code>https://username.github.io/repo-name</code>
+          </li>
+        </ul>
+
+        <div class="topic-title">12. GitHub Actions (CI/CD Automation)</div>
+        <p>Automate tasks like testing and deployment using workflows.</p>
+        <ul>
+          <li>Go to <strong>Actions</strong> tab</li>
+          <li>
+            Select a template or create a custom workflow (.yml file in
+            <code>.github/workflows/</code>)
+          </li>
+          <li>GitHub will run the workflow on push, pull request, etc.</li>
+        </ul>
+
+        <div class="topic-title">13. Creating and Managing Issues</div>
+        <p>Use issues to track bugs, tasks, and feature requests.</p>
+        <ul>
+          <li>
+            Go to <strong>Issues</strong> tab → <strong>New Issue</strong>
+          </li>
+          <li>Fill in title and description</li>
+          <li>Assign labels, milestones, and collaborators</li>
+        </ul>
+
+        <div class="topic-title">14. GitHub Discussions</div>
+        <p>
+          Used for open-ended conversations and community interaction in a repo.
+        </p>
+        <ul>
+          <li>
+            Go to <strong>Discussions</strong> tab →
+            <strong>New Discussion</strong>
+          </li>
+          <li>Select a category (Q&A, Idea, Show and Tell, etc.)</li>
+        </ul>
+
+        <div class="topic-title">15. Forking a Repository</div>
+        <p>
+          Forking creates a personal copy of someone else’s repo under your
+          account.
+        </p>
+        <ul>
+          <li>Click <strong>Fork</strong> on any public repo</li>
+          <li>
+            You can now clone, edit, and create PRs back to the original repo
+          </li>
+        </ul>
+
+        <div class="topic-title">16. Watching and Starring Repositories</div>
+        <p>
+          <strong>Star</strong> a repo to bookmark it. <strong>Watch</strong> a
+          repo to get notifications of activity.
+        </p>
+        <ul>
+          <li>
+            Click on <strong>Star</strong> or <strong>Watch</strong> in the
+            upper right corner of a repo
+          </li>
+        </ul>
+
+        <div class="topic-title">17. Adding Collaborators</div>
+        <p>Invite others to contribute to your repository directly.</p>
+        <ul>
+          <li>Go to <strong>Settings → Collaborators</strong></li>
+          <li>Enter GitHub username or email</li>
+          <li>Set permissions: Read, Write, or Admin</li>
+        </ul>
+
+        <div class="topic-title">18. GitHub Organizations</div>
+        <p>
+          Use organizations to manage multiple projects, teams, and permissions
+          centrally.
+        </p>
+        <ul>
+          <li>
+            Create an org from
+            <a href="https://github.com/organizations" target="_blank"
+              >https://github.com/organizations</a
+            >
+          </li>
+          <li>Add members and assign roles</li>
+          <li>Manage repos and teams under the org</li>
+        </ul>
+
+        <div class="topic-title">
+          19. Setting Repository Topics and Descriptions
+        </div>
+        <p>
+          Adding topics helps users find your repository by category or
+          technology.
+        </p>
+        <ul>
+          <li>
+            Go to the repo → click the gear/settings icon next to the
+            description
+          </li>
+          <li>Add topics like: html, nodejs, api, portfolio</li>
+        </ul>
+
+        <div class="topic-title">20. Deleting or Archiving a Repository</div>
+        <p>Remove or freeze a repo to prevent further changes.</p>
+        <ul>
+          <li>Go to <strong>Settings → Danger Zone</strong></li>
+          <li>
+            Click <strong>Delete</strong> or <strong>Archive</strong> as needed
+          </li>
+          <li>You will be asked to confirm the repo name to proceed</li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>Advanced GitHub Features and Personalization</h1>
+
+        <div class="topic-title">21. Contribution Graph</div>
+        <p>
+          Your GitHub profile displays a heatmap of your commits and activity
+          over the past year.
+        </p>
+        <ul>
+          <li>Public activity on public repositories is tracked</li>
+          <li>To improve the graph, make regular commits and contributions</li>
+        </ul>
+
+        <div class="topic-title">22. GitHub Profile README</div>
+        <p>
+          Add a custom README to your profile by creating a repository with the
+          same name as your username.
+        </p>
+        <ul>
+          <li>Create repo: <code>your-username/your-username</code></li>
+          <li>
+            Add a <code>README.md</code> with your bio, portfolio links, and
+            badges
+          </li>
+        </ul>
+
+        <div class="topic-title">23. GitHub CLI (gh)</div>
+        <p>Use GitHub directly from your terminal using GitHub CLI.</p>
+        <div class="example">
+          <code>
+            gh repo clone owner/repo<br />
+            gh issue create<br />
+            gh pr list
+          </code>
+        </div>
+        <p>
+          Install from:
+          <a href="https://cli.github.com/" target="_blank"
+            >https://cli.github.com</a
+          >
+        </p>
+
+        <div class="topic-title">
+          24. Adding Secrets (Environment Variables)
+        </div>
+        <p>
+          Used in GitHub Actions for storing sensitive data (API keys, tokens).
+        </p>
+        <ul>
+          <li>Go to: <strong>Settings → Secrets → Actions</strong></li>
+          <li>Click <strong>New repository secret</strong></li>
+          <li>Add key-value pair</li>
+        </ul>
+
+        <div class="topic-title">25. Security Settings</div>
+        <p>
+          Secure your account with 2FA, review devices, and manage app access.
+        </p>
+        <ul>
+          <li><strong>Settings → Password and Authentication</strong></li>
+          <li>Enable 2FA using an app like Google Authenticator</li>
+          <li>Revoke suspicious sessions under <strong>Sessions</strong></li>
+        </ul>
+
+        <div class="topic-title">26. Markdown in GitHub</div>
+        <p>
+          Use Markdown syntax in READMEs, issues, PRs, and comments for
+          formatting.
+        </p>
+        <div class="example">
+          <code>
+            **Bold**, *Italic*, `Code`, [Link](https://github.com)<br />
+            - List Item<br />
+            > Blockquote
+          </code>
+        </div>
+
+        <div class="topic-title">27. Project Boards</div>
+        <p>Manage tasks visually using Kanban-style boards.</p>
+        <ul>
+          <li>Go to: <strong>Projects → New Project</strong></li>
+          <li>Add cards: Issues, PRs, or notes</li>
+          <li>Drag and drop across columns: To Do, In Progress, Done</li>
+        </ul>
+
+        <div class="topic-title">28. GitHub Insights</div>
+        <p>
+          Analyze contributions, commits, PRs, and code frequency in a
+          repository.
+        </p>
+        <ul>
+          <li>Go to the repo → <strong>Insights</strong> tab</li>
+          <li>Check contributors, traffic, forks, commits, etc.</li>
+        </ul>
+
+        <div class="topic-title">29. Sponsor a Developer</div>
+        <p>
+          GitHub Sponsors allows supporting open source developers financially.
+        </p>
+        <ul>
+          <li>Developers opt-in and set up sponsor tiers</li>
+          <li>
+            Click <strong>Sponsor</strong> on a user’s profile if available
+          </li>
+        </ul>
+
+        <div class="topic-title">30. GitHub Codespaces</div>
+        <p>
+          Use an instant cloud-based development environment right inside
+          GitHub.
+        </p>
+        <ul>
+          <li>Click <strong>Code → Codespaces → Create codespace</strong></li>
+          <li>VS Code runs inside your browser with full terminal access</li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>GitHub Reference Links</h1>
+
+        <div class="topic-title">1. Official GitHub Docs</div>
+        <p>
+          Comprehensive documentation for all GitHub features including repos,
+          actions, issues, and more.
+        </p>
+        <p>
+          <a href="https://docs.github.com/en" target="_blank"
+            >https://docs.github.com/en</a
+          >
+        </p>
+
+        <div class="topic-title">2. GitHub Learning Lab</div>
+        <p>
+          Interactive tutorials and courses to learn GitHub from beginner to
+          advanced.
+        </p>
+        <p>
+          <a href="https://lab.github.com/" target="_blank"
+            >https://lab.github.com/</a
+          >
+        </p>
+
+        <div class="topic-title">3. GitHub Pages Docs</div>
+        <p>
+          Official documentation for setting up GitHub Pages to host static
+          websites.
+        </p>
+        <p>
+          <a href="https://pages.github.com/" target="_blank"
+            >https://pages.github.com/</a
+          >
+        </p>
+
+        <div class="topic-title">4. GitHub Actions Docs</div>
+        <p>
+          Automate workflows using GitHub Actions – official guide and syntax.
+        </p>
+        <p>
+          <a href="https://docs.github.com/en/actions" target="_blank"
+            >https://docs.github.com/en/actions</a
+          >
+        </p>
+
+        <div class="topic-title">5. GitHub CLI (gh) Docs</div>
+        <p>
+          Documentation for using GitHub CLI to manage repos, PRs, and issues
+          from the terminal.
+        </p>
+        <p>
+          <a href="https://cli.github.com/manual/" target="_blank"
+            >https://cli.github.com/manual/</a
+          >
+        </p>
+
+        <div class="topic-title">6. Markdown Guide (GitHub flavored)</div>
+        <p>Learn how to use markdown in GitHub READMEs, issues, and PRs.</p>
+        <p>
+          <a
+            href="https://guides.github.com/features/mastering-markdown/"
+            target="_blank"
+            >https://guides.github.com/features/mastering-markdown/</a
+          >
+        </p>
+
+        <div class="topic-title">7. GitHub Discussions Documentation</div>
+        <p>
+          Overview of GitHub Discussions for community interaction within
+          repositories.
+        </p>
+        <p>
+          <a href="https://docs.github.com/en/discussions" target="_blank"
+            >https://docs.github.com/en/discussions</a
+          >
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

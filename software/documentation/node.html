@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node.js Topics Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="py-5 timeline mb-lg-5">
+  <h2 class="text-center section-title mb-2">NODE.JS</h2>
+  <p class="text-center text-muted mb-0">
+    Use Node.js to build fast, scalable server-side applications <br />
+    with asynchronous JavaScript execution.
+  </p>
+</div>
+    <div class="container">
+        <section class="topic-section">
+            <h1>Node.js Topics with Explanation and Examples</h1>
+            <div class="topic-title">1. What is Node.js?</div>
+            <p>Definition: Node.js is an open-source, cross-platform JavaScript runtime environment that executes code
+                outside a browser.</p>
+            <p>Purpose: Used for building fast, scalable server-side and networking applications.</p>
+            <div class="example">
+                <code>node app.js</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">2. Installing Node.js</div>
+            <p>Download from <a href="https://nodejs.org" target="_blank">https://nodejs.org</a> and install.</p>
+            <div class="example">
+                <code>node -v<br>npm -v</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">3. Node.js REPL</div>
+            <p>REPL stands for Read, Eval, Print, Loop. Used to quickly test JavaScript code.</p>
+            <div class="example">
+                <code>$ node<br>> 5 + 6<br>11</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">4. Creating First Node.js App</div>
+            <p>Example of a basic "Hello World" app using Node.js.</p>
+            <div class="example">
+                <code>
+      const http = require('http');<br>
+      const server = http.createServer((req, res) => {<br>
+      &nbsp;&nbsp;res.end('Hello World');<br>
+      });<br>
+      server.listen(3000);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">5. Node.js Modules</div>
+            <p>Modules are reusable blocks of code. Node.js has built-in and custom modules.</p>
+            <div class="example">
+                <code>
+      const fs = require('fs'); // built-in module
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">6. Creating Custom Module</div>
+            <p>You can export and import your own modules.</p>
+            <div class="example">
+                <code>
+      // calc.js<br>
+      exports.add = (a, b) => a + b;
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">7. require() Function</div>
+            <p>Used to include modules in your file.</p>
+            <div class="example">
+                <code>const calc = require('./calc');</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">8. Built-in Module: fs</div>
+            <p>File System module allows interacting with the file system.</p>
+            <div class="example">
+                <code>
+      const fs = require('fs');<br>
+      fs.writeFileSync('file.txt', 'Hello from Node.js');
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">9. Built-in Module: path</div>
+            <p>Provides utilities for working with file and directory paths.</p>
+            <div class="example">
+                <code>
+      const path = require('path');<br>
+      console.log(path.basename('/test/file.js')); // file.js
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">10. Built-in Module: os</div>
+            <p>Provides information about the operating system.</p>
+            <div class="example">
+                <code>
+      const os = require('os');<br>
+      console.log(os.platform());
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">11. npm (Node Package Manager)</div>
+            <p>Manages external packages and libraries in Node.js projects.</p>
+            <div class="example">
+                <code>npm install express</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">12. package.json</div>
+            <p>Holds metadata about your project and dependencies.</p>
+            <div class="example">
+                <code>npm init -y</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">13. Installing Third-party Modules</div>
+            <p>npm allows installing and managing libraries such as Express, Mongoose, etc.</p>
+            <div class="example">
+                <code>npm install lodash</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">14. Creating HTTP Server</div>
+            <p>Basic server creation using Node's http module.</p>
+            <div class="example">
+                <code>
+      const http = require('http');<br>
+      const server = http.createServer((req, res) => {<br>
+      &nbsp;&nbsp;res.write('Server is running');<br>
+      &nbsp;&nbsp;res.end();<br>
+      });<br>
+      server.listen(3000);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">15. Event Loop</div>
+            <p>Core of Node.js that handles asynchronous operations using events and callbacks.</p>
+            <p>Non-blocking I/O is made possible with the event loop.</p>
+        </section>
+        <section class="topic-section">
+            <div class="topic-title">16. Events Module</div>
+            <p>Node.js has a built-in <code>events</code> module to handle events using the <code>EventEmitter</code>
+                class.</p>
+            <div class="example">
+                <code>
+      const EventEmitter = require('events');<br>
+      const emitter = new EventEmitter();<br>
+      emitter.on('start', () =&gt; console.log('Started!'));<br>
+      emitter.emit('start');
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">17. Callback Functions</div>
+            <p>Functions passed as arguments to other functions and executed later.</p>
+            <div class="example">
+                <code>
+      fs.readFile('file.txt', (err, data) =&gt; {<br>
+      &nbsp;&nbsp;if (err) throw err;<br>
+      &nbsp;&nbsp;console.log(data.toString());<br>
+      });
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">18. Asynchronous vs Synchronous</div>
+            <p>Node.js uses asynchronous (non-blocking) I/O by default.</p>
+            <div class="example">
+                <code>
+      // Sync<br>
+      const data = fs.readFileSync('file.txt');<br>
+      // Async<br>
+      fs.readFile('file.txt', callback);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">19. Promises</div>
+            <p>Modern way to handle asynchronous operations and chaining.</p>
+            <div class="example">
+                <code>
+      const fetchData = () =&gt; Promise.resolve('Done');<br>
+      fetchData().then(data =&gt; console.log(data));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">20. Async/Await</div>
+            <p>Syntactic sugar over promises for cleaner asynchronous code.</p>
+            <div class="example">
+                <code>
+      async function getData() {<br>
+      &nbsp;&nbsp;const result = await fetchData();<br>
+      &nbsp;&nbsp;console.log(result);<br>
+      }
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">21. Creating JSON APIs</div>
+            <p>Create APIs that send/receive data in JSON format using Node.js.</p>
+            <div class="example">
+                <code>
+      res.writeHead(200, { 'Content-Type': 'application/json' });<br>
+      res.end(JSON.stringify({ message: 'Hello' }));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">22. Express.js Introduction</div>
+            <p>Express.js is a fast, unopinionated framework for building web applications in Node.js.</p>
+            <div class="example">
+                <code>
+      const express = require('express');<br>
+      const app = express();<br>
+      app.get('/', (req, res) =&gt; res.send('Home Page'));<br>
+      app.listen(3000);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">23. Express Routing</div>
+            <p>Handles HTTP requests based on URL and method (GET, POST, etc.).</p>
+            <div class="example">
+                <code>
+      app.get('/about', (req, res) =&gt; res.send('About Page'));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">24. Express Middleware</div>
+            <p>Functions that execute during request processing.</p>
+            <div class="example">
+                <code>
+      app.use((req, res, next) =&gt; {<br>
+      &nbsp;&nbsp;console.log('Middleware');<br>
+      &nbsp;&nbsp;next();<br>
+      });
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">25. Handling POST Requests</div>
+            <p>To handle form or JSON data, use <code>express.json()</code> and <code>express.urlencoded()</code>.</p>
+            <div class="example">
+                <code>
+      app.use(express.json());<br>
+      app.post('/data', (req, res) =&gt; res.send(req.body));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">26. Serving Static Files</div>
+            <p>Use <code>express.static()</code> to serve HTML, CSS, JS files.</p>
+            <div class="example">
+                <code>
+      app.use(express.static('public'));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">27. Environment Variables</div>
+            <p>Store secrets and configs using <code>process.env</code> and <code>dotenv</code>.</p>
+            <div class="example">
+                <code>
+      require('dotenv').config();<br>
+      console.log(process.env.PORT);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">28. Creating RESTful APIs</div>
+            <p>Design pattern for building clean, scalable APIs using CRUD operations.</p>
+            <div class="example">
+                <code>
+      app.get('/users', ...);<br>
+      app.post('/users', ...);<br>
+      app.put('/users/:id', ...);<br>
+      app.delete('/users/:id', ...);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">29. Using Postman</div>
+            <p>Postman is a GUI tool to test API requests/responses.</p>
+            <p>Helps to test GET, POST, PUT, DELETE endpoints.</p>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">30. Error Handling in Express</div>
+            <p>Handle errors gracefully using middleware functions with 4 parameters.</p>
+            <div class="example">
+                <code>
+      app.use((err, req, res, next) =&gt; {<br>
+      &nbsp;&nbsp;res.status(500).send('Server Error');<br>
+      });
+    </code>
+            </div>
+        </section>
+        <section class="topic-section">
+            <div class="topic-title">31. MongoDB with Node.js</div>
+            <p>MongoDB is a NoSQL database. You can use <code>mongodb</code> or <code>mongoose</code> packages in
+                Node.js to connect.</p>
+            <div class="example">
+                <code>
+      const { MongoClient } = require('mongodb');<br>
+      MongoClient.connect('mongodb://localhost:27017', (err, client) =&gt; {<br>
+      &nbsp;&nbsp;if (err) throw err;<br>
+      &nbsp;&nbsp;console.log('Connected!');<br>
+      });
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">32. Mongoose ODM</div>
+            <p>Mongoose is an ODM that simplifies MongoDB interaction using schemas and models.</p>
+            <div class="example">
+                <code>
+      const mongoose = require('mongoose');<br>
+      const User = mongoose.model('User', { name: String });<br>
+      const user = new User({ name: 'John' });<br>
+      user.save();
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">33. File Uploads with Multer</div>
+            <p><code>multer</code> is a middleware used for handling file uploads.</p>
+            <div class="example">
+                <code>
+      const multer = require('multer');<br>
+      const upload = multer({ dest: 'uploads/' });<br>
+      app.post('/upload', upload.single('file'), (req, res) =&gt; {<br>
+      &nbsp;&nbsp;res.send('File uploaded');<br>
+      });
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">34. Hashing Passwords with bcrypt</div>
+            <p><code>bcrypt</code> is used to securely hash passwords before saving.</p>
+            <div class="example">
+                <code>
+      const bcrypt = require('bcrypt');<br>
+      const hash = await bcrypt.hash('password123', 10);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">35. JSON Web Tokens (JWT)</div>
+            <p>JWT is used to implement authentication by signing and verifying tokens.</p>
+            <div class="example">
+                <code>
+      const jwt = require('jsonwebtoken');<br>
+      const token = jwt.sign({ id: 1 }, 'secretkey');<br>
+      jwt.verify(token, 'secretkey');
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">36. CORS in Node.js</div>
+            <p><code>cors</code> package enables Cross-Origin Resource Sharing for APIs.</p>
+            <div class="example">
+                <code>
+      const cors = require('cors');<br>
+      app.use(cors());
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">37. Sending Emails with Nodemailer</div>
+            <p><code>nodemailer</code> helps in sending emails through Node.js apps.</p>
+            <div class="example">
+                <code>
+      const nodemailer = require('nodemailer');<br>
+      const transporter = nodemailer.createTransport({...});<br>
+      transporter.sendMail({ from: '...', to: '...', text: 'Hello' });
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">38. Using Template Engines</div>
+            <p>Template engines like <code>ejs</code>, <code>pug</code> allow dynamic HTML rendering on the server.</p>
+            <div class="example">
+                <code>
+      app.set('view engine', 'ejs');<br>
+      app.get('/', (req, res) =&gt; res.render('index', { name: 'User' }));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">39. Logging with Morgan</div>
+            <p><code>morgan</code> is a logger middleware for HTTP request logging.</p>
+            <div class="example">
+                <code>
+      const morgan = require('morgan');<br>
+      app.use(morgan('dev'));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">40. Global vs Local npm Packages</div>
+            <p>Global packages are used in CLI across the system. Local are for specific projects.</p>
+            <div class="example">
+                <code>
+      npm install -g nodemon<br>
+      npm install express
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">41. Nodemon for Development</div>
+            <p><code>nodemon</code> restarts your Node.js app automatically on code changes.</p>
+            <div class="example">
+                <code>nodemon app.js</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">42. Process Object</div>
+            <p><code>process</code> is a global object for accessing environment and runtime info.</p>
+            <div class="example">
+                <code>
+      console.log(process.env.NODE_ENV);<br>
+      process.exit();
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">43. Cluster Module</div>
+            <p>Used to create child processes to handle the load with multiple CPU cores.</p>
+            <div class="example">
+                <code>
+      const cluster = require('cluster');<br>
+      if (cluster.isMaster) {<br>
+      &nbsp;&nbsp;cluster.fork();<br>
+      } else {<br>
+      &nbsp;&nbsp;console.log('Worker running');<br>
+      }
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">44. Deploy Node.js App</div>
+            <p>Common methods: Heroku, Vercel, Render, or deploying on a VPS with NGINX + PM2.</p>
+            <div class="example">
+                <code>pm2 start app.js</code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">45. Error Handling Best Practices</div>
+            <p>Always use <code>try...catch</code> for async/await and proper error logging mechanisms.</p>
+            <div class="example">
+                <code>
+      try {<br>
+      &nbsp;&nbsp;await asyncFunc();<br>
+      } catch (err) {<br>
+      &nbsp;&nbsp;console.error(err.message);<br>
+      }
+    </code>
+            </div>
+        </section>
+        <section class="topic-section">
+            <div class="topic-title">46. Streams in Node.js</div>
+            <p>Streams are used to read or write data in chunks (not all at once).</p>
+            <div class="example">
+                <code>
+      const fs = require('fs');<br>
+      const readStream = fs.createReadStream('file.txt');<br>
+      readStream.on('data', chunk =&gt; console.log(chunk.toString()));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">47. Buffer in Node.js</div>
+            <p>Buffers store raw binary data and are useful when dealing with streams.</p>
+            <div class="example">
+                <code>
+      const buf = Buffer.from('Hello');<br>
+      console.log(buf.toString()); // Hello
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">48. Zlib Module</div>
+            <p><code>zlib</code> provides compression functionality like Gzip/Deflate.</p>
+            <div class="example">
+                <code>
+      const zlib = require('zlib');<br>
+      const input = 'Hello';<br>
+      zlib.gzip(input, (err, buffer) =&gt; console.log(buffer));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">49. Child Processes</div>
+            <p>Use <code>child_process</code> module to spawn subprocesses (run system commands).</p>
+            <div class="example">
+                <code>
+      const { exec } = require('child_process');<br>
+      exec('dir', (err, stdout) =&gt; console.log(stdout));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">50. Path Module</div>
+            <p>Built-in module to work with file and directory paths.</p>
+            <div class="example">
+                <code>
+      const path = require('path');<br>
+      console.log(path.join(__dirname, 'file.txt'));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">51. URL Module</div>
+            <p>Helps parse and format URLs.</p>
+            <div class="example">
+                <code>
+      const url = require('url');<br>
+      const parsed = url.parse('http://example.com?name=abc');<br>
+      console.log(parsed.query);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">52. DNS Module</div>
+            <p>Performs DNS lookups and name resolution.</p>
+            <div class="example">
+                <code>
+      const dns = require('dns');<br>
+      dns.lookup('google.com', (err, address) =&gt; console.log(address));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">53. Net Module (TCP Server)</div>
+            <p>Used to create low-level TCP servers and clients.</p>
+            <div class="example">
+                <code>
+      const net = require('net');<br>
+      const server = net.createServer(socket =&gt; socket.write('Hello'));<br>
+      server.listen(3000);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">54. HTTP Status Codes</div>
+            <p>Status codes like 200, 404, 500 are used in HTTP responses to indicate result of the request.</p>
+            <div class="example">
+                <code>
+      res.writeHead(404, { 'Content-Type': 'text/plain' });<br>
+      res.end('Not Found');
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">55. HTTP Headers</div>
+            <p>Metadata sent with HTTP requests and responses.</p>
+            <div class="example">
+                <code>
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">56. Rate Limiting</div>
+            <p>Protect APIs from abuse using <code>express-rate-limit</code>.</p>
+            <div class="example">
+                <code>
+      const rateLimit = require('express-rate-limit');<br>
+      const limiter = rateLimit({ windowMs: 60000, max: 5 });<br>
+      app.use(limiter);
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">57. Helmet for Security</div>
+            <p><code>helmet</code> sets HTTP headers to secure your Express app.</p>
+            <div class="example">
+                <code>
+      const helmet = require('helmet');<br>
+      app.use(helmet());
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">58. Session Management</div>
+            <p><code>express-session</code> helps maintain user sessions (cookies, server-side).</p>
+            <div class="example">
+                <code>
+      const session = require('express-session');<br>
+      app.use(session({ secret: 'key', resave: false, saveUninitialized: true }));
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">59. Cookie Parser</div>
+            <p>Middleware for parsing cookies from HTTP requests.</p>
+            <div class="example">
+                <code>
+      const cookieParser = require('cookie-parser');<br>
+      app.use(cookieParser());
+    </code>
+            </div>
+        </section>
+
+        <section class="topic-section">
+            <div class="topic-title">60. Serving HTML Files</div>
+            <p>Use Node or Express to send HTML files as a response.</p>
+            <div class="example">
+                <code>
+      const path = require('path');<br>
+      app.get('/', (req, res) =&gt; res.sendFile(path.join(__dirname, 'index.html')));
+    </code>
+            </div>
+        </section>
+        <section class="topic-section">
+            <div class="topic-title">Reference Links</div>
+            <p>Node.js Official Documentation:
+                <a href="https://nodejs.org/en/docs" target="_blank">https://nodejs.org/en/docs</a>
+            </p>
+            <p>MDN Web Docs (JavaScript / Node concepts):
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                    https://developer.mozilla.org/en-US/docs/Web/JavaScript
+                </a>
+            </p>
+            <p>npm (Package Manager) Documentation:
+                <a href="https://docs.npmjs.com/" target="_blank">https://docs.npmjs.com/</a>
+            </p>
+            <p>Express.js Documentation:
+                <a href="https://expressjs.com/" target="_blank">https://expressjs.com/</a>
+            </p>
+            <p>Mongoose Documentation:
+                <a href="https://mongoosejs.com/docs/" target="_blank">https://mongoosejs.com/docs/</a>
+            </p>
+            <p>MongoDB Node.js Driver:
+                <a href="https://www.mongodb.com/docs/drivers/node/current/" target="_blank">
+                    https://www.mongodb.com/docs/drivers/node/current/
+                </a>
+            </p>
+            <p>JWT (jsonwebtoken) GitHub:
+                <a href="https://github.com/auth0/node-jsonwebtoken" target="_blank">
+                    https://github.com/auth0/node-jsonwebtoken
+                </a>
+            </p>
+            <p>Bcrypt Documentation:
+                <a href="https://github.com/kelektiv/node.bcrypt.js/" target="_blank">
+                    https://github.com/kelektiv/node.bcrypt.js/
+                </a>
+            </p>
+            <p>Nodemailer Docs:
+                <a href="https://nodemailer.com/about/" target="_blank">
+                    https://nodemailer.com/about/
+                </a>
+            </p>
+            <p>Postman API Testing Tool:
+                <a href="https://www.postman.com/" target="_blank">https://www.postman.com/</a>
+            </p>
+            <p>Socket.io (WebSockets with Node.js):
+                <a href="https://socket.io/docs/v4/" target="_blank">https://socket.io/docs/v4/</a>
+            </p>
+            <p>Helmet Security Middleware:
+                <a href="https://helmetjs.github.io/" target="_blank">https://helmetjs.github.io/</a>
+            </p>
+            <p>Express Rate Limit:
+                <a href="https://www.npmjs.com/package/express-rate-limit" target="_blank">
+                    https://www.npmjs.com/package/express-rate-limit
+                </a>
+            </p>
+            <p>PM2 (Process Manager for Node.js):
+                <a href="https://pm2.keymetrics.io/" target="_blank">https://pm2.keymetrics.io/</a>
+            </p>
+        </section>
+
+</body>
+
+</html>

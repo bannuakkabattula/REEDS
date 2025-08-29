@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All CSS Properties and Values</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">CSS3</h2>
+      <p class="text-center text-muted mb-0">
+        Style your web pages with modern CSS techniques including <br />
+        Flexbox, Grid, transitions, and responsive design.
+      </p>
+    </div>
+    <div class="container">
+      <div class="theory">
+        <section class="topic-section">
+          <h1>Box Model Properties</h1>
+          <div class="topic-title">margin</div>
+          <p>Definition: Controls the space outside the element's border.</p>
+          <p>Values: length (px, em), %, auto</p>
+          <p>Usage: margin: 20px; or margin: 10px 15px 5px 0;</p>
+          <div class="topic-title">padding</div>
+          <p>
+            Definition: Controls the space between the content and the element's
+            border.
+          </p>
+          <p>Values: length (px, em), %</p>
+          <p>Usage: padding: 15px; or padding: 10px 5px;</p>
+        </section>
+        <section class="topic-section">
+          <h1>Text and Font Properties</h1>
+          <div class="topic-title">font-family</div>
+          <p>
+            Defines the typeface used. Values: Arial, 'Times New Roman',
+            sans-serif
+          </p>
+
+          <div class="topic-title">font-style</div>
+          <p>Sets italic or normal text. Values: normal, italic, oblique</p>
+
+          <div class="topic-title">font-variant</div>
+          <p>Enables small caps. Values: normal, small-caps</p>
+
+          <div class="topic-title">line-height</div>
+          <p>
+            Defines line spacing. Values: normal, number, length, percentage
+          </p>
+
+          <div class="topic-title">letter-spacing</div>
+          <p>Adjusts space between letters. Values: normal, length</p>
+
+          <div class="topic-title">word-spacing</div>
+          <p>Adjusts space between words. Values: normal, length</p>
+
+          <div class="topic-title">text-align</div>
+          <p>Horizontal alignment. Values: left, right, center, justify</p>
+
+          <div class="topic-title">text-decoration</div>
+          <p>Decorates text. Values: none, underline, overline, line-through</p>
+
+          <div class="topic-title">text-transform</div>
+          <p>Text casing. Values: none, capitalize, uppercase, lowercase</p>
+        </section>
+
+        <section class="topic-section">
+          <h1>Box and Border Properties</h1>
+          <div class="topic-title">border</div>
+          <p>Shorthand for border width, style, color</p>
+
+          <div class="topic-title">border-radius</div>
+          <p>Rounds corners. Values: length or percentage</p>
+
+          <div class="topic-title">box-shadow</div>
+          <p>Shadow behind box. Format: h-offset v-offset blur spread color</p>
+
+          <div class="topic-title">box-sizing</div>
+          <p>Box model choice. Values: content-box, border-box</p>
+        </section>
+
+        <section class="topic-section">
+          <h1>Layout Properties</h1>
+          <div class="topic-title">float</div>
+          <p>Floats element. Values: left, right, none</p>
+
+          <div class="topic-title">clear</div>
+          <p>Prevents float wrapping. Values: left, right, both</p>
+
+          <div class="topic-title">z-index</div>
+          <p>Stacking order. Values: integer</p>
+
+          <div class="topic-title">overflow</div>
+          <p>Handles overflow. Values: visible, hidden, scroll, auto</p>
+
+          <div class="topic-title">visibility</div>
+          <p>Element visibility. Values: visible, hidden, collapse</p>
+        </section>
+
+        <section class="topic-section">
+          <h1>Flexbox Properties</h1>
+          <div class="topic-title">flex-direction</div>
+          <p>
+            Direction of items. Values: row, row-reverse, column, column-reverse
+          </p>
+
+          <div class="topic-title">flex-wrap</div>
+          <p>Wraps items. Values: nowrap, wrap, wrap-reverse</p>
+
+          <div class="topic-title">align-content</div>
+          <p>
+            Aligns multi-line flexbox content. Values: flex-start, flex-end,
+            center, space-between
+          </p>
+
+          <div class="topic-title">flex</div>
+          <p>Shorthand for grow, shrink, basis. Example: flex: 1 1 auto</p>
+        </section>
+
+        <section class="topic-section">
+          <h1>Grid Properties</h1>
+          <div class="topic-title">grid-template-rows</div>
+          <p>Defines grid row sizes. Example: 100px auto 1fr</p>
+
+          <div class="topic-title">grid-column / grid-row</div>
+          <p>Item placement. Example: grid-column: 1 / span 2</p>
+
+          <div class="topic-title">place-items</div>
+          <p>Shortcut for align-items and justify-items</p>
+        </section>
+
+        <section class="topic-section">
+          <h1>Animation & Effects</h1>
+          <div class="topic-title">animation</div>
+          <p>
+            Shorthand for animation properties like duration, name, delay, etc.
+          </p>
+
+          <div class="topic-title">transition</div>
+          <p>Smooth value change. Example: transition: all 0.5s ease-in-out</p>
+
+          <div class="topic-title">opacity</div>
+          <p>Transparency. Value: 0 to 1</p>
+        </section>
+
+        <section class="topic-section">
+          <h1>Media Queries</h1>
+          <div class="topic-title">@media</div>
+          <p>Applies styles based on screen size or conditions.</p>
+          <p>Examples:</p>
+          <pre>
+@media screen and (max-width: 600px) {
+  body { background-color: lightgray; }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container { padding: 30px; }
+}
+        </pre
+          >
+        </section>
+
+        <section class="topic-section">
+          <h1>Reference Links</h1>
+          <p>
+            MDN Web Docs:
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"
+              >MDN CSS Reference</a
+            >
+          </p>
+          <p>
+            W3Schools CSS:
+            <a href="https://www.w3schools.com/cssref/"
+              >W3Schools CSS Reference</a
+            >
+          </p>
+          <p>
+            CSS Tricks Almanac:
+            <a href="https://css-tricks.com/almanac/">CSS-Tricks Almanac</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

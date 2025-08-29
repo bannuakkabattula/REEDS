@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MongoDB Topics Documentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">MONGODB</h2>
+      <p class="text-center text-muted mb-0">
+        Work with MongoDB, a NoSQL database, to store, query, and <br />
+        manage application data in a flexible schema.
+      </p>
+    </div>
+
+    <div class="container">
+      <section class="topic-section">
+        <h1>MongoDB with Node.js</h1>
+
+        <div class="topic-title">1. What is MongoDB?</div>
+        <p>
+          MongoDB is a NoSQL, document-oriented database that stores data in
+          flexible, JSON-like documents called BSON.
+        </p>
+        <p>
+          Unlike relational databases, MongoDB doesn’t use tables — it uses
+          collections and documents.
+        </p>
+
+        <div class="topic-title">2. Install MongoDB Locally or Use Cloud</div>
+        <p>
+          You can install MongoDB on your local machine or use
+          <a href="https://www.mongodb.com/atlas" target="_blank"
+            >MongoDB Atlas</a
+          >
+          (cloud database).
+        </p>
+
+        <div class="topic-title">3. Install Mongoose Package</div>
+        <p>
+          Mongoose is an ODM (Object Data Modeling) library for MongoDB and
+          Node.js. It helps define schemas and models.
+        </p>
+        <div class="example">
+          <code> npm install mongoose </code>
+        </div>
+
+        <div class="topic-title">4. Connecting to MongoDB</div>
+        <p>
+          Use the <code>mongoose.connect()</code> method to establish a
+          connection with the database.
+        </p>
+        <div class="example">
+          <code>
+            const mongoose = require("mongoose");<br />
+            mongoose.connect("mongodb://localhost:27017/mydb")<br />
+            .then(() => console.log("Connected to MongoDB"))<br />
+            .catch((err) => console.error(err));
+          </code>
+        </div>
+
+        <div class="topic-title">5. Define a Schema and Model</div>
+        <p>
+          A Schema defines the structure of a document, and a Model is used to
+          create and manage documents.
+        </p>
+        <div class="example">
+          <code>
+            const userSchema = new mongoose.Schema({<br />
+            &nbsp;&nbsp;name: String,<br />
+            &nbsp;&nbsp;email: String,<br />
+            &nbsp;&nbsp;age: Number<br />
+            });<br /><br />
+            const User = mongoose.model("User", userSchema);
+          </code>
+        </div>
+
+        <h1>CRUD Operations in MongoDB</h1>
+
+        <!-- Create -->
+        <div class="topic-title">6. Create (Insert Data)</div>
+        <p>
+          Use <code>new Model().save()</code> or <code>Model.create()</code> to
+          insert documents into a collection.
+        </p>
+        <div class="example">
+          <code>
+            const newUser = new User({ name: "Alice", email:
+            "alice@example.com", age: 22 });<br />
+            newUser.save();
+          </code>
+        </div>
+
+        <!-- Read -->
+        <div class="topic-title">7. Read (Fetch Data)</div>
+        <p>
+          Use <code>Model.find()</code> to retrieve documents. You can filter,
+          limit, or sort the results.
+        </p>
+        <div class="example">
+          <code>
+            User.find().then(data => console.log(data));<br />
+            User.findOne({ name: "Alice" });
+          </code>
+        </div>
+
+        <!-- Update -->
+        <div class="topic-title">8. Update (Modify Data)</div>
+        <p>
+          Use <code>Model.updateOne()</code> or
+          <code>Model.findByIdAndUpdate()</code> to modify existing documents.
+        </p>
+        <div class="example">
+          <code>
+            User.updateOne({ name: "Alice" }, { $set: { age: 25 } });<br />
+            // or<br />
+            User.findByIdAndUpdate("id_here", { age: 30 });
+          </code>
+        </div>
+
+        <!-- Delete -->
+        <div class="topic-title">9. Delete (Remove Data)</div>
+        <p>
+          Use <code>Model.deleteOne()</code> or
+          <code>Model.findByIdAndDelete()</code> to delete documents.
+        </p>
+        <div class="example">
+          <code>
+            User.deleteOne({ name: "Alice" });<br />
+            // or<br />
+            User.findByIdAndDelete("id_here");
+          </code>
+        </div>
+
+        <div class="topic-title">10. MongoDB Compass (Optional GUI)</div>
+        <p>
+          MongoDB Compass is a visual tool to view, filter, and query your
+          MongoDB database without code.
+        </p>
+        <p>
+          <a href="https://www.mongodb.com/products/compass" target="_blank"
+            >Download MongoDB Compass</a
+          >
+        </p>
+      </section>
+
+      <section class="topic-section">
+        <h1>MongoDB Advanced Topics</h1>
+
+        <!-- 11 -->
+        <div class="topic-title">11. Data Validation in Schema</div>
+        <p>
+          You can enforce structure and rules in MongoDB using Mongoose schema
+          types and validations.
+        </p>
+        <div class="example">
+          <code>
+            const userSchema = new mongoose.Schema({<br />
+            &nbsp;&nbsp;name: { type: String, required: true },<br />
+            &nbsp;&nbsp;email: { type: String, unique: true },<br />
+            &nbsp;&nbsp;age: { type: Number, min: 18 }<br />
+            });
+          </code>
+        </div>
+
+        <!-- 12 -->
+        <div class="topic-title">12. Schema Relationships (Refs)</div>
+        <p>
+          You can create relationships between collections using
+          <code>ref</code>.
+        </p>
+        <div class="example">
+          <code>
+            const postSchema = new mongoose.Schema({<br />
+            &nbsp;&nbsp;title: String,<br />
+            &nbsp;&nbsp;author: { type: mongoose.Schema.Types.ObjectId, ref:
+            'User' }<br />
+            });
+          </code>
+        </div>
+
+        <!-- 13 -->
+        <div class="topic-title">13. Populating References</div>
+        <p>
+          Use <code>.populate()</code> to fetch referenced documents in queries.
+        </p>
+        <div class="example">
+          <code>
+            Post.find().populate("author").then(data => console.log(data));
+          </code>
+        </div>
+
+        <!-- 14 -->
+        <div class="topic-title">14. MongoDB Projection</div>
+        <p>
+          Select specific fields to return using projection (include or exclude
+          fields).
+        </p>
+        <div class="example">
+          <code>
+            User.find({}, { name: 1, _id: 0 }); // Only return 'name' field
+          </code>
+        </div>
+
+        <!-- 15 -->
+        <div class="topic-title">15. Sorting Documents</div>
+        <p>Use <code>.sort()</code> to sort results by one or more fields.</p>
+        <div class="example">
+          <code> User.find().sort({ age: -1 }); // Descending order </code>
+        </div>
+
+        <!-- 16 -->
+        <div class="topic-title">16. Limiting and Skipping Results</div>
+        <p>
+          Use <code>.limit()</code> and <code>.skip()</code> to paginate or
+          control output.
+        </p>
+        <div class="example">
+          <code>
+            User.find().skip(10).limit(5); // Skip 10, return next 5
+          </code>
+        </div>
+
+        <!-- 17 -->
+        <div class="topic-title">17. Aggregation Framework</div>
+        <p>
+          Performs data processing like grouping, averaging, and transforming
+          data.
+        </p>
+        <div class="example">
+          <code>
+            User.aggregate([<br />
+            &nbsp;&nbsp;{ $group: { _id: "$age", total: { $sum: 1 } } }<br />
+            ]);
+          </code>
+        </div>
+
+        <!-- 18 -->
+        <div class="topic-title">18. Match and Project in Aggregation</div>
+        <p>
+          <code>$match</code> filters documents; <code>$project</code> changes
+          output fields.
+        </p>
+        <div class="example">
+          <code>
+            User.aggregate([<br />
+            &nbsp;&nbsp;{ $match: { age: { $gt: 20 } } },<br />
+            &nbsp;&nbsp;{ $project: { name: 1, _id: 0 } }<br />
+            ]);
+          </code>
+        </div>
+
+        <!-- 19 -->
+        <div class="topic-title">19. Indexing</div>
+        <p>
+          Improves query performance. <code>createIndex()</code> defines indexes
+          on fields.
+        </p>
+        <div class="example">
+          <code>
+            User.createIndex({ email: 1 }); // Ascending index on email
+          </code>
+        </div>
+
+        <!-- 20 -->
+        <div class="topic-title">20. Unique Index</div>
+        <p>
+          Prevents duplicate entries in a collection field (e.g., email,
+          username).
+        </p>
+        <div class="example">
+          <code>
+            const schema = new mongoose.Schema({<br />
+            &nbsp;&nbsp;email: { type: String, unique: true }<br />
+            });
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>MongoDB Advanced Topics (21–30)</h1>
+
+        <!-- 21 -->
+        <div class="topic-title">21. Upsert Operation</div>
+        <p>
+          Upsert is a combination of update + insert. If no document matches, it
+          inserts a new one.
+        </p>
+        <div class="example">
+          <code>
+            User.updateOne(<br />
+            &nbsp;&nbsp;{ email: "john@example.com" },<br />
+            &nbsp;&nbsp;{ $set: { name: "John" } },<br />
+            &nbsp;&nbsp;{ upsert: true }<br />
+            );
+          </code>
+        </div>
+
+        <!-- 22 -->
+        <div class="topic-title">22. Bulk Write Operation</div>
+        <p>
+          Allows you to run multiple write operations (insert, update, delete)
+          in a single call.
+        </p>
+        <div class="example">
+          <code>
+            User.bulkWrite([<br />
+            &nbsp;&nbsp;{ insertOne: { document: { name: "Tom" } } },<br />
+            &nbsp;&nbsp;{ updateOne: { filter: { name: "Tom" }, update: { $set:
+            { age: 30 } } } }<br />
+            ]);
+          </code>
+        </div>
+
+        <!-- 23 -->
+        <div class="topic-title">23. MongoDB Transactions</div>
+        <p>
+          Used to execute multiple operations as a single atomic unit (mostly
+          with replica sets).
+        </p>
+        <div class="example">
+          <code>
+            const session = await mongoose.startSession();<br />
+            session.startTransaction();<br />
+            try {<br />
+            &nbsp;&nbsp;// perform operations<br />
+            &nbsp;&nbsp;await session.commitTransaction();<br />
+            } catch (err) {<br />
+            &nbsp;&nbsp;await session.abortTransaction();<br />
+            }
+          </code>
+        </div>
+
+        <!-- 24 -->
+        <div class="topic-title">24. Error Handling in Mongoose</div>
+        <p>
+          Always catch and handle errors using try-catch or
+          <code>.catch()</code>.
+        </p>
+        <div class="example">
+          <code>
+            User.findById("wrongID")<br />
+            .then(data => console.log(data))<br />
+            .catch(err => console.error("Error:", err.message));
+          </code>
+        </div>
+
+        <!-- 25 -->
+        <div class="topic-title">25. Using Environment Variables</div>
+        <p>
+          Store your MongoDB URI in a secure file (.env) instead of hardcoding.
+        </p>
+        <div class="example">
+          <code>
+            // .env<br />
+            MONGO_URI=mongodb://localhost:27017/mydb
+          </code>
+          <br />
+          <code>
+            // index.js<br />
+            require("dotenv").config();<br />
+            mongoose.connect(process.env.MONGO_URI);
+          </code>
+        </div>
+
+        <!-- 26 -->
+        <div class="topic-title">26. Connecting to MongoDB Atlas</div>
+        <p>
+          MongoDB Atlas is a cloud version of MongoDB. Use your cluster URI to
+          connect.
+        </p>
+        <div class="example">
+          <code>
+            mongoose.connect("mongodb+srv://username:password@cluster.mongodb.net/mydb?retryWrites=true");
+          </code>
+        </div>
+
+        <!-- 27 -->
+        <div class="topic-title">27. Mongo Shell Basics</div>
+        <p>You can run commands directly in MongoDB Shell.</p>
+        <div class="example">
+          <code>
+            use mydb<br />
+            db.users.find()<br />
+            db.users.insertOne({ name: "Demo" })
+          </code>
+        </div>
+
+        <!-- 28 -->
+        <div class="topic-title">28. Drop Collection or Database</div>
+        <p>Use these carefully! Drops a collection or entire DB.</p>
+        <div class="example">
+          <code>
+            db.users.drop()<br />
+            db.dropDatabase()
+          </code>
+        </div>
+
+        <!-- 29 -->
+        <div class="topic-title">29. MongoDB Backup (mongodump)</div>
+        <p>Command-line utility to create backups of your database.</p>
+        <div class="example">
+          <code> mongodump --db=mydb --out=/backup/mydb </code>
+        </div>
+
+        <!-- 30 -->
+        <div class="topic-title">30. MongoDB Restore (mongorestore)</div>
+        <p>
+          Use this to restore data from a backup created by
+          <code>mongodump</code>.
+        </p>
+        <div class="example">
+          <code> mongorestore /backup/mydb </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>MongoDB Advanced Topics (31–40)</h1>
+
+        <!-- 31 -->
+        <div class="topic-title">31. TTL Index (Time-To-Live)</div>
+        <p>
+          Automatically deletes documents after a certain time period (great for
+          sessions, logs).
+        </p>
+        <div class="example">
+          <code>
+            db.sessions.createIndex({ "createdAt": 1 }, { expireAfterSeconds:
+            3600 })
+          </code>
+        </div>
+
+        <!-- 32 -->
+        <div class="topic-title">32. Regular Expression Query</div>
+        <p>
+          You can use regular expressions to filter data similar to SQL’s LIKE.
+        </p>
+        <div class="example">
+          <code>
+            User.find({ name: { $regex: "^A" } }); // Names starting with A
+          </code>
+        </div>
+
+        <!-- 33 -->
+        <div class="topic-title">33. Text Index and Full-Text Search</div>
+        <p>
+          Allows text searching within fields. Useful for blogs, search bars.
+        </p>
+        <div class="example">
+          <code>
+            db.posts.createIndex({ title: "text", body: "text" });<br />
+            db.posts.find({ $text: { $search: "mongodb tutorial" } });
+          </code>
+        </div>
+
+        <!-- 34 -->
+        <div class="topic-title">34. Schema-less Nature of MongoDB</div>
+        <p>
+          MongoDB allows documents in the same collection to have different
+          structures.
+        </p>
+        <p>
+          Flexibility is useful but must be managed using Mongoose schemas in
+          Node.js.
+        </p>
+
+        <!-- 35 -->
+        <div class="topic-title">35. Embedded Documents</div>
+        <p>You can nest documents within documents (denormalized structure).</p>
+        <div class="example">
+          <code>
+            const userSchema = new mongoose.Schema({<br />
+            &nbsp;&nbsp;name: String,<br />
+            &nbsp;&nbsp;address: { city: String, pincode: Number }<br />
+            });
+          </code>
+        </div>
+
+        <!-- 36 -->
+        <div class="topic-title">36. Array of Embedded Documents</div>
+        <p>Store multiple objects inside a document using arrays.</p>
+        <div class="example">
+          <code>
+            const blogSchema = new mongoose.Schema({<br />
+            &nbsp;&nbsp;title: String,<br />
+            &nbsp;&nbsp;comments: [<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;{ body: String, date: Date }<br />
+            &nbsp;&nbsp;]<br />
+            });
+          </code>
+        </div>
+
+        <!-- 37 -->
+        <div class="topic-title">37. Array Query Operators</div>
+        <p>
+          MongoDB provides operators like <code>$elemMatch</code> and
+          <code>$in</code> to query arrays.
+        </p>
+        <div class="example">
+          <code>
+            db.blogs.find({ tags: { $in: ["mongodb"] } });<br />
+            db.blogs.find({ comments: { $elemMatch: { author: "John" } } });
+          </code>
+        </div>
+
+        <!-- 38 -->
+        <div class="topic-title">38. Distinct Query</div>
+        <p>Returns an array of unique values for a specified field.</p>
+        <div class="example">
+          <code> db.users.distinct("country"); </code>
+        </div>
+
+        <!-- 39 -->
+        <div class="topic-title">39. Rename Field</div>
+        <p>Rename a field in all matching documents.</p>
+        <div class="example">
+          <code>
+            db.users.updateMany({}, { $rename: { "fullname": "name" } });
+          </code>
+        </div>
+
+        <!-- 40 -->
+        <div class="topic-title">40. Add/Remove Field</div>
+        <p>
+          You can add or remove fields using <code>$set</code> and
+          <code>$unset</code>.
+        </p>
+        <div class="example">
+          <code>
+            db.users.updateMany({}, { $set: { isActive: true } });<br />
+            db.users.updateMany({}, { $unset: { age: "" } });
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>MongoDB Topics (41–50)</h1>
+
+        <!-- 41 -->
+        <div class="topic-title">
+          41. Field Projection (Include/Exclude Fields)
+        </div>
+        <p>
+          Use projection to control which fields are returned in a query result.
+        </p>
+        <div class="example">
+          <code>
+            db.users.find({}, { name: 1, _id: 0 }); // Include name, exclude _id
+          </code>
+        </div>
+
+        <!-- 42 -->
+        <div class="topic-title">
+          42. Aggregation Pipeline: $group, $sum, $avg
+        </div>
+        <p>
+          Performs advanced data processing in stages. $group groups data; $sum
+          and $avg calculate values.
+        </p>
+        <div class="example">
+          <code>
+            db.orders.aggregate([<br />
+            &nbsp;&nbsp;{ $group: { _id: "$category", total: { $sum: "$price" }
+            } }<br />
+            ]);
+          </code>
+        </div>
+
+        <!-- 43 -->
+        <div class="topic-title">43. Lookup (Join-like Operation)</div>
+        <p>
+          <code>$lookup</code> performs a left outer join between collections.
+        </p>
+        <div class="example">
+          <code>
+            db.orders.aggregate([<br />
+            &nbsp;&nbsp;{ $lookup: {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;from: "customers",<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;localField: "custId",<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;foreignField: "_id",<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;as: "customerDetails"<br />
+            &nbsp;&nbsp;} }<br />
+            ]);
+          </code>
+        </div>
+
+        <!-- 44 -->
+        <div class="topic-title">44. Geospatial Queries</div>
+        <p>
+          Used to store and query location-based data (longitude & latitude).
+        </p>
+        <div class="example">
+          <code>
+            db.places.createIndex({ location: "2dsphere" });<br />
+            db.places.find({<br />
+            &nbsp;&nbsp;location: {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;$near: {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$geometry: { type: "Point",
+            coordinates: [77.5946, 12.9716] },<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$maxDistance: 5000<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+            &nbsp;&nbsp;}<br />
+            });
+          </code>
+        </div>
+
+        <!-- 45 -->
+        <div class="topic-title">45. MapReduce (Data Aggregation Tool)</div>
+        <p>
+          MapReduce allows you to apply custom map and reduce functions on large
+          datasets.
+        </p>
+        <div class="example">
+          <code>
+            db.orders.mapReduce(<br />
+            &nbsp;&nbsp;function() { emit(this.product, this.quantity); },<br />
+            &nbsp;&nbsp;function(key, values) { return Array.sum(values); },<br />
+            &nbsp;&nbsp;{ out: "product_totals" }<br />
+            );
+          </code>
+        </div>
+
+        <!-- 46 -->
+        <div class="topic-title">46. Change Streams</div>
+        <p>
+          Listen to real-time changes in a collection using
+          <code>watch()</code>.
+        </p>
+        <div class="example">
+          <code>
+            const changeStream = db.collection("users").watch();<br />
+            changeStream.on("change", (next) => console.log(next));
+          </code>
+        </div>
+
+        <!-- 47 -->
+        <div class="topic-title">47. Virtuals in Mongoose</div>
+        <p>
+          Virtuals are properties not stored in MongoDB but computed on the fly.
+        </p>
+        <div class="example">
+          <code>
+            userSchema.virtual("fullName").get(function () {<br />
+            &nbsp;&nbsp;return this.firstName + " " + this.lastName;<br />
+            });
+          </code>
+        </div>
+
+        <!-- 48 -->
+        <div class="topic-title">48. Lean Queries in Mongoose</div>
+        <p>
+          <code>.lean()</code> returns plain JavaScript objects instead of
+          Mongoose documents — faster for read-only ops.
+        </p>
+        <div class="example">
+          <code> User.find().lean().then(data => console.log(data)); </code>
+        </div>
+
+        <!-- 49 -->
+        <div class="topic-title">49. Timestamps in Schema</div>
+        <p>
+          Enable automatic <code>createdAt</code> and
+          <code>updatedAt</code> timestamps for documents.
+        </p>
+        <div class="example">
+          <code>
+            const schema = new mongoose.Schema({...}, { timestamps: true });
+          </code>
+        </div>
+
+        <!-- 50 -->
+        <div class="topic-title">50. MongoDB Data Modeling Best Practices</div>
+        <p>
+          - Use embedding for one-to-few relationships<br />
+          - Use references for one-to-many or many-to-many<br />
+          - Avoid large documents (max: 16MB)<br />
+          - Use schema validation for consistency<br />
+          - Index fields used in queries
+        </p>
+      </section>
+
+      <section class="topic-section">
+        <div class="topic-title">MongoDB Reference Links</div>
+        <p>
+          📘 MongoDB Official Docs:
+          <a href="https://www.mongodb.com/docs/" target="_blank"
+            >https://www.mongodb.com/docs/</a
+          >
+        </p>
+        <p>
+          📦 Mongoose Docs:
+          <a href="https://mongoosejs.com/docs/" target="_blank"
+            >https://mongoosejs.com/docs/</a
+          >
+        </p>
+        <p>
+          🌐 MongoDB Atlas Cloud:
+          <a href="https://www.mongodb.com/cloud/atlas" target="_blank"
+            >https://www.mongodb.com/cloud/atlas</a
+          >
+        </p>
+        <p>
+          🎓 GeeksforGeeks MongoDB Tutorial:
+          <a href="https://www.geeksforgeeks.org/mongodb/" target="_blank"
+            >https://www.geeksforgeeks.org/mongodb/</a
+          >
+        </p>
+        <p>
+          🛠️ MongoDB Compass Tool:
+          <a href="https://www.mongodb.com/products/compass" target="_blank"
+            >https://www.mongodb.com/products/compass</a
+          >
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

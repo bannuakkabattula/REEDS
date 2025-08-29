@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Topic Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="py-5 timeline mb-lg-5">
+  <h2 class="text-center section-title mb-2">PHP</h2>
+  <p class="text-center text-muted mb-0">
+    Create dynamic server-side web pages and connect to databases <br />
+    using core PHP scripting techniques.
+  </p>
+</div>
+
+<section class="topic-section">
+  
+<div class="container">
+    <h1>PHP Topics with Definitions and Examples</h1>
+  <div class="topic-title">1. What is PHP?</div>
+  <p>Definition: PHP stands for "Hypertext Preprocessor". It is a server-side scripting language designed for web development.</p>
+  <p>Example:</p>
+  <div class="example">
+    <code>
+      &lt;?php echo "Hello, World!"; ?&gt;
+    </code>
+  </div>
+
+  <div class="topic-title">2. Installing PHP</div>
+  <p>Install using tools like XAMPP, WAMP (Windows), or MAMP (Mac). You can also install using terminal on Linux.</p>
+
+  <div class="topic-title">3. PHP Syntax</div>
+  <p>PHP code starts with <code>&lt;?php</code> and ends with <code>?&gt;</code>. Semicolon (;) ends each statement.</p>
+  <div class="example">
+    <code>
+      &lt;?php<br>
+      &nbsp;&nbsp;$x = 5;<br>
+      &nbsp;&nbsp;echo $x;<br>
+      ?&gt;
+    </code>
+  </div>
+
+  <div class="topic-title">4. PHP Variables</div>
+  <p>Variables start with <code>$</code>. They are case-sensitive.</p>
+  <div class="example">
+    <code>
+      &lt;?php<br>
+      &nbsp;&nbsp;$name = "John";<br>
+      &nbsp;&nbsp;echo $name;<br>
+      ?&gt;
+    </code>
+  </div>
+
+  <div class="topic-title">5. PHP Data Types</div>
+  <p>Types: String, Integer, Float, Boolean, Array, Object, NULL, Resource.</p>
+  <div class="example">
+    <code>
+      $str = "Hello";<br>
+      $num = 100;<br>
+      $arr = array(1, 2, 3);
+    </code>
+  </div>
+
+  <div class="topic-title">6. PHP Constants</div>
+  <p>Constants are defined using <code>define()</code> and cannot be changed.</p>
+  <div class="example">
+    <code>
+      define("SITE", "My Website");<br>
+      echo SITE;
+    </code>
+  </div>
+
+  <div class="topic-title">7. PHP Echo and Print</div>
+  <p><code>echo</code> and <code>print</code> output data. <code>echo</code> is faster and supports multiple parameters.</p>
+  <div class="example">
+    <code>
+      echo "Hello", " ", "World";<br>
+      print "Hello PHP";
+    </code>
+  </div>
+
+  <div class="topic-title">8. PHP Operators</div>
+  <p>Includes arithmetic, assignment, comparison, logical, and string operators.</p>
+  <div class="example">
+    <code>
+      $x = 10;<br>
+      $y = 5;<br>
+      echo $x + $y;
+    </code>
+  </div>
+
+  <div class="topic-title">9. PHP If-Else Condition</div>
+  <p>Used for decision-making based on conditions.</p>
+  <div class="example">
+    <code>
+      if ($x &gt; $y) {<br>
+      &nbsp;&nbsp;echo "X is greater";<br>
+      } else {<br>
+      &nbsp;&nbsp;echo "Y is greater";<br>
+      }
+    </code>
+  </div>
+
+  <div class="topic-title">10. PHP Switch Statement</div>
+  <p>Switch is used to execute one block of code from multiple options.</p>
+  <div class="example">
+    <code>
+      switch($color) {<br>
+      &nbsp;&nbsp;case "red": echo "Red"; break;<br>
+      &nbsp;&nbsp;default: echo "Unknown";<br>
+      }
+    </code>
+  </div>
+
+  <div class="topic-title">11. PHP Loops</div>
+  <p>Loops include: while, do-while, for, foreach.</p>
+  <div class="example">
+    <code>
+      for ($i = 0; $i &lt; 5; $i++) {<br>
+      &nbsp;&nbsp;echo $i;<br>
+      }
+    </code>
+  </div>
+
+  <div class="topic-title">12. PHP Functions</div>
+  <p>Functions encapsulate reusable blocks of code.</p>
+  <div class="example">
+    <code>
+      function greet($name) {<br>
+      &nbsp;&nbsp;echo "Hello " . $name;<br>
+      }<br>
+      greet("John");
+    </code>
+  </div>
+
+  <div class="topic-title">13. PHP Arrays</div>
+  <p>Types: Indexed, Associative, and Multidimensional arrays.</p>
+  <div class="example">
+    <code>
+      $colors = array("red", "green", "blue");<br>
+      echo $colors[0];
+    </code>
+  </div>
+
+  <div class="topic-title">14. PHP Associative Arrays</div>
+  <p>Use named keys that you assign to them.</p>
+  <div class="example">
+    <code>
+      $person = array("name"=&gt;"John", "age"=&gt;25);<br>
+      echo $person["name"];
+    </code>
+  </div>
+
+  <div class="topic-title">15. PHP Global and Local Scope</div>
+  <p>Variables declared inside functions are local. Outside are global.</p>
+  <div class="example">
+    <code>
+      $x = 10;<br>
+      function showX() {<br>
+      &nbsp;&nbsp;global $x;<br>
+      &nbsp;&nbsp;echo $x;<br>
+      }
+    </code>
+  </div>
+</section>
+<section>
+  <div class="topic-title">16. PHP Super Global Variables</div>
+  <p>PHP provides built-in global arrays like <code>$_GET</code>, <code>$_POST</code>, <code>$_REQUEST</code>, <code>$_SERVER</code>, etc.</p>
+  <div class="example">
+    <code>
+      echo $_SERVER['PHP_SELF'];
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">17. PHP Form Handling (GET)</div>
+  <p><code>$_GET</code> is used to collect data from form via URL query string.</p>
+  <div class="example">
+    <code>
+      &lt;form method="get"&gt;<br>
+      &nbsp;&nbsp;&lt;input name="name"&gt;<br>
+      &nbsp;&nbsp;&lt;input type="submit"&gt;<br>
+      &lt;/form&gt;<br>
+      &lt;?php echo $_GET['name']; ?&gt;
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">18. PHP Form Handling (POST)</div>
+  <p><code>$_POST</code> is used to collect form data sent in the HTTP body.</p>
+  <div class="example">
+    <code>
+      &lt;form method="post"&gt;<br>
+      &nbsp;&nbsp;&lt;input name="email"&gt;<br>
+      &nbsp;&nbsp;&lt;input type="submit"&gt;<br>
+      &lt;/form&gt;<br>
+      &lt;?php echo $_POST['email']; ?&gt;
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">19. PHP $_REQUEST</div>
+  <p><code>$_REQUEST</code> can collect data sent with both GET and POST methods.</p>
+  <div class="example">
+    <code>
+      echo $_REQUEST['username'];
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">20. PHP Include and Require</div>
+  <p>Used to reuse and split code. <code>include</code> shows a warning if file not found, <code>require</code> throws fatal error.</p>
+  <div class="example">
+    <code>
+      include 'header.php';<br>
+      require 'config.php';
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">21. PHP File Handling</div>
+  <p>Functions like <code>fopen()</code>, <code>fwrite()</code>, <code>fread()</code>, <code>fclose()</code> help manage files.</p>
+  <div class="example">
+    <code>
+      $file = fopen("data.txt", "w");<br>
+      fwrite($file, "Hello PHP");<br>
+      fclose($file);
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">22. PHP Sessions</div>
+  <p>Sessions store user information across multiple pages.</p>
+  <div class="example">
+    <code>
+      session_start();<br>
+      $_SESSION["user"] = "John";
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">23. PHP Cookies</div>
+  <p>Cookies store data in the user's browser.</p>
+  <div class="example">
+    <code>
+      setcookie("user", "John", time() + 3600);<br>
+      echo $_COOKIE["user"];
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">24. PHP Date and Time</div>
+  <p>Use <code>date()</code> function to get and format date/time.</p>
+  <div class="example">
+    <code>
+      echo date("Y-m-d H:i:s");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">25. PHP Error Handling</div>
+  <p>Use <code>try</code>, <code>catch</code>, <code>throw</code> for exceptions. Also use <code>error_reporting()</code>.</p>
+  <div class="example">
+    <code>
+      try {<br>
+      &nbsp;&nbsp;throw new Exception("Error!");<br>
+      } catch(Exception $e) {<br>
+      &nbsp;&nbsp;echo $e-&gt;getMessage();<br>
+      }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">26. PHP Object-Oriented Programming</div>
+  <p>PHP supports OOP with classes, objects, inheritance, and access modifiers.</p>
+  <div class="example">
+    <code>
+      class Car {<br>
+      &nbsp;&nbsp;public $brand = "BMW";<br>
+      &nbsp;&nbsp;function show() { echo $this-&gt;brand; }<br>
+      }<br>
+      $obj = new Car();<br>
+      $obj-&gt;show();
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">27. PHP Constructors</div>
+  <p><code>__construct()</code> is automatically called when an object is created.</p>
+  <div class="example">
+    <code>
+      class Greet {<br>
+      &nbsp;&nbsp;function __construct() { echo "Welcome"; }<br>
+      }<br>
+      new Greet();
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">28. PHP Inheritance</div>
+  <p>Allows a class to inherit properties/methods from another class using <code>extends</code>.</p>
+  <div class="example">
+    <code>
+      class A { function msg() { echo "Hello"; } }<br>
+      class B extends A {}<br>
+      $obj = new B();<br>
+      $obj-&gt;msg();
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">29. PHP Access Modifiers</div>
+  <p>Access control: <code>public</code>, <code>protected</code>, <code>private</code>.</p>
+  <div class="example">
+    <code>
+      class Demo {<br>
+      &nbsp;&nbsp;private $x = 10;<br>
+      &nbsp;&nbsp;function show() { echo $this-&gt;x; }<br>
+      }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">30. PHP Static Methods and Properties</div>
+  <p>Static members belong to the class rather than any object instance.</p>
+  <div class="example">
+    <code>
+      class Test {<br>
+      &nbsp;&nbsp;public static $count = 0;<br>
+      &nbsp;&nbsp;public static function show() { echo self::$count; }<br>
+      }<br>
+      Test::show();
+    </code>
+  </div>
+</section>
+<section>
+  <div class="topic-title">31. PHP Interface</div>
+  <p>Interfaces allow you to define a contract that classes must follow.</p>
+  <div class="example">
+    <code>
+      interface Animal {<br>
+      &nbsp;&nbsp;public function makeSound();<br>
+      }<br>
+      class Dog implements Animal {<br>
+      &nbsp;&nbsp;public function makeSound() { echo "Bark"; }<br>
+      }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">32. PHP Traits</div>
+  <p>Traits allow you to reuse code in multiple classes.</p>
+  <div class="example">
+    <code>
+      trait Logger {<br>
+      &nbsp;&nbsp;public function log($msg) { echo $msg; }<br>
+      }<br>
+      class App {<br>
+      &nbsp;&nbsp;use Logger;<br>
+      }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">33. PHP Namespaces</div>
+  <p>Used to avoid name conflicts between classes/functions.</p>
+  <div class="example">
+    <code>
+      namespace MyApp;<br>
+      class User { function show() { echo "User"; } }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">34. PHP Autoloading</div>
+  <p>Automatically load class files using <code>spl_autoload_register()</code>.</p>
+  <div class="example">
+    <code>
+      spl_autoload_register(function ($class) {<br>
+      &nbsp;&nbsp;include $class . '.php';<br>
+      });
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">35. PHP File Upload</div>
+  <p>Handle file uploads via HTML forms and <code>$_FILES</code>.</p>
+  <div class="example">
+    <code>
+      &lt;form method="post" enctype="multipart/form-data"&gt;<br>
+      &nbsp;&nbsp;&lt;input type="file" name="file"&gt;<br>
+      &nbsp;&nbsp;&lt;input type="submit"&gt;<br>
+      &lt;/form&gt;<br>
+      &lt;?php move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $_FILES["file"]["name"]); ?&gt;
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">36. PHP JSON Encode and Decode</div>
+  <p>Use <code>json_encode()</code> and <code>json_decode()</code> to work with JSON data.</p>
+  <div class="example">
+    <code>
+      $arr = ["name" =&gt; "John"];<br>
+      echo json_encode($arr);
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">37. PHP AJAX Handling</div>
+  <p>Use PHP to process AJAX requests from JavaScript.</p>
+  <div class="example">
+    <code>
+      // In PHP (data.php):<br>
+      echo json_encode(["msg" =&gt; "Hello"]);<br><br>
+      // In JavaScript:<br>
+      fetch('data.php').then(res =&gt; res.json()).then(data =&gt; alert(data.msg));
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">38. PHP Connect to MySQL (MySQLi)</div>
+  <p>Connect PHP with MySQL using MySQLi extension.</p>
+  <div class="example">
+    <code>
+      $conn = new mysqli("localhost", "root", "", "test");<br>
+      $result = $conn-&gt;query("SELECT * FROM users");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">39. PHP Connect to MySQL using PDO</div>
+  <p>PDO (PHP Data Object) is a secure and flexible way to access databases.</p>
+  <div class="example">
+    <code>
+      $pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");<br>
+      $stmt = $pdo-&gt;query("SELECT * FROM users");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">40. PHP Prepared Statements</div>
+  <p>Use prepared statements to prevent SQL injection attacks.</p>
+  <div class="example">
+    <code>
+      $stmt = $pdo-&gt;prepare("SELECT * FROM users WHERE id = ?");<br>
+      $stmt-&gt;execute([1]);
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">41. PHP Login System</div>
+  <p>Validate user credentials and manage sessions.</p>
+  <div class="example">
+    <code>
+      if ($_POST["username"] == "admin" &amp;&amp; $_POST["password"] == "123") {<br>
+      &nbsp;&nbsp;$_SESSION["loggedin"] = true;<br>
+      }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">42. PHP Registration Form</div>
+  <p>Insert form data into a MySQL database.</p>
+  <div class="example">
+    <code>
+      $name = $_POST["name"];<br>
+      $sql = "INSERT INTO users (name) VALUES ('$name')";
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">43. PHP Email Sending</div>
+  <p>Use the <code>mail()</code> function to send emails.</p>
+  <div class="example">
+    <code>
+      mail("user@example.com", "Subject", "Message");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">44. PHP Pagination</div>
+  <p>Used to divide content into multiple pages using <code>LIMIT</code> and <code>OFFSET</code>.</p>
+  <div class="example">
+    <code>
+      $sql = "SELECT * FROM posts LIMIT 5 OFFSET 10";
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">45. PHP Filter and Validate Data</div>
+  <p>Use <code>filter_var()</code> to sanitize and validate user input.</p>
+  <div class="example">
+    <code>
+      $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    </code>
+  </div>
+</section>
+<section>
+  <div class="topic-title">46. PHP Error Logging</div>
+  <p>Use <code>error_log()</code> to log custom errors into a file.</p>
+  <div class="example">
+    <code>
+      error_log("Something went wrong!", 3, "errors.log");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">47. PHP Magic Methods</div>
+  <p>Special methods like <code>__construct()</code>, <code>__destruct()</code>, <code>__toString()</code> are automatically called.</p>
+  <div class="example">
+    <code>
+      class Test {<br>
+      &nbsp;&nbsp;public function __toString() { return "Object to string"; }<br>
+      }<br>
+      echo new Test();
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">48. PHP Secure File Upload</div>
+  <p>Validate file type, size, and use <code>move_uploaded_file()</code>.</p>
+  <div class="example">
+    <code>
+      if ($_FILES['file']['type'] == "image/png") {<br>
+      &nbsp;&nbsp;move_uploaded_file(...);<br>
+      }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">49. PHP explode() and implode()</div>
+  <p><code>explode()</code> splits strings into arrays; <code>implode()</code> joins arrays into strings.</p>
+  <div class="example">
+    <code>
+      $arr = explode(",", "red,green,blue");<br>
+      $str = implode("-", $arr);
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">50. PHP String Functions</div>
+  <p>Common functions: <code>strlen()</code>, <code>strpos()</code>, <code>substr()</code>, <code>str_replace()</code>.</p>
+  <div class="example">
+    <code>
+      echo strlen("PHP");<br>
+      echo str_replace("PHP", "Java", "I love PHP");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">51. PHP Array Functions</div>
+  <p>Useful functions: <code>array_merge()</code>, <code>array_push()</code>, <code>array_pop()</code>, <code>array_keys()</code>.</p>
+  <div class="example">
+    <code>
+      $colors = ["red", "green"];<br>
+      array_push($colors, "blue");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">52. PHP Composer</div>
+  <p>Dependency manager for PHP. Use <code>composer.json</code> to manage libraries.</p>
+  <div class="example">
+    <code>
+      composer require phpmailer/phpmailer
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">53. PHP Mail with PHPMailer</div>
+  <p>PHPMailer provides advanced features for sending email with attachments.</p>
+  <div class="example">
+    <code>
+      $mail = new PHPMailer();<br>
+      $mail-&gt;addAddress("example@example.com");<br>
+      $mail-&gt;Subject = "Test";<br>
+      $mail-&gt;Body = "Hello";<br>
+      $mail-&gt;send();
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">54. PHP Session Destroy</div>
+  <p>Use <code>session_destroy()</code> to end a session and remove session data.</p>
+  <div class="example">
+    <code>
+      session_start();<br>
+      session_destroy();
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">55. PHP Encryption</div>
+  <p>Use <code>password_hash()</code> for storing passwords securely and <code>password_verify()</code> for validation.</p>
+  <div class="example">
+    <code>
+      $hash = password_hash("1234", PASSWORD_DEFAULT);<br>
+      echo password_verify("1234", $hash);
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">56. PHP REST API</div>
+  <p>Create RESTful endpoints using PHP and handle JSON input/output.</p>
+  <div class="example">
+    <code>
+      header("Content-Type: application/json");<br>
+      echo json_encode(["status" =&gt; "OK"]);
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">57. PHP Headers</div>
+  <p>Send raw HTTP headers using <code>header()</code> function.</p>
+  <div class="example">
+    <code>
+      header("Location: login.php");<br>
+      header("Content-Type: application/json");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">58. PHP Constants with define()</div>
+  <p>Constants are declared using <code>define()</code> and can't be changed during execution.</p>
+  <div class="example">
+    <code>
+      define("SITE_NAME", "MyApp");<br>
+      echo SITE_NAME;
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">59. PHP isset() and empty()</div>
+  <p><code>isset()</code> checks if a variable is set and not null. <code>empty()</code> checks if it's empty (zero, null, "")</p>
+  <div class="example">
+    <code>
+      if (isset($x) &amp;&amp; !empty($x)) { echo $x; }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">60. PHP Redirect</div>
+  <p>Redirect users using the <code>header()</code> function.</p>
+  <div class="example">
+    <code>
+      header("Location: home.php");<br>
+      exit();
+    </code>
+  </div>
+</section>
+<section>
+  <div class="topic-title">61. PHP unset()</div>
+  <p>Removes a variable or array element from memory.</p>
+  <div class="example">
+    <code>
+      $x = "Hello";<br>
+      unset($x);<br>
+      // Now $x is undefined
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">62. PHP die() and exit()</div>
+  <p>Terminates script execution. <code>die()</code> and <code>exit()</code> are identical.</p>
+  <div class="example">
+    <code>
+      if (!$conn) { die("Connection failed"); }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">63. PHP file_exists()</div>
+  <p>Checks if a file or directory exists.</p>
+  <div class="example">
+    <code>
+      if (file_exists("file.txt")) { echo "Found"; }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">64. PHP file_get_contents() and file_put_contents()</div>
+  <p><code>file_get_contents()</code> reads file into a string; <code>file_put_contents()</code> writes string to a file.</p>
+  <div class="example">
+    <code>
+      $data = file_get_contents("file.txt");<br>
+      file_put_contents("file.txt", "New content");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">65. PHP strtotime() and date()</div>
+  <p><code>strtotime()</code> converts a date string to a Unix timestamp. <code>date()</code> formats dates.</p>
+  <div class="example">
+    <code>
+      echo date("Y-m-d", strtotime("next Sunday"));
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">66. PHP Headers for Downloading Files</div>
+  <p>Force download with proper headers.</p>
+  <div class="example">
+    <code>
+      header("Content-Disposition: attachment; filename=file.txt");<br>
+      readfile("file.txt");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">67. PHP preg_match()</div>
+  <p>Matches a string against a regular expression.</p>
+  <div class="example">
+    <code>
+      if (preg_match("/^[a-z]+$/", "hello")) { echo "Match"; }
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">68. PHP explode() vs strtok()</div>
+  <p><code>explode()</code> splits strings by delimiter; <code>strtok()</code> tokenizes one at a time.</p>
+  <div class="example">
+    <code>
+      $words = explode(" ", "PHP is great");<br>
+      $tok = strtok("PHP is great", " ");<br>
+      echo $tok;
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">69. PHP ob_start() and ob_end_flush()</div>
+  <p>Used for output buffering to capture output before sending to browser.</p>
+  <div class="example">
+    <code>
+      ob_start();<br>
+      echo "Buffered Output";<br>
+      ob_end_flush();
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">70. PHP Anonymous Functions</div>
+  <p>Functions without names that can be assigned to variables.</p>
+  <div class="example">
+    <code>
+      $greet = function($name) { echo "Hi $name"; };<br>
+      $greet("PHP");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">71. PHP Callback Functions</div>
+  <p>Pass a function name as argument to another function.</p>
+  <div class="example">
+    <code>
+      function sayHello($name) { return "Hello $name"; }<br>
+      echo call_user_func("sayHello", "John");
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">72. PHP array_map()</div>
+  <p>Applies a function to each element of an array.</p>
+  <div class="example">
+    <code>
+      $squares = array_map(function($x) { return $x * $x; }, [1, 2, 3]);
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">73. PHP array_filter()</div>
+  <p>Filters array elements using a callback function.</p>
+  <div class="example">
+    <code>
+      $even = array_filter([1, 2, 3, 4], function($x) { return $x % 2 == 0; });
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">74. PHP array_reduce()</div>
+  <p>Reduces an array to a single value by applying a callback.</p>
+  <div class="example">
+    <code>
+      $sum = array_reduce([1, 2, 3], function($carry, $item) { return $carry + $item; });
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">75. PHP Ternary Operator</div>
+  <p>Short form for if-else statements: <code>condition ? true : false;</code></p>
+  <div class="example">
+    <code>
+      $age = 20;<br>
+      echo ($age &gt;= 18) ? "Adult" : "Minor";
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">76. PHP Null Coalescing Operator</div>
+  <p>Returns the first operand if it's not null: <code>$x = $_POST["value"] ?? "default";</code></p>
+  <div class="example">
+    <code>
+      $name = $_GET["name"] ?? "Guest";<br>
+      echo $name;
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">77. PHP require_once vs require</div>
+  <p><code>require_once</code> prevents multiple inclusions of the same file.</p>
+  <div class="example">
+    <code>
+      require_once "config.php";
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">78. PHP curl_init()</div>
+  <p>Used to send HTTP requests via cURL.</p>
+  <div class="example">
+    <code>
+      $curl = curl_init("https://api.example.com");<br>
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);<br>
+      $response = curl_exec($curl);<br>
+      curl_close($curl);
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">79. PHP setcookie()</div>
+  <p>Used to set a cookie on the client’s browser.</p>
+  <div class="example">
+    <code>
+      setcookie("user", "John", time() + 3600);<br>
+      echo $_COOKIE["user"];
+    </code>
+  </div>
+</section>
+
+<section>
+  <div class="topic-title">80. PHP explode() vs split() (Deprecated)</div>
+  <p><code>explode()</code> is used in modern PHP, while <code>split()</code> is deprecated.</p>
+  <div class="example">
+    <code>
+      $data = "A,B,C";<br>
+      $arr = explode(",", $data);
+    </code>
+  </div>
+</section>
+<section>
+  <div class="topic-title">PHP Reference Links</div>
+  <p>Official PHP Manual: <a href="https://www.php.net/manual/en/" target="_blank">PHP.net Manual</a></p>
+  <p>W3Schools PHP Tutorial: <a href="https://www.w3schools.com/php/" target="_blank">W3Schools PHP</a></p>
+  <p>MDN PHP Overview (for related web concepts): <a href="https://developer.mozilla.org/en-US/docs/Glossary/PHP" target="_blank">MDN Glossary - PHP</a></p>
+  <p>PHP The Right Way (Best Practices): <a href="https://phptherightway.com/" target="_blank">PHP: The Right Way</a></p>
+  <p>GeeksforGeeks PHP Programming: <a href="https://www.geeksforgeeks.org/php/" target="_blank">GeeksforGeeks - PHP</a></p>
+  <p>TutorialsPoint PHP Guide: <a href="https://www.tutorialspoint.com/php/index.htm" target="_blank">TutorialsPoint PHP</a></p>
+</section>
+
+</div>
+</body>
+
+</html>

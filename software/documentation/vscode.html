@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VS Code Topics Documentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+
+  <body>
+    <div class="py-5 timeline mb-lg-5">
+      <h2 class="text-center section-title mb-2">VS CODE</h2>
+      <p class="text-center text-muted mb-0">
+        Boost your coding productivity using Visual Studio Code <br />
+        extensions, debugging tools, and customization features.
+      </p>
+    </div>
+    <div class="container">
+      <section class="topic-section">
+        <h1>Visual Studio Code (VS Code) - Step-by-Step Guide</h1>
+
+        <div class="topic-title">1. What is VS Code?</div>
+        <p>
+          VS Code is a free, lightweight, and powerful source code editor
+          developed by Microsoft. It supports multiple programming languages,
+          extensions, Git integration, debugging, and more.
+        </p>
+
+        <div class="topic-title">2. Installing VS Code</div>
+        <p>
+          Download from
+          <a href="https://code.visualstudio.com/" target="_blank"
+            >https://code.visualstudio.com</a
+          >
+        </p>
+        <ul>
+          <li>Choose your OS: Windows, macOS, or Linux</li>
+          <li>Run the installer and follow the setup steps</li>
+        </ul>
+
+        <div class="topic-title">3. Opening a Project</div>
+        <p>To open a folder or project:</p>
+        <ul>
+          <li>Click on <strong>File → Open Folder</strong></li>
+          <li>Select the directory containing your project</li>
+          <li>Use the integrated file explorer on the left</li>
+        </ul>
+
+        <div class="topic-title">4. Creating a File</div>
+        <p>
+          Right-click inside the Explorer and select <strong>New File</strong>.
+          Name the file and begin typing your code.
+        </p>
+
+        <div class="topic-title">5. Changing Themes</div>
+        <p>VS Code supports various themes for a better coding experience.</p>
+        <ul>
+          <li>
+            Go to <strong>View → Command Palette</strong> (or press
+            <code>Ctrl+Shift+P</code>)
+          </li>
+          <li>Type <code>Color Theme</code> and choose your preferred theme</li>
+        </ul>
+
+        <div class="topic-title">6. Installing Extensions</div>
+        <p>
+          Extensions add support for languages, themes, debuggers, linters, and
+          frameworks.
+        </p>
+        <ul>
+          <li>Click the <strong>Extensions</strong> icon on the sidebar</li>
+          <li>
+            Search and install: Python, JavaScript, Prettier, Live Server, etc.
+          </li>
+        </ul>
+
+        <div class="topic-title">7. Integrated Terminal</div>
+        <p>Access a terminal directly inside VS Code.</p>
+        <div class="example">
+          <code>
+            View → Terminal (or Ctrl + `)<br />
+            # Use it like a normal command-line interface
+          </code>
+        </div>
+
+        <div class="topic-title">8. Split Editor</div>
+        <p>Open files side-by-side using the split editor.</p>
+        <ul>
+          <li>
+            Right-click a tab → <strong>Split Right</strong> or drag it to the
+            side
+          </li>
+          <li>
+            Useful for comparing files or working on multiple files at once
+          </li>
+        </ul>
+
+        <div class="topic-title">9. Auto Save</div>
+        <p>Automatically saves your file when changes are made.</p>
+        <ul>
+          <li>Go to <strong>File → Auto Save</strong></li>
+          <li>You can also configure auto save delay in settings</li>
+        </ul>
+
+        <div class="topic-title">10. IntelliSense</div>
+        <p>VS Code provides intelligent code completion and suggestions.</p>
+        <ul>
+          <li>
+            Type a few characters and press <code>Ctrl+Space</code> to see
+            suggestions
+          </li>
+          <li>Works with languages like JavaScript, Python, C++, etc.</li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>VS Code Features and Configuration</h1>
+
+        <div class="topic-title">11. Git Integration</div>
+        <p>VS Code has built-in support for Git version control.</p>
+        <ul>
+          <li>Click the <strong>Source Control</strong> icon in the sidebar</li>
+          <li>It auto-detects Git repos and shows changes</li>
+          <li>
+            Use buttons to <strong>stage</strong>, <strong>commit</strong>, and
+            <strong>push</strong> changes
+          </li>
+        </ul>
+
+        <div class="topic-title">12. Debugging</div>
+        <p>Debug your code directly in the editor.</p>
+        <ul>
+          <li>
+            Click the <strong>Run and Debug</strong> icon or press
+            <code>F5</code>
+          </li>
+          <li>Choose your environment (Node.js, Python, etc.)</li>
+          <li>Set breakpoints, step through code, and inspect variables</li>
+        </ul>
+
+        <div class="topic-title">13. Settings and Customization</div>
+        <p>Configure VS Code behavior using settings.</p>
+        <ul>
+          <li>
+            Go to <strong>File → Preferences → Settings</strong> or press
+            <code>Ctrl+,</code>
+          </li>
+          <li>
+            You can search and update settings like font size, auto save, tab
+            size, etc.
+          </li>
+        </ul>
+
+        <div class="topic-title">
+          14. Settings.json (Advanced Configuration)
+        </div>
+        <p>For fine-grained control, use <code>settings.json</code>.</p>
+        <ul>
+          <li>
+            Open Command Palette →
+            <code>Preferences: Open Settings (JSON)</code>
+          </li>
+          <li>Edit values directly in JSON format</li>
+        </ul>
+        <div class="example">
+          <code>
+            {<br />
+            "editor.fontSize": 16,<br />
+            "editor.tabSize": 2<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">15. Workspace Settings</div>
+        <p>
+          Workspace-specific settings override user settings for a particular
+          project.
+        </p>
+        <ul>
+          <li>
+            Open a folder → Click <strong>Manage → Workspace Settings</strong>
+          </li>
+          <li>
+            Settings saved in <code>.vscode/settings.json</code> inside the
+            folder
+          </li>
+        </ul>
+
+        <div class="topic-title">16. File Explorer Navigation</div>
+        <p>Quick navigation and file actions using the explorer.</p>
+        <ul>
+          <li>Use the sidebar to browse and manage files</li>
+          <li>Right-click for options: Rename, Delete, Duplicate, etc.</li>
+        </ul>
+
+        <div class="topic-title">17. Minimap</div>
+        <p>A code preview on the right side of the editor.</p>
+        <ul>
+          <li>Helps scroll through large files</li>
+          <li>
+            Can be turned off in settings:
+            <code>"editor.minimap.enabled": false</code>
+          </li>
+        </ul>
+
+        <div class="topic-title">18. Zen Mode</div>
+        <p>Distraction-free coding environment that hides UI elements.</p>
+        <ul>
+          <li>
+            Open with <code>View → Appearance → Zen Mode</code> or
+            <code>Ctrl+K Z</code>
+          </li>
+          <li>Use <code>Esc Esc</code> to exit</li>
+        </ul>
+
+        <div class="topic-title">19. Emmet Support</div>
+        <p>Write HTML and CSS faster using Emmet abbreviations.</p>
+        <div class="example">
+          <code>
+            Type: ul>li*5 and press Tab<br />
+            Output: &lt;ul&gt;&lt;li&gt;&lt;/li&gt;...&lt;/ul&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">20. Format Document</div>
+        <p>Automatically formats your code according to rules.</p>
+        <ul>
+          <li>
+            Right-click → <strong>Format Document</strong> or press
+            <code>Shift+Alt+F</code>
+          </li>
+          <li>Install formatters like Prettier or ESLint for better results</li>
+        </ul>
+      </section>
+      <section class="topic-section">
+        <h1>VS Code Advanced Tools and Productivity</h1>
+
+        <div class="topic-title">21. Live Server Extension</div>
+        <p>Used for real-time preview of HTML/CSS/JS changes in the browser.</p>
+        <ul>
+          <li>Install <strong>Live Server</strong> from the Extensions tab</li>
+          <li>
+            Right-click on an HTML file → <strong>Open with Live Server</strong>
+          </li>
+          <li>The browser auto-refreshes on file save</li>
+        </ul>
+
+        <div class="topic-title">22. Code Snippets</div>
+        <p>Snippets are reusable code templates you can insert quickly.</p>
+        <ul>
+          <li>Go to <strong>File → Preferences → User Snippets</strong></li>
+          <li>Select a language or global snippets</li>
+          <li>Define patterns and bodies of code to expand</li>
+        </ul>
+        <div class="example">
+          <code>
+            "Print to console": {<br />
+            "prefix": "log",<br />
+            "body": ["console.log('$1');"],<br />
+            "description": "Log output to console"<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">23. Multi-Cursor Editing</div>
+        <p>Allows editing multiple lines at once.</p>
+        <ul>
+          <li>
+            Hold <code>Alt</code> (Windows/Linux) or <code>Option</code> (Mac)
+            and click in multiple places
+          </li>
+          <li>Or use <code>Ctrl + Alt + ↓ / ↑</code> to add cursors</li>
+        </ul>
+
+        <div class="topic-title">24. Extensions to Boost Productivity</div>
+        <ul>
+          <li><strong>Prettier</strong> – Code formatter</li>
+          <li><strong>ESLint</strong> – JavaScript linter</li>
+          <li><strong>Live Share</strong> – Real-time collaboration</li>
+          <li>
+            <strong>Bracket Pair Colorizer</strong> – Highlights matching
+            brackets
+          </li>
+          <li>
+            <strong>Path Intellisense</strong> – Autocomplete for file paths
+          </li>
+        </ul>
+
+        <div class="topic-title">25. Remote Development</div>
+        <p>Work on remote servers or containers from VS Code.</p>
+        <ul>
+          <li>Install the <strong>Remote - SSH</strong> extension</li>
+          <li>Connect to a remote machine via SSH</li>
+          <li>
+            You can also use <strong>Remote - Containers</strong> or
+            <strong>Codespaces</strong>
+          </li>
+        </ul>
+
+        <div class="topic-title">26. Workspace Trust</div>
+        <p>
+          Security feature that controls what code can run in a project folder.
+        </p>
+        <ul>
+          <li>When you open a folder, VS Code asks whether to trust it</li>
+          <li>
+            Trusted folders allow tasks, extensions, and scripts to execute
+          </li>
+        </ul>
+
+        <div class="topic-title">27. Outline View</div>
+        <p>
+          Shows a tree structure of your current file's contents (functions,
+          classes, etc.).
+        </p>
+        <ul>
+          <li>Located in the Explorer sidebar</li>
+          <li>Helps with navigating large files</li>
+        </ul>
+
+        <div class="topic-title">28. Peek and Go to Definition</div>
+        <p>Quickly see or jump to a function/variable's definition.</p>
+        <ul>
+          <li>
+            <strong>Right-click → Peek Definition</strong> or press
+            <code>Alt+F12</code>
+          </li>
+          <li><strong>F12</strong> to go directly to the definition</li>
+        </ul>
+
+        <div class="topic-title">29. Keyboard Shortcuts</div>
+        <p>Use shortcuts to speed up development:</p>
+        <ul>
+          <li><code>Ctrl+P</code>: Quick file open</li>
+          <li><code>Ctrl+Shift+P</code>: Open Command Palette</li>
+          <li><code>Ctrl+Shift+F</code>: Search across files</li>
+          <li><code>Alt+Shift+F</code>: Format document</li>
+        </ul>
+
+        <div class="topic-title">30. Portable Mode</div>
+        <p>
+          Run VS Code from a USB drive with user settings and extensions
+          included.
+        </p>
+        <ul>
+          <li>Download VS Code ZIP version (not installer)</li>
+          <li>Create a <code>data</code> folder inside the extracted folder</li>
+          <li>Run <code>Code.exe</code> — all data stays in that folder</li>
+        </ul>
+      </section>
+
+      <section class="topic-section">
+        <h1>Visual Studio Code Reference Links</h1>
+
+        <div class="topic-title">1. Official VS Code Documentation</div>
+        <p>
+          Comprehensive and up-to-date guides on every feature of VS Code
+          including debugging, settings, Git, and extensions.
+        </p>
+        <p>
+          <a href="https://code.visualstudio.com/docs" target="_blank"
+            >https://code.visualstudio.com/docs</a
+          >
+        </p>
+
+        <div class="topic-title">2. VS Code API Documentation</div>
+        <p>
+          If you want to build custom extensions or integrate with VS Code, this
+          API documentation is for you.
+        </p>
+        <p>
+          <a href="https://code.visualstudio.com/api" target="_blank"
+            >https://code.visualstudio.com/api</a
+          >
+        </p>
+
+        <div class="topic-title">3. Extension Marketplace</div>
+        <p>
+          Search and explore thousands of official and community-made extensions
+          for every development need.
+        </p>
+        <p>
+          <a href="https://marketplace.visualstudio.com/vscode" target="_blank"
+            >https://marketplace.visualstudio.com/vscode</a
+          >
+        </p>
+
+        <div class="topic-title">4. VS Code GitHub Repository</div>
+        <p>The open-source code base of VS Code is hosted on GitHub.</p>
+        <p>
+          <a href="https://github.com/microsoft/vscode" target="_blank"
+            >https://github.com/microsoft/vscode</a
+          >
+        </p>
+
+        <div class="topic-title">5. VS Code Tips & Tricks</div>
+        <p>
+          A great guide with tips, shortcuts, and productivity tricks directly
+          from the creators.
+        </p>
+        <p>
+          <a
+            href="https://github.com/microsoft/vscode-tips-and-tricks"
+            target="_blank"
+            >https://github.com/microsoft/vscode-tips-and-tricks</a
+          >
+        </p>
+
+        <div class="topic-title">6. VS Code YouTube Channel</div>
+        <p>
+          Watch tutorials, feature demos, and live sessions by the official VS
+          Code team.
+        </p>
+        <p>
+          <a href="https://www.youtube.com/c/Code" target="_blank"
+            >https://www.youtube.com/c/Code</a
+          >
+        </p>
+
+        <div class="topic-title">7. Awesome VS Code (Community Resource)</div>
+        <p>
+          A curated list of extensions, themes, tools, and resources for VS Code
+          maintained by the community.
+        </p>
+        <p>
+          <a href="https://github.com/viatsko/awesome-vscode" target="_blank"
+            >https://github.com/viatsko/awesome-vscode</a
+          >
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

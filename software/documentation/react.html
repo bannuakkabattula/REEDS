@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Topics Documentation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/software/css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="py-5 timeline mb-lg-5">
+        <h2 class="text-center section-title mb-2">REACT JS</h2>
+        <p class="text-center text-muted mb-0">
+          Build powerful user interfaces with React using reusable <br />
+          components, props, state, and hooks.
+        </p>
+      </div>
+      <section class="topic-section">
+        <h1>React.js - JavaScript Library for Building User Interfaces</h1>
+
+        <div class="topic-title">1. What is React?</div>
+        <p>
+          React is a JavaScript library developed by Facebook for building fast
+          and interactive user interfaces for web and mobile applications. It
+          uses a component-based architecture and the virtual DOM.
+        </p>
+
+        <div class="topic-title">2. Setting Up React</div>
+        <p>Install React using Create React App (CRA):</p>
+        <div class="example">
+          <code>
+            npx create-react-app my-app<br />
+            cd my-app<br />
+            npm start
+          </code>
+        </div>
+
+        <div class="topic-title">3. JSX (JavaScript XML)</div>
+        <p>
+          JSX allows you to write HTML in JavaScript. It looks like HTML but
+          compiles to React.createElement calls.
+        </p>
+        <div class="example">
+          <code> const element = &lt;h1&gt;Hello, React!&lt;/h1&gt;; </code>
+        </div>
+
+        <div class="topic-title">4. Functional Components</div>
+        <p>
+          A functional component is a simple JavaScript function that returns
+          JSX.
+        </p>
+        <div class="example">
+          <code>
+            function Welcome() {<br />
+            &nbsp;&nbsp;return &lt;h1&gt;Welcome to React&lt;/h1&gt;;<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">5. Class Components</div>
+        <p>
+          Class-based components include lifecycle methods and state (before
+          Hooks).
+        </p>
+        <div class="example">
+          <code>
+            class Welcome extends React.Component {<br />
+            &nbsp;&nbsp;render() {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;return &lt;h1&gt;Hello from
+            Class&lt;/h1&gt;;<br />
+            &nbsp;&nbsp;}<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">6. Props (Properties)</div>
+        <p>Props are used to pass data from parent to child components.</p>
+        <div class="example">
+          <code>
+            function Greet(props) {<br />
+            &nbsp;&nbsp;return &lt;h2&gt;Hello, {props.name}!&lt;/h2&gt;;<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">7. State</div>
+        <p>State is local data storage specific to a component.</p>
+        <div class="example">
+          <code>
+            import React, { useState } from 'react';<br />
+            function Counter() {<br />
+            &nbsp;&nbsp;const [count, setCount] = useState(0);<br />
+            &nbsp;&nbsp;return (&lt;button onClick={() => setCount(count +
+            1)}&gt;{count}&lt;/button&gt;);<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">8. Handling Events</div>
+        <p>
+          React uses camelCase for event names and passes functions as event
+          handlers.
+        </p>
+        <div class="example">
+          <code>
+            &lt;button onClick={handleClick}&gt;Click Me&lt;/button&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">9. Conditional Rendering</div>
+        <p>
+          You can use if statements or ternary expressions to render elements
+          conditionally.
+        </p>
+        <div class="example">
+          <code> {isLoggedIn ? &lt;Logout /&gt; : &lt;Login /&gt;} </code>
+        </div>
+
+        <div class="topic-title">10. Lists and Keys</div>
+        <p>
+          Use the map() function to render lists and assign a unique "key" to
+          each element.
+        </p>
+        <div class="example">
+          <code>
+            const items = ['A', 'B', 'C'];<br />
+            const list = items.map((item, i) => &lt;li
+            key={i}&gt;{item}&lt;/li&gt;);
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>React - Advanced Concepts and Hooks</h1>
+
+        <div class="topic-title">11. useEffect Hook</div>
+        <p>
+          Performs side effects in functional components (e.g., data fetching,
+          event listeners).
+        </p>
+        <div class="example">
+          <code>
+            import React, { useEffect } from 'react';<br />
+            useEffect(() => {<br />
+            &nbsp;&nbsp;console.log('Component Mounted');<br />
+            }, []); // Empty array = run once
+          </code>
+        </div>
+
+        <div class="topic-title">12. useContext Hook</div>
+        <p>
+          Provides a way to share data (like theme or user data) without passing
+          props manually.
+        </p>
+        <div class="example">
+          <code>
+            const MyContext = React.createContext();<br />
+            function Component() {<br />
+            &nbsp;&nbsp;const value = useContext(MyContext);<br />
+            &nbsp;&nbsp;return &lt;p&gt;{value}&lt;/p&gt;;<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">13. useRef Hook</div>
+        <p>
+          Creates a reference to a DOM element or to persist values across
+          renders.
+        </p>
+        <div class="example">
+          <code>
+            const inputRef = useRef();<br />
+            useEffect(() => {<br />
+            &nbsp;&nbsp;inputRef.current.focus();<br />
+            }, []);
+          </code>
+        </div>
+
+        <div class="topic-title">14. useMemo Hook</div>
+        <p>
+          Memosize expensive calculations and avoid unnecessary recalculations.
+        </p>
+        <div class="example">
+          <code>
+            const result = useMemo(() => expensiveFn(data), [data]);
+          </code>
+        </div>
+
+        <div class="topic-title">15. useCallback Hook</div>
+        <p>
+          Returns a memoized version of a callback function to prevent
+          unnecessary re-renders.
+        </p>
+        <div class="example">
+          <code>
+            const handleClick = useCallback(() => {<br />
+            &nbsp;&nbsp;console.log("Clicked");<br />
+            }, []);
+          </code>
+        </div>
+
+        <div class="topic-title">16. React Forms</div>
+        <p>Use controlled components to handle form inputs.</p>
+        <div class="example">
+          <code>
+            const [name, setName] = useState('');<br />
+            &lt;input value={name} onChange={e => setName(e.target.value)} /&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">17. React Router (Routing)</div>
+        <p>Used for client-side routing between components/pages.</p>
+        <div class="example">
+          <code>
+            import { BrowserRouter, Routes, Route } from 'react-router-dom';<br />
+            &lt;BrowserRouter&gt;<br />
+            &nbsp;&nbsp;&lt;Routes&gt;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;Route path="/" element={<Home />}
+            /&gt;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;Route path="/about" element={<About />}
+            /&gt;<br />
+            &nbsp;&nbsp;&lt;/Routes&gt;<br />
+            &lt;/BrowserRouter&gt;
+          </code>
+        </div>
+
+        <div class="topic-title">
+          18. React Lifecycle Methods (Class Components)
+        </div>
+        <p>
+          Methods like componentDidMount, componentDidUpdate, and
+          componentWillUnmount are used to handle side effects.
+        </p>
+        <div class="example">
+          <code>
+            componentDidMount() {<br />
+            &nbsp;&nbsp;console.log("Component mounted");<br />
+            }
+          </code>
+        </div>
+
+        <div class="topic-title">19. Lifting State Up</div>
+        <p>
+          Move state to the closest common ancestor of components that need it.
+        </p>
+        <p>Used when multiple components need access to shared state.</p>
+
+        <div class="topic-title">20. Conditional Styling</div>
+        <p>Apply styles dynamically using inline styles or class names.</p>
+        <div class="example">
+          <code>
+            &lt;div style={{ color: isActive ? 'green' : 'red'
+            }}&gt;Status&lt;/div&gt;<br />
+            &lt;div className={isActive ? 'active' :
+            'inactive'}&gt;Status&lt;/div&gt;
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>React – State Management, Performance & Testing</h1>
+
+        <!-- 21. Context API -->
+        <div class="topic-title">
+          21. Context API (createContext &amp; Provider)
+        </div>
+        <p>
+          Context lets you pass data through the component tree without drilling
+          props.
+        </p>
+        <div class="example">
+          <code>
+            // ThemeContext.js import { createContext } from 'react'; export
+            const ThemeContext = createContext('light'); // App.jsx import
+            React, { useContext } from 'react'; import { ThemeContext } from
+            './ThemeContext'; function Toolbar() { const theme =
+            useContext(ThemeContext); return &lt;button className={`btn
+            ${theme}`}&gt;Theme Button&lt;/button&gt;; } export default function
+            App() { return ( &lt;ThemeContext.Provider value="dark"&gt;
+            &lt;Toolbar /&gt; &lt;/ThemeContext.Provider&gt; ); }
+          </code>
+        </div>
+
+        <!-- 22. Redux -->
+        <div class="topic-title">22. Redux Basics (Store + Provider)</div>
+        <p>
+          Redux stores global state in a single store and updates it via actions
+          and reducers.
+        </p>
+        <div class="example">
+          <code>
+            /* store.js */ import { configureStore, createSlice } from
+            '@reduxjs/toolkit'; const counterSlice = createSlice({ name:
+            'counter', initialState: { value: 0 }, reducers: { increment: state
+            =&gt; { state.value += 1 } } }); export const { increment } =
+            counterSlice.actions; export const store = configureStore({ reducer:
+            counterSlice.reducer }); /* App.jsx */ import React from 'react';
+            import { Provider, useSelector, useDispatch } from 'react-redux';
+            import { store, increment } from './store'; function Counter() {
+            const value = useSelector(state =&gt; state.value); const dispatch =
+            useDispatch(); return ( &lt;button onClick={() =&gt;
+            dispatch(increment())}&gt; Count: {value} &lt;/button&gt; ); }
+            export default function App() { return ( &lt;Provider
+            store={store}&gt; &lt;Counter /&gt; &lt;/Provider&gt; ); }
+          </code>
+        </div>
+
+        <!-- 23. useReducer -->
+        <div class="topic-title">23. useReducer Hook</div>
+        <p>Good for complex state logic that involves multiple sub‑values.</p>
+        <div class="example">
+          <code>
+            import React, { useReducer } from 'react'; function reducer(state,
+            action) { switch (action.type) { case 'add': return [...state,
+            action.payload]; case 'remove': return state.filter((_, i) =&gt; i
+            !== action.index); default: return state; } } export default
+            function TodoList() { const [todos, dispatch] = useReducer(reducer,
+            []); return ( &lt;&gt; &lt;button onClick={() =&gt; dispatch({ type:
+            'add', payload: 'Learn React' })}&gt; Add Todo &lt;/button&gt;
+            &lt;ul&gt; {todos.map((t, i) =&gt; ( &lt;li key={i} onClick={()
+            =&gt; dispatch({ type: 'remove', index: i })}&gt;{t}&lt;/li&gt; ))}
+            &lt;/ul&gt; &lt;/&gt; ); }
+          </code>
+        </div>
+
+        <!-- 24. Code Splitting -->
+        <div class="topic-title">
+          24. Code Splitting with React.lazy &amp; Suspense
+        </div>
+        <p>Dynamically load components to reduce bundle size.</p>
+        <div class="example">
+          <code>
+            import React, { Suspense, lazy } from 'react'; const Chart = lazy(()
+            =&gt; import('./Chart')); export default function App() { return (
+            &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+            &lt;Chart /&gt; &lt;/Suspense&gt; ); }
+          </code>
+        </div>
+
+        <!-- 25. Error Boundary -->
+        <div class="topic-title">25. Error Boundary</div>
+        <p>Catches JavaScript errors anywhere in the child component tree.</p>
+        <div class="example">
+          <code>
+            import React from 'react'; class ErrorBoundary extends
+            React.Component { state = { hasError: false }; static
+            getDerivedStateFromError() { return { hasError: true }; }
+            componentDidCatch(err, info) { console.error(err, info); } render()
+            { return this.state.hasError ?
+            &lt;h2&gt;Something went wrong&lt;/h2&gt; : this.props.children; } }
+            export default function App() { return ( &lt;ErrorBoundary&gt;
+            &lt;BuggyComponent /&gt; &lt;/ErrorBoundary&gt; ); }
+          </code>
+        </div>
+
+        <!-- 26. PropTypes -->
+        <div class="topic-title">26. PropTypes for Type‑Checking</div>
+        <p>Validate props to catch errors during development.</p>
+        <div class="example">
+          <code>
+            import PropTypes from 'prop-types'; function Hello({ name }) {
+            return &lt;h3&gt;Hi {name}&lt;/h3&gt;; } Hello.propTypes = { name:
+            PropTypes.string.isRequired };
+          </code>
+        </div>
+
+        <!-- 27. Custom Hook -->
+        <div class="topic-title">27. Custom Hooks</div>
+        <p>Reuse stateful logic across components.</p>
+        <div class="example">
+          <code>
+            import { useState, useEffect } from 'react'; export function
+            useFetch(url) { const [data, setData] = useState(null); useEffect(()
+            =&gt; { fetch(url).then(r =&gt; r.json()).then(setData); }, [url]);
+            return data; } /* Usage */ const users =
+            useFetch('https://jsonplaceholder.typicode.com/users');
+          </code>
+        </div>
+
+        <!-- 28. React.memo -->
+        <div class="topic-title">28. React.memo</div>
+        <p>
+          Prevents unnecessary re‑render of functional components when props
+          don’t change.
+        </p>
+        <div class="example">
+          <code>
+            const ListItem = React.memo(function ListItem({ value }) {
+            console.log('Render', value); return &lt;li&gt;{value}&lt;/li&gt;;
+            });
+          </code>
+        </div>
+
+        <!-- 29. useTransition (React 18) -->
+        <div class="topic-title">29. useTransition for Concurrent UI</div>
+        <p>Marks updates as non‑urgent to keep the UI responsive.</p>
+        <div class="example">
+          <code>
+            import { useState, useTransition } from 'react'; const list =
+            Array.from({ length: 20000 }, (_, i) =&gt; `Item ${i}`); export
+            default function FilterList() { const [term, setTerm] =
+            useState(''); const [isPending, startTransition] = useTransition();
+            const filtered = list.filter(i =&gt; i.includes(term)); return (
+            &lt;&gt; &lt;input onChange={e =&gt; startTransition(() =&gt;
+            setTerm(e.target.value))} /&gt; {isPending ?
+            &lt;p&gt;Loading...&lt;/p&gt; : &lt;ul&gt;{filtered.map(i =&gt;
+            &lt;li key={i}&gt;{i}&lt;/li&gt;)}&lt;/ul&gt;} &lt;/&gt; ); }
+          </code>
+        </div>
+
+        <!-- 30. Testing with React Testing Library -->
+        <div class="topic-title">30. Testing with React Testing Library</div>
+        <p>Write tests focusing on user interactions and output.</p>
+        <div class="example">
+          <code>
+            /* Counter.test.jsx */ import { render, fireEvent } from
+            '@testing-library/react'; import Counter from './Counter';
+            test('increments counter', () =&gt; { const { getByText } =
+            render(&lt;Counter /&gt;); const btn = getByText(/count/i);
+            fireEvent.click(btn); expect(btn.textContent).toBe('Count: 1'); });
+          </code>
+        </div>
+      </section>
+      <section class="topic-section">
+        <h1>React.js Reference Links</h1>
+
+        <div class="topic-title">1. Official React Documentation</div>
+        <p>
+          The official guide from the React team, including concepts, APIs, and
+          tutorials.
+        </p>
+        <p>
+          <a href="https://react.dev/learn" target="_blank"
+            >https://react.dev/learn</a
+          >
+        </p>
+
+        <div class="topic-title">2. React API Reference</div>
+        <p>Detailed reference of React’s APIs, components, and hooks.</p>
+        <p>
+          <a href="https://react.dev/reference" target="_blank"
+            >https://react.dev/reference</a
+          >
+        </p>
+
+        <div class="topic-title">3. React GitHub Repository</div>
+        <p>Official source code and issue tracker for React on GitHub.</p>
+        <p>
+          <a href="https://github.com/facebook/react" target="_blank"
+            >https://github.com/facebook/react</a
+          >
+        </p>
+
+        <div class="topic-title">4. React Router Documentation</div>
+        <p>Routing library for React apps (used with SPAs).</p>
+        <p>
+          <a href="https://reactrouter.com/en/main" target="_blank"
+            >https://reactrouter.com/en/main</a
+          >
+        </p>
+
+        <div class="topic-title">5. Redux Documentation</div>
+        <p>State management library commonly used with React.</p>
+        <p>
+          <a href="https://redux.js.org/" target="_blank"
+            >https://redux.js.org/</a
+          >
+        </p>
+
+        <div class="topic-title">6. React Testing Library</div>
+        <p>Recommended testing approach that focuses on user behavior.</p>
+        <p>
+          <a
+            href="https://testing-library.com/docs/react-testing-library/intro/"
+            target="_blank"
+            >https://testing-library.com/docs/react-testing-library/intro/</a
+          >
+        </p>
+
+        <div class="topic-title">7. Create React App (CRA)</div>
+        <p>Official tool to scaffold React applications quickly.</p>
+        <p>
+          <a href="https://create-react-app.dev/" target="_blank"
+            >https://create-react-app.dev/</a
+          >
+        </p>
+
+        <div class="topic-title">8. React Hooks Cheatsheet</div>
+        <p>Quick overview of built-in hooks and their usage.</p>
+        <p>
+          <a href="https://react-hooks-cheatsheet.com/" target="_blank"
+            >https://react-hooks-cheatsheet.com/</a
+          >
+        </p>
+
+        <div class="topic-title">9. React Projects and Examples</div>
+        <p>
+          Community-contributed project ideas and examples to practice React.
+        </p>
+        <p>
+          <a href="https://github.com/facebook/react/issues/1" target="_blank"
+            >https://github.com/facebook/react/issues/1</a
+          >
+        </p>
+
+        <div class="topic-title">10. freeCodeCamp React Curriculum</div>
+        <p>Hands-on React tutorials for beginners to advanced users.</p>
+        <p>
+          <a
+            href="https://www.freecodecamp.org/learn/front-end-development-libraries/#react"
+            target="_blank"
+            >https://www.freecodecamp.org/learn/front-end-development-libraries/#react</a
+          >
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
